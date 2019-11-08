@@ -43,7 +43,7 @@ service mysql start
 mysql -u root --password="" -e "update mysql.user set authentication_string=password(''), plugin='mysql_native_password' where user='root';"
 mysql -u root --password="" -e "flush privileges;"
 mysql -u root --password='' -e "GRANT ALL PRIVILEGES ON *.* TO 'fnexus'@'localhost' IDENTIFIED BY 'fn3xu5';"
-mysql -u fnexus --password="fn3xu5" < /vagrant/Base\ de\ datos/ TABLAS.sql
+mysql -u fnexus --password="fn3xu5" < /vagrant/BBDD/TABLAS.sql
 
 
 # Install composer
