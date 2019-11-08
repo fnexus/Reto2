@@ -1,3 +1,7 @@
+# Vagrant
+.vagrant
+ubuntu-bionic-18.04-cloudimg-console.log
+
 # General MAC-OS
 .DS_Store
 .DS_Store/*
