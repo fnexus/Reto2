@@ -1,0 +1,6 @@
+vagrant ssh-config en carpeta del vagrant
+
+cambiar el   PasswordAuthentication no a SI
+(creo que lo hicimos con jaime)
+
+Tambien cambiar la tarjeta de red para que sea puente.ninguna mas
