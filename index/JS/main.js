@@ -1,11 +1,3 @@
-window.onload = function(){
-
-    let inicioSesion = $('#logIn');
-    inicioSesion.on('click', LogIn());
-    let registro = $('#signIn');
-    registro.on('click', SignIn());
-
-
     function SignIn(){
         /*$.ajax({
             url: "../PHP/registerForm.html",
@@ -22,7 +14,7 @@ window.onload = function(){
     }
 
     function LogIn(){
-
+        let contenedorFormulario = $('#contenedor-formulario');
+        contenedorFormulario.load("../PHP/loginForm.html");
     }
-}
 

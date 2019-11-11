@@ -9,7 +9,7 @@
 
 </article>
 <article id="descripcion">
-    <p><img src="<?php $userimg ?>"><p id="username"><?php $username ?></p></p>
+    <p><img src="<?php $userimg ?>"><p id="username"><?php $userName ?></p></p>
     <div id="like"></div>
     <div><?php $adtitle ?></div>
     <div><?php $addescription ?></div>
