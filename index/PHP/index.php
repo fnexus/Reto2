@@ -19,7 +19,7 @@
     }
 
 function insertUser(){
-    $dbh = connect();
+    $dbh = connection();
 
     if(isset($_GET["nickname"],$_GET["email"], $_GET["password"], $_GET["repeatPassword"], $_GET["name"], $_GET["surname"], $_GET["contactPage"])){
         $nickname = $_GET["nickname"];
@@ -36,11 +36,11 @@ function insertUser(){
             $stmt->execute();
         }
     }
-    close();
+    closeConnection($dbh);
 
 }
 function loginUser(){
-    $dbh = connect();
+    $dbh = connection();
     if(isset($_GET["nickname"], $_GET["password"])){
         $nickname=$_GET["nickname"];
         $password=$_GET["password"];
@@ -61,7 +61,7 @@ function loginUser(){
             $_userPage["contactPage"] = $row->pagina_contacto;
         }
     }
-    close();
+    closeConnection($dbh);
 }
 ?>
 <div id="contenedor-formulario"></div>
