@@ -7,7 +7,7 @@
 </nav>
 <article id="profile">
     <img src="<?php $userimg ?>">
-    <p id="nickname"><?php $username ?></p>
+    <p id="nickname"><?php $userName ?></p>
     <p id="userUrl"><?php $userURL ?></p>
 </article>
 <main id="ownAds">

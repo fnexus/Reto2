@@ -67,8 +67,17 @@ function loginUser(){
 <div id="contenedor-formulario"></div>
 <article id="tags">
 
-</article>
-<main id="ads">
-
-</main>
-<?php require 'footer.php';?>
+    <nav>
+        <!--        <img src="../img/FNEXUS-logo.jpg">-->
+        <input type="text" name="search" id="search">
+        <input type="button" name="signIn" id="signIn" value="Registrarse">
+        <input type="button" name="logIn" id="logIn" value="Iniciar Sesion">
+    </nav>
+    <div id="contenedor-formulario"></div>
+    <article id="tags_container">
+        <?= add_categorias_bar() ?>
+    </article>
+    <main id="ads_container">
+        <?= add_ads() ?>
+    </main>
+<?php require 'footer.php'; ?>
