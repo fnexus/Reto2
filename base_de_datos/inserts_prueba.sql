@@ -1,7 +1,7 @@
 INSERT INTO PERSONA (nickname, password, nombre, apellidos, email, foto_perfil, pagina_contacto)
 VALUES ('adrian', 'prueba', 'adrian', 'danlos', 'adrian.com', 'https://c.wallhere.com/photos/91/73/home_alone_macaulay_culkin_kevin_mccallister_boy_fear_shout_fright-795921.jpg!d', 'adrianweb.com');
 INSERT INTO PERSONA (nickname, password, nombre, apellidos, email, foto_perfil, pagina_contacto)
-VALUES ('julen', 'prueba', 'julen', 'x', 'adrian.com', 'https://c.wallhere.com/photos/91/73/home_alone_macaulay_culkin_kevin_mccallister_boy_fear_shout_fright-795921.jpg!d', 'adrianweb.com');
+VALUES ('julen', 'prueba', 'julen', 'x', 'adrian.com', 'https://c.wallhere.com/photos/91/73/home_alone_macaulay_culkin_kevin_mccallister_boy_fear_shout_fright-795921.jpg!d', 'adrianweb2.com');
 INSERT INTO PERSONA (nickname, password, nombre, apellidos, email, foto_perfil, pagina_contacto)
 VALUES ('iñaki', 'prueba', 'iñaki', 'a', 'iñaki.com', 'https://c.wallhere.com/photos/91/73/home_alone_macaulay_culkin_kevin_mccallister_boy_fear_shout_fright-795921.jpg!d', 'iñaki.com');
 INSERT INTO PERSONA (nickname, password, nombre, apellidos, email, foto_perfil, pagina_contacto)
