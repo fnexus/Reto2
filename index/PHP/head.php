@@ -6,4 +6,4 @@
     <script src="../JS/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-
+<?php require 'dbh.php';?>
