@@ -1,43 +1,43 @@
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("coches");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("motos");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("motor y accesorios");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("moda y accesorios");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("inmobiliaria");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("tv,audio,foto");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("móviles y telefonía");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("informática y electrónica");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("deporte y ocio");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("bicicletas");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("consolas y videojuegos");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("hogar y jardín");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("electrodomésticos");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("cine,libros,música");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("niños y bebés");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("coleccionismo");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("construcción y reformas");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("industria y agricultura");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("empleo");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("servicios");
-INSERT INTO CATEGORÍAS (id)
+INSERT INTO CATEGORIA (nombre)
 VALUES ("otros");
 
