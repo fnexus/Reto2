@@ -1,0 +1,5 @@
+EXPORTAR BASE DE DATOS
+mysqldump –u usuario_mysql -p nombre_bbdd > fichero_exportación.sql
+
+IMPORTAR BASE DE DATOS
+mysql –u usuario_mysql -p nombre_bbdd < ruta_fichero_importación.sql
