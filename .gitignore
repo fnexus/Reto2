@@ -37,9 +37,9 @@ Temporary Items
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
-/*/.idea
-/*/*/.idea
-/*/*/*/.idea
+/index/PHP/.idea/
+.idea/
+.idea/*
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
