@@ -16,9 +16,9 @@
     <div id="comentarios">
         <p>Comentarios</p>
         <div id="comentarios">
-
+            <?php addComments() ?>
         </div>
-        <p><img src="<?php $userimg ?>"><input type="text" id="comentar" placeholder="escribe un comentario"></p>
+        <p><img src="<?php echo "<img src= '{$_userImg["img"]} '>" ?>"><input type="text" id="comentar" placeholder="escribe un comentario"></p>
     </div>
 </article>
 <?php require 'footer.php';?>
