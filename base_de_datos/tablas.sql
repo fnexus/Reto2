@@ -13,8 +13,8 @@ CREATE TABLE PERSONA (
   nombre varchar(100) NOT NULL,
   apellidos varchar(100) NOT NULL,
   email varchar(100) UNIQUE NOT NULL,
-  foto_perfil varchar(100),
-  imagen_banner varchar(100),
+  foto_perfil varchar(500),
+  imagen_banner varchar(500),
   pagina_contacto varchar(100) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
@@ -41,7 +41,7 @@ CREATE TABLE ANUNCIO (
   titulo varchar(100) NOT NULL,
   descripcion varchar(500) NOT NULL,
   datos_contacto varchar(100) NOT NULL,
-  imagen varchar(100),
+  imagen varchar(500),
   nombre_empresa varchar (100) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
@@ -61,7 +61,7 @@ CREATE TABLE COMENTARIO (
   id int NOT NULL AUTO_INCREMENT,
   persona_id int NOT NULL,
   anuncio_id int NOT NULL,
-  nombre varchar(100) NOT NULL,
+  descripcion varchar(500) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (id, persona_id, anuncio_id),
