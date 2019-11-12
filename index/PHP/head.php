@@ -11,7 +11,7 @@
     <script src="../JS/main.js"></script>
     <script src="../JS/jquery-3.4.1.min.js"></script>
 
-    <!-- includes php -->
+    <!-- includes php datos-->
     <?php
     include 'acceso_a_datos/conexion.php';
     include 'acceso_a_datos/funciones_index.php';
@@ -19,4 +19,9 @@
 
 </head>
 <body>
-<?php require 'dbh.php';?>
+
+<!-- Barra de navegacion -->
+<?php
+require 'barra_nav_principal.php'
+?>
+<?php require 'dbh.php'; ?>
