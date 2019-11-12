@@ -155,7 +155,8 @@ function loginUser($userNickname, $userPassword)
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
 
-        while ($row = $stmt->fetch()) {
+        while($row = $stmt->fetch()) {
+            $_userID["id"] = $row->id;
             $_userNickname["nickname"] = $row->nickname;
             $_userName["name"] = $row->nombre;
             $_userSurname["surname"] = $row->apellidos;
@@ -171,7 +172,8 @@ function loginUser($userNickname, $userPassword)
         $stmt->execute($data);
         $stmt->setFetchMode(PDO::FETCH_OBJ);
 
-        while ($row = $stmt->fetch()) {
+        while($row = $stmt->fetch()) {
+            $_userID["id"] = $row->id;
             $_userImg["img"] = $row->foto_perfil;
             $_userNickname["nickname"] = $row->nickname;
             $_userName["name"] = $row->nombre;

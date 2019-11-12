@@ -113,4 +113,23 @@ img#logo {
     padding: 0;
     z-index: -1;
 }
+#loginForm{
+    position:fixed;
+    left:30%;
+    width: 40%;
+    height: 700px;
+    border:2px solid black;
+    background:radial-gradient(#ffffff, #a39fa8);
+    z-index: 3;
+}
+
+#registerForm{
+    position:fixed;
+    left:30%;
+    width: 40%;
+    height: 700px;
+    border:2px solid black;
+    background:radial-gradient(#ffffff, #a39fa8);
+    z-index: 3;
+}
 
