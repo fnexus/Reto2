@@ -1,5 +1,5 @@
 <?php require 'head.php'; ?>
-    <div id="main_container">
+    <div class="main_container">
         <div id="contenedor-formulario">
         </div>
         <article id="tags_container">
