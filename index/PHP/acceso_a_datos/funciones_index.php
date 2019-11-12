@@ -58,7 +58,7 @@ function add_ads()
     // recorrer el objeto fetch y crear contenedores dom de anuncios
     while ($anuncio = $ads->fetchObject()) {
         echo "<div class='ad'>
-                <a href='../vista_anuncio.php?id_anuncio={$anuncio->id}' target='_blank' class='ad_enlacePagina'>                
+                <a href='vista_anuncio.php?id_anuncio={$anuncio->id}' target='_blank' class='ad_enlacePagina'>                
                     <p class='ad_titulo'>{$anuncio->titulo}</p>
                     <img src='{$anuncio->imagen}' class='ad_imagen'>                    
                 </a>
