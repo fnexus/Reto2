@@ -3,7 +3,7 @@
 //TODO al crearse la barra tener en cuenta si ya hay una categoria
 //seleccionada y no ponerla al crear la barra con las categorias
 // disponibles
-function add_categorias_bar($categoriasUsadas = null)
+function add_categorias_bar($tipoDOM)
 {
     // conectar a base de datos
     $db = connection();
@@ -12,22 +12,48 @@ function add_categorias_bar($categoriasUsadas = null)
     $stmt->setFetchMode(2);
 
     while ($row = $stmt->fetch()) {
-        echo "<div class='tags_child'>    
-                <a class='tag' href='../index.php?search={$row['id']}'>{$row['nombre']}</a>                
+        if ($tipoDOM == "barra") {
+            echo "<div class='tags_child'>    
+                <a class='tag' href='index.php?search_titulo=&search_categoria={$row['id']}'>
+                {$row['nombre']}</a>                
             </div>";
+        } else {
+            echo "<option class='option' value='{$row['id']}'>    
+                {$row['nombre']}            
+            </option>";
+        }
     }
     $db = null;
 }
 
 /**
  * Obtiene de base de datos todos los anuncios y luego los añade
- * en el contenedor de ads
+ * en el contenedor de ads dependiendo del buscador
  */
 function add_ads()
 {
     // conectar a base de datos
     $db = connection();
-    $ads = selectAllAds($db);
+
+    $titulo = "";
+    $categoria = "";
+    $ads = null;
+    // Si hay cosas en el buscador
+    if (isset($_GET['search_titulo'], $_GET['search_categoria'])) {
+
+        if ($_GET['search_titulo'] != "") {
+            $titulo = $_GET['search_titulo'];
+        }
+        if ($_GET['search_categoria'] != "") {
+            $categoria = $_GET['search_categoria'];
+        }
+    }
+
+    if ($titulo != "" || $categoria != "") {
+        $ads = selectAds($db, $titulo, $categoria);
+    } else {
+        $ads = selectAllAds($db);
+    }
 
     // recorrer el objeto fetch y crear contenedores dom de anuncios
     while ($anuncio = $ads->fetchObject()) {
@@ -68,6 +94,22 @@ function selectAllTags($connection)
 function selectAllAds($connection)
 {
     $stmt = $connection->prepare("SELECT * FROM ANUNCIO WHERE 1=1");
+    $stmt->execute();
+    return $stmt;
+}
+
+function selectAds($connection, $titulo, $categoria)
+{
+    $query = "SELECT * FROM ANUNCIO WHERE 1=1";
+
+    if ($titulo != "") {
+        $query .= " AND titulo like '%$titulo%'";
+    }
+    if ($categoria != "") {
+        $query .= " AND categoria_id = " . $categoria;
+    }
+
+    $stmt = $connection->prepare($query);
     $stmt->execute();
     return $stmt;
 }
