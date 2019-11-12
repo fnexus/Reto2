@@ -1,8 +1,11 @@
 <?php
 
-//TODO al crearse la barra tener en cuenta si ya hay una categoria
-//seleccionada y no ponerla al crear la barra con las categorias
-// disponibles
+/**
+ * Funcion para añadir al la barra con las categorias o el select con las option
+ * de categorias, etc;
+ *
+ * @param $tipoDOM para distinguir que crear (minimo lo llamo 2 veces)
+ */
 function add_categorias_bar($tipoDOM)
 {
     // conectar a base de datos
@@ -23,7 +26,7 @@ function add_categorias_bar($tipoDOM)
             </option>";
         }
     }
-    $db = null;
+    closeConnection($db);
 }
 
 /**
@@ -49,6 +52,7 @@ function add_ads()
         }
     }
 
+    // si al menos uno esta lleno, buscar con filtro, sino buscar todos
     if ($titulo != "" || $categoria != "") {
         $ads = selectAds($db, $titulo, $categoria);
     } else {
@@ -64,16 +68,7 @@ function add_ads()
                 </a>
             </div>";
     }
-    /**
-     * Por si se necesitan poner mas campos para que se vean en anuncios
-     * <section class='ad_descripcion'>{$anuncio->descripcion}</section>
-     * <div class=''>
-     * <a>Contacto: {$anuncio->datos_contacto}</a>
-     * <a>Empresa: {$anuncio->nombre_empresa}</a>
-     * <span>{$anuncio->fecha_creacion}</span>
-     * </div>
-     */
-    $db = null;
+    closeConnection($db);
 }
 
 /**
@@ -98,11 +93,34 @@ function selectAllAds($connection)
     return $stmt;
 }
 
+/**
+ * @param $connection
+ * @param $titulo
+ * @param $categoria
+ * @return objeto con los datos de la tabla Anuncio
+ */
+function selectAds($connection, $titulo, $categoria)
+{
+    $query = "SELECT * FROM ANUNCIO WHERE 1=1";
+
+    if ($titulo != "") {
+        $query .= " AND titulo like '%$titulo%'";
+    }
+    if ($categoria != "") {
+        $query .= " AND categoria_id = " . $categoria;
+    }
+
+    $stmt = $connection->prepare($query);
+    $stmt->execute();
+    return $stmt;
+}
+
 //registrar un usuario y posteriormente iniciar sesion con el nickname y la contraseña otorgadas
-function insertUser(){
+function insertUser()
+{
     $dbh = connection();
 
-    if(isset($_GET["nickname"],$_GET["email"], $_GET["password"], $_GET["repeatPassword"], $_GET["name"], $_GET["surname"], $_GET["contactPage"])){
+    if (isset($_GET["nickname"], $_GET["email"], $_GET["password"], $_GET["repeatPassword"], $_GET["name"], $_GET["surname"], $_GET["contactPage"])) {
         $nickname = $_GET["nickname"];
         $email = $_GET["email"];
         $password = $_GET["password"];
@@ -110,49 +128,50 @@ function insertUser(){
         $name = $_GET["name"];
         $surname = $_GET["surname"];
         $contactPage = $_GET["contactPage"];
-        if($password == $repeatpassword){
+        if ($password == $repeatpassword) {
             $stmt = $dbh->prepare(
                 "INSERT INTO PERSONA(nickname,email,password,nombre,apellidos,pagina_contacto)
                                 VALUES('$nickname', '$email', '$password', '$name', '$surname', '$contactPage');");
-            loginUser($nickname,$password);
+            loginUser($nickname, $password);
             $stmt->execute();
         }
     }
     closeConnection($dbh);
 
 }
+
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
-function loginUser($userNickname,$userPassword){
+function loginUser($userNickname, $userPassword)
+{
     $dbh = connection();
-    if(isset($_GET["nickname"], $_GET["password"])){
-        $nickname=$_GET["nickname"];
-        $password=$_GET["password"];
-        $data = array( 'nickname' => $nickname, 'password' => $password );
+    if (isset($_GET["nickname"], $_GET["password"])) {
+        $nickname = $_GET["nickname"];
+        $password = $_GET["password"];
+        $data = array('nickname' => $nickname, 'password' => $password);
         $stmt = $dbh->prepare("
          SELECT *
          FROM PERSONA
-         WHERE nickname = :nickname AND password = :password" );
+         WHERE nickname = :nickname AND password = :password");
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
 
-        while($row = $stmt->fetch()) {
+        while ($row = $stmt->fetch()) {
             $_userNickname["nickname"] = $row->nickname;
             $_userName["name"] = $row->nombre;
             $_userSurname["surname"] = $row->apellidos;
             $_userEmail["email"] = $row->email;
             $_userPage["contactPage"] = $row->pagina_contacto;
         }
-    }
-    else{
-        $data = array( 'nickname' => $userNickname, 'password' => $userPassword );
+    } else {
+        $data = array('nickname' => $userNickname, 'password' => $userPassword);
         $stmt = $dbh->prepare("
          SELECT *
          FROM PERSONA
-         WHERE nickname = :nickname AND password = :password" );
+         WHERE nickname = :nickname AND password = :password");
         $stmt->execute($data);
         $stmt->setFetchMode(PDO::FETCH_OBJ);
 
-        while($row = $stmt->fetch()) {
+        while ($row = $stmt->fetch()) {
             $_userImg["img"] = $row->foto_perfil;
             $_userNickname["nickname"] = $row->nickname;
             $_userName["name"] = $row->nombre;
@@ -164,7 +183,8 @@ function loginUser($userNickname,$userPassword){
     closeConnection($dbh);
 }
 
-function addComments(){
+function addComments()
+{
     // conectar a base de datos
     $dbh = connection();
     $stmt = $dbh->prepare("SELECT p.foto_perfil, c.fecha_creacion, p.id, p.nickname, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id");
@@ -203,20 +223,3 @@ function addComments(){
     //cerrar la conexion a base de datos
     closeConnection($dbh);
 }*/
-
-
-function selectAds($connection, $titulo, $categoria)
-{
-    $query = "SELECT * FROM ANUNCIO WHERE 1=1";
-
-    if ($titulo != "") {
-        $query .= " AND titulo like '%$titulo%'";
-    }
-    if ($categoria != "") {
-        $query .= " AND categoria_id = " . $categoria;
-    }
-
-    $stmt = $connection->prepare($query);
-    $stmt->execute();
-    return $stmt;
-}
