@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
     <title>FNEXUS</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
     <!-- estilos CSS-->
     <link href="../CSS/estilos.css" type="text/css" rel="stylesheet">
 
@@ -24,4 +23,3 @@
 <?php
 require 'barra_nav_principal.php'
 ?>
-<?php require 'dbh.php'; ?>
