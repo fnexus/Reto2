@@ -9,7 +9,6 @@ body {
 /* Barra de navegacion que tiene el logo, search y los Iniciar sesion y registrarse */
 
 nav#nav_container {
-    border: solid;
     background: white;
     width: 100%;
     height: 60px;
@@ -17,6 +16,7 @@ nav#nav_container {
     grid-template-columns: 10% 70% 10% 10%;
     grid-template-rows: 100%;
     position: fixed; /* Se mantenga arriba */
+    z-index: 99;
 }
 
 img#logo {
