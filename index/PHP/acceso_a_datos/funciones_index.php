@@ -12,15 +12,17 @@ function add_categorias_bar($categoriasUsadas = null)
     $stmt->setFetchMode(2);
 
     while ($row = $stmt->fetch()) {
-        //TODO cambiar el ?buscar por lo que pongamos para buscar
         echo "<div class='tags_child'>    
-                <a class='tag' href='../index.php?buscar={$row['nombre']}'>{$row['nombre']}</a>                
+                <a class='tag' href='../index.php?search={$row['id']}'>{$row['nombre']}</a>                
             </div>";
     }
     $db = null;
 }
 
-
+/**
+ * Obtiene de base de datos todos los anuncios y luego los añade
+ * en el contenedor de ads
+ */
 function add_ads()
 {
     // conectar a base de datos
@@ -29,33 +31,28 @@ function add_ads()
 
     // recorrer el objeto fetch y crear contenedores dom de anuncios
     while ($anuncio = $ads->fetchObject()) {
-        /**
-         * TODO poner que el enlace lleve a la pagina web de anuncion vista completa
-         * TODO con la informacion de este anuncio
-         * TODO quizas abrir un enlace pasandole la ID en e enlace
-         */
         echo "<div class='ad'>
-                <a href='../anuncion.php?id={$anuncio->id}' target='_blank' class='ad_enlacePagina'>                
+                <a href='../vista_anuncio.php?id_anuncio={$anuncio->id}' target='_blank' class='ad_enlacePagina'>                
                     <p class='ad_titulo'>{$anuncio->titulo}</p>
-                    <img src='{$anuncio->imagen}' class='ad_imagen'>
-                    
+                    <img src='{$anuncio->imagen}' class='ad_imagen'>                    
                 </a>
             </div>";
     }
     /**
+     * Por si se necesitan poner mas campos para que se vean en anuncios
      * <section class='ad_descripcion'>{$anuncio->descripcion}</section>
-    <div class=''>
-    <a>Contacto: {$anuncio->datos_contacto}</a>
-    <a>Empresa: {$anuncio->nombre_empresa}</a>
-    <span>{$anuncio->fecha_creacion}</span>
-    </div>
+     * <div class=''>
+     * <a>Contacto: {$anuncio->datos_contacto}</a>
+     * <a>Empresa: {$anuncio->nombre_empresa}</a>
+     * <span>{$anuncio->fecha_creacion}</span>
+     * </div>
      */
     $db = null;
 }
 
 /**
  * @param $connection
- * @return objeto con los datos de la tabla Anuncio
+ * @return objeto con los datos de la tabla Categoria
  */
 function selectAllTags($connection)
 {
