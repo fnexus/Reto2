@@ -36,7 +36,7 @@ switch ($action) {
         <button type="submit" id="search_button">Buscar</button>
     </form>
     <input type="button" name="signIn" id="signIn" value="Registrarse" onclick="signIn()">
-    <input type="button" name="logIn" id="logIn" value="Iniciar_Sesion" onclick="logIn()">
+    <input type="button" name="logIn" id="logIn" value="IniciarSesion" onclick="logIn()">
 
     <input type="button" name="profile" id="profile" value="Mi_Perfil" style="display: none">
     <input type="button" name="logOut" id="logOut" value="Cerrar_Sesion" style="display: none">
