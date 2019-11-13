@@ -151,7 +151,7 @@ function insertComment($idUser, $idAnuncio, $comment){
 }
 
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
-function loginUser($userNickname, $userPassword)
+function loginUser(/*$userNickname, $userPassword*/)
 {
     $db = connection();
     if (isset($_GET["nickname"], $_GET["password"])) {
@@ -166,14 +166,15 @@ function loginUser($userNickname, $userPassword)
         $stmt->execute($data);
 
         while($row = $stmt->fetch()) {
-            $_userID["id"] = $row->id;
-            $_userNickname["nickname"] = $row->nickname;
-            $_userName["name"] = $row->nombre;
-            $_userSurname["surname"] = $row->apellidos;
-            $_userEmail["email"] = $row->email;
-            $_userPage["contactPage"] = $row->pagina_contacto;
+            $_SESSION["id"] = $row->id;
+            $_SESSION["nickname"] = $row->nickname;
+            $_SESSION["name"] = $row->nombre;
+            $_SESSION["surname"] = $row->apellidos;
+            $_SESSION["email"] = $row->email;
+            $_SESSION["contactPage"] = $row->pagina_contacto;
         }
-    } else {
+    }
+    /*else {
         $data = array('nickname' => $userNickname, 'password' => $userPassword);
         $stmt = $db->prepare("
          SELECT *
@@ -183,17 +184,16 @@ function loginUser($userNickname, $userPassword)
         $stmt->setFetchMode(PDO::FETCH_OBJ);
 
         while($row = $stmt->fetch()) {
-            $_userID["id"] = $row->id;
-            $_userImg["img"] = $row->foto_perfil;
-            $_userNickname["nickname"] = $row->nickname;
-            $_userName["name"] = $row->nombre;
-            $_userSurname["surname"] = $row->apellidos;
-            $_userEmail["email"] = $row->email;
-            $_userPage["contactPage"] = $row->pagina_contacto;
+            $_SESSION["id"] = $row->id;
+            $_SESSION["nickname"] = $row->nickname;
+            $_SESSION["name"] = $row->nombre;
+            $_SESSION["surname"] = $row->apellidos;
+            $_SESSION["email"] = $row->email;
+            $_SESSION["contactPage"] = $row->pagina_contacto;
         }
-    }
+    }*/
 
-    closeConnection($dbh);
+    closeConnection($db);
 }
 
 /*function calculateLikes(){
