@@ -46,8 +46,23 @@ function getUserData($db, $idPersona)
     $stmt->execute();
 
     $resultado = $stmt->fetchAll();
-    print_r($resultado);
+    //print_r($resultado);
 
+    return $resultado;
+}
+
+
+function addComments($db, $idAnuncio)
+{
+    $dbh = connection();
+    $stmt = $db->prepare("SELECT p.foto_perfil, p.id, p.nickname, c.fecha_creacion, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id AND c.anuncio_id = :id");
+    $stmt->bindParam(":id", $idAnuncio, PDO::PARAM_INT);
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $resultado = $stmt->fetchAll();
+    //print_r($resultado);
+
+    closeConnection($dbh);
     return $resultado;
 }
 

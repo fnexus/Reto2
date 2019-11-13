@@ -140,6 +140,16 @@ function insertUser()
 
 }
 
+function insertComment($idUser, $idAnuncio, $comment){
+    $dbh = connection();
+
+    $data = array('anuncio_id' => $idAnuncio, 'persona_id' => $idUser, 'descripcion' => $comment);
+    $stmt = $dbh->prepare("INSERT INTO COMENTARIO (anuncio_id, persona_id, descripcion) VALUES (:anuncio_id, :persona_id, :descripcion)");
+    $stmt->execute($data);
+
+    closeConnection($dbh);
+}
+
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
 function loginUser($userNickname, $userPassword)
 {
@@ -183,28 +193,6 @@ function loginUser($userNickname, $userPassword)
     closeConnection($dbh);
 }
 
-function addComments()
-{
-    // conectar a base de datos
-    $dbh = connection();
-    $stmt = $dbh->prepare("SELECT p.foto_perfil, c.fecha_creacion, p.id, p.nickname, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id");
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-    /*$row = $stmt->fetchAll();
-    print_r($row);*/
-
-    while ($row = $stmt->fetch()) {
-        //rellenar caja con los comentarios que hay en la base de datos
-        echo "<div class='comment'>    
-                <img src=$row->foto_perfil>
-                <p>$row->nickname</p>       
-                <p>$row->descripcion</p>    
-                <p>$row->fecha_creacion</p>  
-            </div>";
-    }
-    //cerrar la conexion a base de datos
-    closeConnection($dbh);
-}
 /*function calculateLikes(){
     // conectar a base de datos
     $dbh = connection();
