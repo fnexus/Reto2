@@ -15,7 +15,7 @@
     include 'acceso_a_datos/conexion.php';
     include 'acceso_a_datos/funciones_index.php';
     include 'acceso_a_datos/funciones_ver_anuncio.php';
-    include 'acceso_a_datos/funciones_ver_perfil.php'
+    include 'acceso_a_datos/funciones_ver_perfil.php';
     ?>
 
 </head>
