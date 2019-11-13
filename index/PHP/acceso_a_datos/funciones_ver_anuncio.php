@@ -64,7 +64,7 @@ function addComments($db, $idAnuncio)
     return $resultado;
 }
 
-}
+
 /*function calculateLikes(){
     // conectar a base de datos
     $dbh = connection();
