@@ -28,29 +28,29 @@ VALUES ('0', 'Software for everyone', 'Build your app from scrath with our archi
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('1', 'Cars for life', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('2', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('2', 'Security for free', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('3', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('3', 'Your money in seconds', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('4', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('4', 'Travel to Space', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('5', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('5', 'Electric cars are here', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('6', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('6', 'Clean energy!', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('7', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('7', 'Bye Bye Traffic', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('8', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('8', 'Connect yourself', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('9', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('9', 'Dress like the future', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('10', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('10', 'Tech meds', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('11', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('11', 'CRISPR deliver', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('1', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('1', 'Smart Houses are here!', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('2', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
+VALUES ('2', 'Make your sport team successful', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', 'https://www.artibeus.com/wp-content/uploads/2018/05/computer-software-featured-image.jpg','SoftwareX', '7');
 /*COMENTARIO*/
 INSERT INTO COMENTARIO (persona_id, anuncio_id, descripcion)
 VALUES ('1', '1', 'tio mola un monton tu empresa loco');
