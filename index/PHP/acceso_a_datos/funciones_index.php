@@ -140,6 +140,16 @@ function insertUser()
 
 }
 
+function insertComment($idUser, $idAnuncio, $comment){
+    $dbh = connection();
+
+    $data = array('anuncio_id' => $idAnuncio, 'persona_id' => $idUser, 'descripcion' => $comment);
+    $stmt = $dbh->prepare("INSERT INTO COMENTARIO (anuncio_id, persona_id, descripcion) VALUES (:anuncio_id, :persona_id, :descripcion)");
+    $stmt->execute($data);
+
+    closeConnection($dbh);
+}
+
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
 function loginUser($userNickname, $userPassword)
 {
@@ -182,6 +192,15 @@ function loginUser($userNickname, $userPassword)
             $_userPage["contactPage"] = $row->pagina_contacto;
         }
     }
-    closeConnection($db);
+
+    closeConnection($dbh);
 }
+
+/*function calculateLikes(){
+    // conectar a base de datos
+    $dbh = connection();
+    $stmt = $dbh->prepare("SELECT COUNT(*) FROM LIKES WHERE P.ID=C.PERSONA_ID");
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+
 
