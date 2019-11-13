@@ -46,8 +46,52 @@ function getUserData($db, $idPersona)
     $stmt->execute();
 
     $resultado = $stmt->fetchAll();
-    print_r($resultado);
+    //print_r($resultado);
 
+    return $resultado;
+}
+function addComments($db, $idAnuncio)
+{
+    // conectar a base de datos
+    $dbh = connection();
+    $stmt = $db->prepare("SELECT p.foto_perfil, c.fecha_creacion, p.id, p.nickname, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id AND c.anuncio_id = :id");
+    $stmt->bindParam(":id", $idAnuncio, PDO::PARAM_INT);
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    /*$row = $stmt->fetchAll();
+    print_r($row);*/
+
+    while ($row = $stmt->fetch()) {
+        //rellenar caja con los comentarios que hay en la base de datos
+        echo "<div class='comment'>    
+                <p><img src=$row->foto_perfil>$row->nickname </p> 
+                <p>$row->descripcion</p>    
+                <p>$row->fecha_creacion</p>  
+            </div>";
+    }
+    //cerrar la conexion a base de datos
+    closeConnection($dbh);
+}
+/*function calculateLikes(){
+    // conectar a base de datos
+    $dbh = connection();
+    $stmt = $dbh->prepare("SELECT COUNT(*) FROM LIKES WHERE P.ID=C.PERSONA_ID");
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+
+
+
+function addComments($db, $idAnuncio)
+{
+    $dbh = connection();
+    $stmt = $db->prepare("SELECT p.foto_perfil, p.id, p.nickname, c.fecha_creacion, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id AND c.anuncio_id = :id");
+    $stmt->bindParam(":id", $idAnuncio, PDO::PARAM_INT);
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $resultado = $stmt->fetchAll();
+    //print_r($resultado);
+
+    closeConnection($dbh);
     return $resultado;
 }
 

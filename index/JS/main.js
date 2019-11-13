@@ -18,3 +18,10 @@
         contenedorFormulario.load("../PHP/loginForm.html");
     }
 
+    function Logged(){
+        document.getElementById("signIn").style.display="none";
+        document.getElementById("logIn").style.display="none";
+        document.getElementById("logout").style.display="inline-block";
+        document.getElementById("profile").style.display="inline-block";
+    }
+
