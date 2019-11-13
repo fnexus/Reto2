@@ -114,3 +114,18 @@ img#logo {
     z-index: -1;
 }
 
+/*CSS PRUEBA VISTA ANUNCIO*/
+.vista-anuncio-container{
+    display:flex;
+}
+#anuncio-container{
+    width: 50%;
+}
+#anuncio-details-container{
+    width: 50%;
+}
+
+#anuncio-details-container img{
+    width: 100px;
+}
+
