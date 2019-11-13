@@ -50,8 +50,6 @@ function getUserData($db, $idPersona)
 
     return $resultado;
 }
-
-
 function addComments($db, $idAnuncio)
 {
     $dbh = connection();
@@ -66,4 +64,11 @@ function addComments($db, $idAnuncio)
     return $resultado;
 }
 
+}
+/*function calculateLikes(){
+    // conectar a base de datos
+    $dbh = connection();
+    $stmt = $dbh->prepare("SELECT COUNT(*) FROM LIKES WHERE P.ID=C.PERSONA_ID");
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
 ?>
