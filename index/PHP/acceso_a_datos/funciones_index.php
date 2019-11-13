@@ -17,13 +17,13 @@ function add_categorias_bar($tipoDOM)
     while ($row = $stmt->fetch()) {
         if ($tipoDOM == "barra") {
             echo "<div class='tags_child'>    
-                <a class='tag' href='index.php?search_titulo=&search_categoria={$row['id']}'>
-                {$row['nombre']}</a>                
-            </div>";
+                        <a class='tag' href='index.php?search_titulo=&search_categoria={$row['id']}'>
+                            {$row['nombre']}</a>                
+                  </div>";
         } else {
             echo "<option class='option' value='{$row['id']}'>    
-                {$row['nombre']}            
-            </option>";
+                    {$row['nombre']}            
+                  </option>";
         }
     }
     closeConnection($db);
@@ -62,7 +62,7 @@ function add_ads()
     // recorrer el objeto fetch y crear contenedores dom de anuncios
     while ($anuncio = $ads->fetchObject()) {
         echo "<div class='ad'>
-                <a href='vista_anuncio.php?id_anuncio={$anuncio->id}' target='_blank' class='ad_enlacePagina'>                
+                <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
                     <p class='ad_titulo'>{$anuncio->titulo}</p>
                     <img src='{$anuncio->imagen}' class='ad_imagen'>                    
                 </a>
