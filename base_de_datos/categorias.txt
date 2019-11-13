@@ -1,0 +1,21 @@
+coches
+motos
+motor y accesorios
+moda y accesorios
+inmobiliaria
+tv,audio,foto
+móviles y telefonía
+informática y electrónica
+deporte y ocio
+bicicletas
+consolas y videojuegos
+hogar y jardín
+electrodomésticos
+cine,libros,música
+niños y bebés
+coleccionismo
+construcción y reformas
+industria y agricultura
+empleo
+servicios
+otros
