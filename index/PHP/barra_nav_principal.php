@@ -1,8 +1,8 @@
 <nav id="nav_container">
-    <div id="logo_container">
+    <a href="index.php" id="logo_container">
         <img id="logo">
         <span>FNEXUS</span>
-    </div>
+    </a>
     <form id="search_container" action="index.php">
         <label>Titulo<input type="text" name="search_titulo" id="search_titulo"> </label>
         <label>Categoria<select name="search_categoria" id="search_categoria">

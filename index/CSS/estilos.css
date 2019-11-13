@@ -1,6 +1,7 @@
 html {
     font-family: 'Source Sans Pro', sans-serif;
 }
+
 body {
     margin: auto;
 }
@@ -9,7 +10,7 @@ body {
 /* Barra de navegacion que tiene el logo, search y los Iniciar sesion y registrarse */
 
 nav#nav_container {
-    background: rgba(203, 203, 203, 0.23);
+    background: rgb(230, 230, 230);
     width: 100%;
     height: 60px;
     display: grid;
@@ -20,16 +21,12 @@ nav#nav_container {
 }
 
 #logo_container {
+    text-decoration: none;
+    color: darkblue;
     display: flex;
     flex-direction: row;
     width: 100%;
     margin: 4%;
-}
-
-#logo_container span {
-    margin: 0;
-    padding: 0;
-
 }
 
 img#logo {
@@ -62,18 +59,24 @@ img#logo {
 }
 
 .tags_child {
-    border: solid;
-    margin: 5px;
+    margin: 3px;
     flex: 1 1;
     flex-basis: auto;
     text-align: center;
-    height: 30px;
+    padding: 10px;
 }
 
 .tag {
     text-decoration: none;
     color: black;
     cursor: pointer;
+    padding: 10px;
+    background: lightcoral;
+}
+
+.tag:hover {
+    margin: -3px; /* pa que no se haga mas grande y ocurra como con los memes de css*/
+    border: solid #f04e4f;
 }
 
 /* estilos de los anuncios (se crea por codigo) */
@@ -114,3 +117,40 @@ img#logo {
     z-index: -1;
 }
 
+
+/* Codigo de ver_perfil */
+
+#cabecera_perfil {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: gold;
+}
+
+.banner_perfil {
+
+}
+
+.foto_perfil {
+    flex:1 1 100%;
+}
+
+.info_perfil {
+    flex:1 1 100%;
+}
+
+.imagen_perfil {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+}
+
+.banner_perfil {
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
