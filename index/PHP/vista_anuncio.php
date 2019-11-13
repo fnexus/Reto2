@@ -22,6 +22,7 @@
         <?php
         $arrayAssocAnuncio = getAdvertisementData(connection(), $idAnuncio);
         $arrayAssocUser = getUserData(connection(), $arrayAssocAnuncio[0]['persona_id']);
+
         $arrayAssocComments = addComments(connection(), $idAnuncio);
 
         //echo datos usuario
@@ -41,6 +42,7 @@
         echo '<br>';
         echo $arrayAssocAnuncio[0]['fecha_creacion'];
         echo '<br><br>';
+
         ?>
 
         <div id="comments-container">

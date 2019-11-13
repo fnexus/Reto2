@@ -118,7 +118,7 @@ function selectAds($connection, $titulo, $categoria)
 //registrar un usuario y posteriormente iniciar sesion con el nickname y la contraseña otorgadas
 function insertUser()
 {
-    $dbh = connection();
+    $db = connection();
 
     if (isset($_GET["nickname"], $_GET["email"], $_GET["password"], $_GET["repeatPassword"], $_GET["name"], $_GET["surname"], $_GET["contactPage"])) {
         $nickname = $_GET["nickname"];
@@ -129,14 +129,14 @@ function insertUser()
         $surname = $_GET["surname"];
         $contactPage = $_GET["contactPage"];
         if ($password == $repeatpassword) {
-            $stmt = $dbh->prepare(
+            $stmt = $db->prepare(
                 "INSERT INTO PERSONA(nickname,email,password,nombre,apellidos,pagina_contacto)
                                 VALUES('$nickname', '$email', '$password', '$name', '$surname', '$contactPage');");
             loginUser($nickname, $password);
             $stmt->execute();
         }
     }
-    closeConnection($dbh);
+    closeConnection($db);
 
 }
 
@@ -153,19 +153,20 @@ function insertComment($idUser, $idAnuncio, $comment){
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
 function loginUser($userNickname, $userPassword)
 {
-    $dbh = connection();
+    $db = connection();
     if (isset($_GET["nickname"], $_GET["password"])) {
         $nickname = $_GET["nickname"];
         $password = $_GET["password"];
         $data = array('nickname' => $nickname, 'password' => $password);
-        $stmt = $dbh->prepare("
+        $stmt = $db->prepare("
          SELECT *
          FROM PERSONA
          WHERE nickname = :nickname AND password = :password");
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
 
-        while ($row = $stmt->fetch()) {
+        while($row = $stmt->fetch()) {
+            $_userID["id"] = $row->id;
             $_userNickname["nickname"] = $row->nickname;
             $_userName["name"] = $row->nombre;
             $_userSurname["surname"] = $row->apellidos;
@@ -174,14 +175,15 @@ function loginUser($userNickname, $userPassword)
         }
     } else {
         $data = array('nickname' => $userNickname, 'password' => $userPassword);
-        $stmt = $dbh->prepare("
+        $stmt = $db->prepare("
          SELECT *
          FROM PERSONA
          WHERE nickname = :nickname AND password = :password");
         $stmt->execute($data);
         $stmt->setFetchMode(PDO::FETCH_OBJ);
 
-        while ($row = $stmt->fetch()) {
+        while($row = $stmt->fetch()) {
+            $_userID["id"] = $row->id;
             $_userImg["img"] = $row->foto_perfil;
             $_userNickname["nickname"] = $row->nickname;
             $_userName["name"] = $row->nombre;
@@ -190,6 +192,7 @@ function loginUser($userNickname, $userPassword)
             $_userPage["contactPage"] = $row->pagina_contacto;
         }
     }
+
     closeConnection($dbh);
 }
 
@@ -200,14 +203,4 @@ function loginUser($userNickname, $userPassword)
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_OBJ);
 
-    while ($row = $stmt->fetch()) {
-        //rellenar caja con los comentarios que hay en la base de datos
-        echo "<div class='comment'>
-                <img src=$row->foto_perfil><p>$row->nickname</p>
-                <p>$row->descripcion</p>
-                <p>$row->fecha_creacion</p>
-            </div>";
-    }
-    //cerrar la conexion a base de datos
-    closeConnection($dbh);
-}*/
+
