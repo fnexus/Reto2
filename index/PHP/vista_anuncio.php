@@ -11,6 +11,7 @@
         $arrayAssocAnuncio = getAdvertisementData(connection(), isset($_GET['id_anuncio']) ? $_GET['id_anuncio'] : "ERROR");
         echo
         $arrayAssocUser = getUserData(connection(), $arrayAssocAnuncio[0]['persona_id']);
+        addComments(connection(), isset($_GET['id_anuncio']) ? $_GET['id_anuncio'] : "ERROR");
         ?>
     </div>
 </div>
