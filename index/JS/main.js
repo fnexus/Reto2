@@ -1,7 +1,6 @@
 function logged(){
     let status = document.getElementById("logged").value;
     if(status=="true"){
-        console.log("escondo los botones porque me logeo");
         document.getElementById("signIn").style.display="none";
         document.getElementById("logIn").style.display="none";
 
@@ -38,6 +37,17 @@ function logIn(){
     contenedorFormulario.load("../PHP/loginForm.html");
 
 }
+
+function showAd(){
+    let contenedorFormulario = $('#contenedor-formulario');
+    $("#search_categoria option").bind("click", function() {
+        let hol=$(this).attr('value');
+        let formContent ="action=getlink&link="+hol;
+        contenedorFormulario.load('myserv.php',formContent)
+    });
+
+}
+
 
 
 
