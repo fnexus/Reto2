@@ -23,7 +23,7 @@ if(isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagin
         <button id="button-edit-perfil" type='button'>Editar Perfil</button>
         <div id="cabecera_perfil" class="banner_perfil" style='<?= fillPerfil($persona, "banner") ?>'>
             <div class="foto_perfil">
-                <div class="imagen_perfil" style='<?= fillPerfil($persona, "imagen") ?>'></div>
+                <div class="imagen_perfil" alt="Imagen_perfil" style='<?= fillPerfil($persona, "imagen") ?>'></div>
             </div>
             <div class="info_perfil">
                 <h3 class="nickname_perfil"><?= fillPerfil($persona, "nickname") ?></h3>
