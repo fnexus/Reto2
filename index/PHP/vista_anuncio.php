@@ -18,7 +18,8 @@
         else{
             $idAnuncio = "ERROR";
         }
-        $image = getImage(connection(), $idAnuncio);
+
+        $image = getImage($idAnuncio);
         echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio" name="id_anuncio" hidden>';
         echo '<img src="' . $image . '">';
         ?>
@@ -30,10 +31,9 @@
     </div>
     <div id="anuncio-details-container">
         <?php
-        $arrayAssocAnuncio = getAdvertisementData(connection(), $idAnuncio);
-        $arrayAssocUser = getUserData(connection(), $arrayAssocAnuncio[0]['persona_id']);
-
-        $arrayAssocComments = addComments(connection(), $idAnuncio);
+        $arrayAssocAnuncio = getAdvertisementData($idAnuncio);
+        $arrayAssocUser = getUserData($arrayAssocAnuncio[0]['persona_id']);
+        $arrayAssocComments = addComments($idAnuncio);
 
         //valor del id_usuario  COGER EL ID USUARIO NO DEL DEL PROPIO ANUNCIO, sino del SESSION id del usuario conectado
         echo '<input type="text" value="' . $_SESSION['userId'] . '" id="vista_anuncio_persona_id" name="persona_id" hidden>';
