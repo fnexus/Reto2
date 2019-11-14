@@ -132,8 +132,10 @@ function insertUser()
             $stmt = $db->prepare(
                 "INSERT INTO PERSONA(nickname,email,password,nombre,apellidos,pagina_contacto)
                                 VALUES('$nickname', '$email', '$password', '$name', '$surname', '$contactPage');");
-            loginUser($nickname, $password);
             $stmt->execute();
+        }
+        else{
+            echo "<p class='formError'>Las contraseñas no coinciden</p>";
         }
     }
     closeConnection($db);
@@ -151,51 +153,55 @@ function insertComment($idUser, $idAnuncio, $comment){
 }
 
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
-function loginUser(/*$userNickname, $userPassword*/)
+function loginUser()
 {
-    $db = connection();
+    $dbh = connection();
     if (isset($_GET["nickname"], $_GET["password"])) {
         $nickname = $_GET["nickname"];
         $password = $_GET["password"];
         $data = array('nickname' => $nickname, 'password' => $password);
-        $stmt = $db->prepare("
+        $stmt = $dbh->prepare("
          SELECT *
          FROM PERSONA
          WHERE nickname = :nickname AND password = :password");
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
+        if($_GET["nickname"]==""||$_GET["password"]==""||$stmt->execute($data)==false){
+            echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+        }
+        else{
+            while ($row = $stmt->fetch()) {
+                $_SESSION["userId"] = $row->id;
+                $_SESSION["nickname"] = $row->nickname;
+                $_SESSION["name"] = $row->nombre;
+                $_SESSION["surname"] = $row->apellidos;
+                $_SESSION["email"] = $row->email;
+                $_SESSION["contactPage"] = $row->pagina_contacto;
+                $_SESSION["profileImg"] = $row->foto_perfil;
+                $_SESSION["bannerImg"] = $row->imagen_banner;
 
-        while($row = $stmt->fetch()) {
-            $_SESSION["id"] = $row->id;
-            $_SESSION["nickname"] = $row->nickname;
-            $_SESSION["name"] = $row->nombre;
-            $_SESSION["surname"] = $row->apellidos;
-            $_SESSION["email"] = $row->email;
-            $_SESSION["contactPage"] = $row->pagina_contacto;
+                $_SESSION["logged"] = "true";
+            }
         }
     }
-    /*else {
-        $data = array('nickname' => $userNickname, 'password' => $userPassword);
-        $stmt = $db->prepare("
-         SELECT *
-         FROM PERSONA
-         WHERE nickname = :nickname AND password = :password");
-        $stmt->execute($data);
-        $stmt->setFetchMode(PDO::FETCH_OBJ);
-
-        while($row = $stmt->fetch()) {
-            $_SESSION["id"] = $row->id;
-            $_SESSION["nickname"] = $row->nickname;
-            $_SESSION["name"] = $row->nombre;
-            $_SESSION["surname"] = $row->apellidos;
-            $_SESSION["email"] = $row->email;
-            $_SESSION["contactPage"] = $row->pagina_contacto;
-        }
-    }*/
-
-    closeConnection($db);
+    closeConnection($dbh);
 }
+function logoutUser(){
+    $dbh = connection();
 
+    unset($_SESSION["userId"]);
+    unset($_SESSION["nickname"]);
+    unset($_SESSION["name"]);
+    unset($_SESSION["surname"]);
+    unset($_SESSION["email"]);
+    unset($_SESSION["contactPage"]);
+    unset($_SESSION["profileImg"]);
+    unset($_SESSION["bannerImg"]);
+
+    $_SESSION["logged"] = "false";
+
+    closeConnection($dbh);
+}
 /*function calculateLikes(){
     // conectar a base de datos
     $dbh = connection();
