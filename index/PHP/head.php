@@ -19,7 +19,8 @@
     ?>
 
 </head>
-<body onload="logged()">
+<body>
+<!--<body onload="logged()">-->
 
 <!-- Barra de navegacion -->
 <?php

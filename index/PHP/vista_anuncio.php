@@ -14,16 +14,15 @@
         else{
             $idAnuncio = "ERROR";
         }
-        $image = getImage(connection(), $idAnuncio);
+        $image = getImage($idAnuncio);
         echo '<img src="' . $image . '">';
         ?>
     </div>
     <div id="anuncio-details-container">
         <?php
-        $arrayAssocAnuncio = getAdvertisementData(connection(), $idAnuncio);
-        $arrayAssocUser = getUserData(connection(), $arrayAssocAnuncio[0]['persona_id']);
-
-        $arrayAssocComments = addComments(connection(), $idAnuncio);
+        $arrayAssocAnuncio = getAdvertisementData($idAnuncio);
+        $arrayAssocUser = getUserData($arrayAssocAnuncio[0]['persona_id']);
+        $arrayAssocComments = addComments($idAnuncio);
 
         //echo datos usuario
         echo '<p>DATOS USUARIO<p>';
