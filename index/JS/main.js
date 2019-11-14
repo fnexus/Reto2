@@ -9,34 +9,9 @@ window.onload = function() {
             document.getElementById("profile").style.display="inline-block";
             document.getElementById("logOut").style.display="inline-block";
         }
-
-    });*/
-    let contenedorFormulario = $('#contenedor-formulario');
-    contenedorFormulario.load("../PHP/registerForm.html");
-    let div = document.createElement("div");
-    div.setAttribute("id", "bodyOnForms");
-    document.body.appendChild(div);
-
-
-}
-
-function logIn(){
-    let contenedorFormulario = $('#contenedor-formulario');
-    contenedorFormulario.load("../PHP/loginForm.html");
-
-    let div = document.createElement("div");
-    div.setAttribute("id", "bodyOnForms");
-    document.body.appendChild(div);
-}
-
-function showAd(){
-    let contenedorFormulario = $('#contenedor-formulario');
-    $("#search_categoria option").bind("click", function() {
-        let hol=$(this).attr('value');
-        let formContent ="action=getlink&link="+hol;
-        contenedorFormulario.load('myserv.php',formContent)
-    });
-
+        else{
+            document.getElementById("signIn").style.display="inline-block";
+            document.getElementById("logIn").style.display="inline-block";
 
             document.getElementById("profile").style.display="none";
             document.getElementById("logOut").style.display="none";
