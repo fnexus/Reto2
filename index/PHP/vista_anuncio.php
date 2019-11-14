@@ -35,8 +35,8 @@
 
         $arrayAssocComments = addComments(connection(), $idAnuncio);
 
-        //valor del id_usuario
-        echo '<input type="text" value="' . $arrayAssocUser[0]['id'] . '" id="vista_anuncio_persona_id" name="persona_id" hidden>';
+        //valor del id_usuario  COGER EL ID USUARIO NO DEL DEL PROPIO ANUNCIO, sino del SESSION id del usuario conectado
+        echo '<input type="text" value="' . $_SESSION['userId'] . '" id="vista_anuncio_persona_id" name="persona_id" hidden>';
 
         //echo datos usuario
         echo '<p>DATOS USUARIO<p>';
