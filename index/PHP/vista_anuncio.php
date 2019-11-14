@@ -26,14 +26,14 @@
         $arrayAssocComments = addComments(connection(), $idAnuncio);
 
         //echo datos usuario
-        echo '<h1>DATOS USUARIO<h1>';
+        echo '<p>DATOS USUARIO<p>';
         echo '<img src="' . $arrayAssocUser[0]['foto_perfil'] . '">';
         echo '<br>';
         echo $arrayAssocUser[0]['nickname'];
         echo '<br><br>';
 
         //echo datos anuncio
-        echo '<h1>DATOS ANUNCIO<h1>';
+        echo '<p>DATOS ANUNCIO<p>';
         echo $arrayAssocAnuncio[0]['titulo'];
         echo '<br>';
         echo $arrayAssocAnuncio[0]['descripcion'];
@@ -55,13 +55,16 @@
             </form>
             <?php
             //echo datos comentarios
-            echo '<h1>DATOS COMENTARIOS<h1>';
-            echo $arrayAssocComments[0]['nickname'];
-            echo '<br>';
-            echo $arrayAssocComments[0]['descripcion'];
-            echo '<br>';
-            echo $arrayAssocComments[0]['fecha_creacion'];
-            echo '<br>';
+            echo '<p>DATOS COMENTARIOS<p>';
+            for($i = 0; $i < count($arrayAssocComments); $i++){
+                echo $arrayAssocComments[$i]['nickname'];
+                echo '<br>';
+                echo $arrayAssocComments[$i]['descripcion'];
+                echo '<br>';
+                echo $arrayAssocComments[$i]['fecha_creacion'];
+                echo '<br>';
+            }
+
             //print_r($arrayAssocComments);
             ?>
         </div>
