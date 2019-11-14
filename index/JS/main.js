@@ -3,7 +3,6 @@ window.onload = function() {
     function logged(){
         let status = document.getElementById("logged").value;
         if(status=="true"){
-            console.log("escondo los botones porque me logeo");
             document.getElementById("signIn").style.display="none";
             document.getElementById("logIn").style.display="none";
 
@@ -11,7 +10,6 @@ window.onload = function() {
             document.getElementById("logOut").style.display="inline-block";
         }
         else{
-
             document.getElementById("signIn").style.display="inline-block";
             document.getElementById("logIn").style.display="inline-block";
 
@@ -32,14 +30,22 @@ window.onload = function() {
         });*/
         let contenedorFormulario = $('#contenedor-formulario');
         contenedorFormulario.load("../PHP/registerForm.html");
-
     }
 
-    function logIn(){
+    function logIn() {
         let contenedorFormulario = $('#contenedor-formulario');
         contenedorFormulario.load("../PHP/loginForm.html");
-
     }
+    
+    function showAd(){
+        let contenedorFormulario = $('#contenedor-formulario');
+        $("#search_categoria option").bind("click", function() {
+            let hol=$(this).attr('value');
+            let formContent ="action=getlink&link="+hol;
+            contenedorFormulario.load('myserv.php',formContent)
+        });
+    }
+
 
     $('#button-edit-perfil').on('click', function () {
         $('#edit-user-form').css('display', 'block');
