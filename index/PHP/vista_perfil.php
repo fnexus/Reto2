@@ -11,7 +11,7 @@ $persona = getPersonaById($persona_id);
         </div>
         <div id="cabecera_perfil" class="banner_perfil" style='<?= fillPerfil($persona, "banner") ?>'>
             <div class="foto_perfil">
-                <div class="imagen_perfil" style='<?= fillPerfil($persona, "imagen") ?>'></div>
+                <div class="imagen_perfil" alt="Imagen_perfil" style='<?= fillPerfil($persona, "imagen") ?>'></div>
             </div>
             <div class="info_perfil">
                 <h3 class="nickname_perfil"><?= fillPerfil($persona, "nickname") ?></h3>
