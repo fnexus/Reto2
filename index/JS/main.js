@@ -29,6 +29,10 @@ function signIn(){
     });*/
     let contenedorFormulario = $('#contenedor-formulario');
     contenedorFormulario.load("../PHP/registerForm.html");
+    let div = document.createElement("div");
+    div.setAttribute("id", "bodyOnForms");
+    document.body.appendChild(div);
+
 
 }
 
@@ -36,6 +40,9 @@ function logIn(){
     let contenedorFormulario = $('#contenedor-formulario');
     contenedorFormulario.load("../PHP/loginForm.html");
 
+    let div = document.createElement("div");
+    div.setAttribute("id", "bodyOnForms");
+    document.body.appendChild(div);
 }
 
 function showAd(){
