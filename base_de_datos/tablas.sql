@@ -1,5 +1,4 @@
 -- Script de creación de tablas del proyecto
-
 DROP DATABASE   IF     EXISTS FNEXUS;
 CREATE DATABASE IF NOT EXISTS FNEXUS;
 USE FNEXUS;
