@@ -9,9 +9,7 @@
 function add_categorias_bar($tipoDOM)
 {
     // conectar a base de datos
-    $db = connection();
-    $stmt = $db->prepare("SELECT * FROM CATEGORIA WHERE 1=1");
-    $stmt->execute();
+    $stmt = selectAll("CATEGORIA");
     $stmt->setFetchMode(2);
 
     while ($row = $stmt->fetch()) {
@@ -26,7 +24,6 @@ function add_categorias_bar($tipoDOM)
                   </option>";
         }
     }
-    closeConnection($db);
 }
 
 /**
@@ -35,9 +32,6 @@ function add_categorias_bar($tipoDOM)
  */
 function add_ads()
 {
-    // conectar a base de datos
-    $db = connection();
-
     $titulo = "";
     $categoria = "";
     $ads = null;
@@ -54,9 +48,9 @@ function add_ads()
 
     // si al menos uno esta lleno, buscar con filtro, sino buscar todos
     if ($titulo != "" || $categoria != "") {
-        $ads = selectAds($db, $titulo, $categoria);
+        $ads = selectAds($titulo, $categoria);
     } else {
-        $ads = selectAllAds($db);
+        $ads = selectAll("ANUNCIO");
     }
 
     // recorrer el objeto fetch y crear contenedores dom de anuncios
@@ -68,50 +62,41 @@ function add_ads()
                 </a>
             </div>";
     }
+}
+
+/**
+ * @param $tabla
+ * @return bool|PDOStatement
+ */
+function selectAll($tabla)
+{
+    $db = connection();
+    $stmt = $db->prepare("SELECT * FROM $tabla WHERE 1=1");
+    $stmt->execute();
     closeConnection($db);
-}
-
-/**
- * @param $connection
- * @return objeto con los datos de la tabla Categoria
- */
-function selectAllTags($connection)
-{
-    $stmt = $connection->prepare("SELECT * FROM CATEGORIA WHERE 1=1");
-    $stmt->execute();
     return $stmt;
 }
 
-/**
- * @param $connection
- * @return objeto con los datos de la tabla Anuncio
- */
-function selectAllAds($connection)
-{
-    $stmt = $connection->prepare("SELECT * FROM ANUNCIO WHERE 1=1");
-    $stmt->execute();
-    return $stmt;
-}
 
 /**
- * @param $connection
+ * Select compuesta de WHERE que se va creando dependiendo de los parametros de busqueda
  * @param $titulo
  * @param $categoria
- * @return objeto con los datos de la tabla Anuncio
+ * @return bool|PDOStatement
  */
-function selectAds($connection, $titulo, $categoria)
+function selectAds($titulo, $categoria)
 {
+    $db = connection();
     $query = "SELECT * FROM ANUNCIO WHERE 1=1";
-
     if ($titulo != "") {
         $query .= " AND titulo like '%$titulo%'";
     }
     if ($categoria != "") {
         $query .= " AND categoria_id = " . $categoria;
     }
-
-    $stmt = $connection->prepare($query);
+    $stmt = $db->prepare($query);
     $stmt->execute();
+    closeConnection($db);
     return $stmt;
 }
 
@@ -133,8 +118,7 @@ function insertUser()
                 "INSERT INTO PERSONA(nickname,email,password,nombre,apellidos,pagina_contacto)
                                 VALUES('$nickname', '$email', '$password', '$name', '$surname', '$contactPage');");
             $stmt->execute();
-        }
-        else{
+        } else {
             echo "<p class='formError'>Las contraseñas no coinciden</p>";
         }
     }
@@ -142,15 +126,6 @@ function insertUser()
 
 }
 
-function insertComment($idUser, $idAnuncio, $comment){
-    $dbh = connection();
-
-    $data = array('anuncio_id' => $idAnuncio, 'persona_id' => $idUser, 'descripcion' => $comment);
-    $stmt = $dbh->prepare("INSERT INTO COMENTARIO (anuncio_id, persona_id, descripcion) VALUES (:anuncio_id, :persona_id, :descripcion)");
-    $stmt->execute($data);
-
-    closeConnection($dbh);
-}
 
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
 function loginUser()
@@ -166,10 +141,9 @@ function loginUser()
          WHERE nickname = :nickname AND password = :password");
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
-        if($_GET["nickname"]==""||$_GET["password"]==""||$stmt->execute($data)==false){
+        if ($_GET["nickname"] == "" || $_GET["password"] == "" || $stmt->execute($data) == false) {
             echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
-        }
-        else{
+        } else {
             while ($row = $stmt->fetch()) {
                 $_SESSION["userId"] = $row->id;
                 $_SESSION["nickname"] = $row->nickname;
@@ -186,7 +160,9 @@ function loginUser()
     }
     closeConnection($dbh);
 }
-function logoutUser(){
+
+function logoutUser()
+{
     $dbh = connection();
 
     unset($_SESSION["userId"]);
@@ -202,11 +178,3 @@ function logoutUser(){
 
     closeConnection($dbh);
 }
-/*function calculateLikes(){
-    // conectar a base de datos
-    $dbh = connection();
-    $stmt = $dbh->prepare("SELECT COUNT(*) FROM LIKES WHERE P.ID=C.PERSONA_ID");
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-
-
