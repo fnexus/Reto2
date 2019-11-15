@@ -116,8 +116,10 @@ img#logo {
     padding: 0;
     z-index: -1;
 }
+
 #loginForm, #registerForm, #publicateAd{
     position:fixed;
+    top:15%;
     left:30%;
     width: 40%;
     height: 700px;
@@ -127,7 +129,7 @@ img#logo {
 }
 
 
-/*CSS PRUEBA VISTA ANUNCIO*/
+/*VISTA ANUNCIO*/
 .vista-anuncio-container {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -218,3 +220,30 @@ img#logo {
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
+
+#bodyOnForms{
+    top:0%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+/*EDITAR PERFIL*/
+#edit-user-form{
+    display: none;
+    position:fixed;
+    left:30%;
+    width: 40%;
+    height: 700px;
+    border:2px solid black;
+    background:radial-gradient(#ffffff, #a39fa8);
+    z-index: 3;
+}
+
+#edit-user-form img{
+    width: 50px;
+}
+

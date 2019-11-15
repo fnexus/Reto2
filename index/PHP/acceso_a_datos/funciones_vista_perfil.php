@@ -69,3 +69,18 @@ function fillPerfil($persona, $queLlenar)
             break;
     }
 }
+
+function updateUser($idUser, $nickname, $password, $paginaContacto){
+    $db = connection();
+    print_r($idUser);
+    print_r($nickname);
+    print_r($password);
+    print_r($paginaContacto);
+
+    //columna => clave
+    $data = ['id' => $idUser, 'nickname' => $nickname, 'password' => $password, 'pagina_contacto' => $paginaContacto];
+    $stmt = $db->prepare('UPDATE PERSONA SET nickname = :nickname, password = :password, pagina_contacto = :pagina_contacto WHERE id = :id');
+    $stmt->execute($data);
+    print_r($db->errorInfo());
+    return $stmt->rowCount();
+}
