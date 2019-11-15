@@ -166,7 +166,7 @@ function loginUser()
          WHERE nickname = :nickname AND password = :password");
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
-        if($_GET["nickname"]==""||$_GET["password"]==""||$stmt->execute($data)==false){
+        if($_GET["nickname"]==""||$_GET["password"]==""){
             echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
         }
         else{
@@ -200,13 +200,8 @@ function logoutUser(){
 
     $_SESSION["logged"] = "false";
 
+    session_destroy();
+
     closeConnection($dbh);
 }
-/*function calculateLikes(){
-    // conectar a base de datos
-    $dbh = connection();
-    $stmt = $dbh->prepare("SELECT COUNT(*) FROM LIKES WHERE P.ID=C.PERSONA_ID");
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-
 

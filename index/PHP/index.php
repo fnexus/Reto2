@@ -7,9 +7,6 @@
         </article>
         <main id="ads_container">
             <?= add_ads() ?>
-            <div class='ad'>
-                <input type="button" name="showAd" id="showAd" value="+" onclick="showAd()">
-            </div>
         </main>
     </div>
 <?php require 'footer.php'; ?>
