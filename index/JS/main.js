@@ -1,4 +1,4 @@
-let divExist =false;
+let divExist = false;
 
 window.onload = function() {
 
@@ -16,52 +16,45 @@ window.onload = function() {
         document.getElementById("logIn").style.display="inline-block";
 
         document.getElementById("profile").style.display="none";
-        document.getElementById("logOut").style.display="none";;
-    }
-  
-    function closeForm(){
-        let contenedorFormulario = document.getElementsByClassName("contenedor-formulario")
-        let form=contenedorFormulario[0].firstChild;
-        console.log(form);
-        contenedorFormulario[0].removeChild(form);
-        let div = document.getElementById("bodyOnForms");
-        document.body.removeChild(div);
-        divExist = false;
+        document.getElementById("logOut").style.display="none";
     }
 
+    $('.exitForm').on('click', function () {
+        $(this).closest('form').css('display', 'none');
+        $("#bodyOnForms").remove();
+        divExist = false;
+    });
 
     $('#button-edit-perfil').on('click', function () {
         $('#edit-user-form').css('display', 'block');
+        createOpacityBackground();
     });
 
 
     $('#showAd').on('click', function () {
         $('#publicateAd').css('display', 'block');
+        createOpacityBackground();
     });
 
     $('#signIn').on('click', function () {
-        let contenedorFormulario = $('.contenedor-formulario');
-        contenedorFormulario.load("../PHP/registerForm.html");
-
-        if(divExist==false) {
-            let div = document.createElement("div");
-            div.setAttribute("id", "bodyOnForms")
-            document.body.appendChild(div);
-            divExist = true;
-        }
+        $('#registerForm').css('display', 'block');
+        createOpacityBackground();
     });
 
     $('#logIn').on('click', function () {
-        let contenedorFormulario = $('.contenedor-formulario');
-        contenedorFormulario.load("../PHP/loginForm.html");
+        $('#loginForm').css('display', 'block');
+        createOpacityBackground();
 
-        if(divExist==false){
+    });
+
+    function createOpacityBackground() {
+        if(divExist===false){
             let div = document.createElement("div");
             div.setAttribute("id","bodyOnForms")
             document.body.appendChild(div);
             divExist=true;
         }
-    });
+    }
 
 };
 

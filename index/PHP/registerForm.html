@@ -1,10 +1,31 @@
 <form id="registerForm">
-    <input type="button" id="exitForm" name="exitForm" onclick="closeForm()">
-    <p><input type="text" name="nickname" id="nickname" placeholder="Nickname"></p>
-    <p><input type="email" name="email" id="email" placeholder="Email"></p>
-    <p><input type="password" name="password" id="password" placeholder="Contraseña"></p>
-    <p><input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repite la contraseña"></p>
-    <p><input type="text" name="name" id="name" placeholder="Nombre de usuario"><input type="text" name="surname" id="surname" placeholder="apellido de usuario"></p>
-    <p><input type="text" name="contactPage" id="contactPage" placeholder="Pagina de contacto"></p>
-    <p><input type="submit" name="action" id="register" value="Registrarse"></p>
+    <input type="button" class="exitForm" name="exitForm">
+    <div>
+        <label for="nickname">Nickname</label>
+        <input type="text" name="nickname" id="nickname">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="youremail@gmail.com">
+    </div>
+    <div>
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" id="password">
+        <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repite la contraseña">
+    </div>
+    <div>
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="surname">Apellido</label>
+        <input type="text" name="surname" id="surname">
+    </div>
+    <div>
+        <label for="contactPage">Página de contacto</label>
+        <input type="text" name="contactPage" id="contactPage" placeholder="yourweb.com">
+    </div>
+    <div>
+        <input type="submit" name="action" id="register" value="Registrarse">
+    </div>
 </form>

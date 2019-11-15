@@ -2,6 +2,11 @@
 <html lang="es">
 <head>
     <title>FNEXUS</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon2.png"/>
+
+    <!-- Libreria iconos social media footer-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
     <!-- estilos CSS-->
     <link href="../CSS/estilos.css" type="text/css" rel="stylesheet">

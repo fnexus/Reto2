@@ -14,8 +14,11 @@ $(document).ready(function () {
 
     // listener de click del boton añadir comentario
     comentarioBoton.bind("click", function () {
-        insertarComentario();
-        mostrarComentariosDelAnuncio();
+        if(comentarioTextArea.val()){
+            insertarComentario();
+            mostrarComentariosDelAnuncio();
+        }
+        comentarioTextArea.val("");
     });
 
     // al abrir ejecutar esto por primera vez
