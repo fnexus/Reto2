@@ -1,4 +1,6 @@
-<?php require 'head.php'; ?>
+<?php require 'head.php';
+?>
+
 <!-- importar script para likes -->
 <script src="../JS/likes.js"></script>
 

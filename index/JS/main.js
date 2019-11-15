@@ -26,8 +26,8 @@ function logIn() {
 }
 
 window.onload = function() {
-
     let status = document.getElementById("logged").value;
+
     if(status=="true"){
         document.getElementById("signIn").style.display="none";
         document.getElementById("logIn").style.display="none";
@@ -40,7 +40,7 @@ window.onload = function() {
         document.getElementById("logIn").style.display="inline-block";
 
         document.getElementById("profile").style.display="none";
-        document.getElementById("logOut").style.display="none";
+        document.getElementById("logOut").style.display="none";;
     }
 
 
