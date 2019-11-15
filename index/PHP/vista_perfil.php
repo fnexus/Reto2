@@ -36,6 +36,10 @@ if(isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagin
         <main id="ads_container">
             <!-- Pasarle el id persona para buscar sus anuncios-->
             <?= add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
+            <div class='ad'>
+                <input type="button" name="showAd" id="showAd" value="+">
+                <?php include 'publicar_anuncio.php'; ?>
+            </div>
         </main>
     </div>
 
