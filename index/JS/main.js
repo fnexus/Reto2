@@ -1,31 +1,8 @@
 let divExist =false;
 
 
-function signIn(){
-    let contenedorFormulario = $('#contenedor-formulario');
-    contenedorFormulario.load("../PHP/registerForm.html");
-
-    if(divExist==false){
-        let div = document.createElement("div");
-        div.setAttribute("id","bodyOnForms")
-        document.body.appendChild(div);
-        divExist=true;
-    }
-}
-
-function logIn() {
-    let contenedorFormulario = $('#contenedor-formulario');
-    contenedorFormulario.load("../PHP/loginForm.html");
-
-    if(divExist==false){
-        let div = document.createElement("div");
-        div.setAttribute("id","bodyOnForms")
-        document.body.appendChild(div);
-        divExist=true;
-    }
-}
-
 window.onload = function() {
+
     let status = document.getElementById("logged").value;
 
     if(status=="true"){
@@ -51,6 +28,32 @@ window.onload = function() {
 
     $('#showAd').on('click', function () {
         $('#publicateAd').css('display', 'block');
+    });
+
+    $('#signIn').on('click', function () {
+        console.log('entro');
+        let contenedorFormulario = $('#contenedor-formulario');
+        contenedorFormulario.load("../PHP/registerForm.html");
+
+        if(divExist==false) {
+            let div = document.createElement("div");
+            div.setAttribute("id", "bodyOnForms")
+            document.body.appendChild(div);
+            divExist = true;
+        }
+    });
+
+    $('#logIn').on('click', function () {
+        console.log('entro');
+        let contenedorFormulario = $('#contenedor-formulario');
+        contenedorFormulario.load("../PHP/loginForm.html");
+
+        if(divExist==false){
+            let div = document.createElement("div");
+            div.setAttribute("id","bodyOnForms")
+            document.body.appendChild(div);
+            divExist=true;
+        }
     });
 
 };
