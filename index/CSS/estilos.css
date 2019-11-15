@@ -155,6 +155,7 @@ img#logo {
     object-fit: contain;
 }
 
+/* Vista anuncio - parte de dar like y detalles */
 .likes_container {
     margin: auto;
     width: 90%;
@@ -165,6 +166,9 @@ img#logo {
     flex: 1 1 70%;
     border: solid crimson;
     text-align: end;
+}
+#dar_quitar_like:disabled {
+    color: lightgrey;
 }
 
 #likes_count {
