@@ -15,8 +15,9 @@ $persona = getPersonaById($_SESSION['userId']);
 
 
 <div class="main_container">
-    <div class="contenedor_formulario">
+    <div class="contenedor-formulario">
         <?php include 'edit_user.php'; ?>
+        <?php include 'publicar_anuncio.php'; ?>
     </div>
     <button id="button-edit-perfil" type='button'>Editar Perfil</button>
     <div id="cabecera_perfil" class="banner_perfil" style='<?= fillPerfil($persona, "banner") ?>'>
@@ -36,7 +37,6 @@ $persona = getPersonaById($_SESSION['userId']);
         <?= add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
         <div class='ad'>
             <input type="button" name="showAd" id="showAd" value="+">
-            <?php include 'publicar_anuncio.php'; ?>
         </div>
     </main>
 </div>

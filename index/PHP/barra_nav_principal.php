@@ -26,6 +26,8 @@
     <input type="button" name="logged" id="logged" value="<?= $_SESSION["logged"] ?>" style="display: none">
 
     <div class="contenedor-formulario">
+        <?php include 'loginForm.html'; ?>
+        <?php include 'registerForm.html'; ?>
     </div>
 </nav>
 

@@ -18,5 +18,6 @@ switch ($action) {
         break;
     case "Cerrar Sesion":
         logoutUser();
+        header("Location: index.php");
         break;
 }
