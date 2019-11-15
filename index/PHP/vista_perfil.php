@@ -5,6 +5,12 @@ if(isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagin
     $updatedRows = updateUser($_SESSION["userId"], $_POST['nickname'], $_POST['password'], $_POST['pagina-contacto']);
 }
 
+
+if (isset($_POST["adImg"], $_POST["adTitle"], $_POST["adDescription"], $_POST["companyName"], $_POST["tags"])) {
+    insertAd();
+}
+
+
 // TODO el id persona estara guardado en session
 $persona_id = isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID perona";
 $persona = getPersonaById($persona_id);

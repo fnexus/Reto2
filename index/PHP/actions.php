@@ -20,7 +20,4 @@ switch ($action) {
     case "Cerrar_Sesion":
         logoutUser();
         break;
-    case "Guardar":
-        insertAd();
-        break;
 }
