@@ -170,7 +170,7 @@ function loginUser()
             echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
         }
         else{
-            while ($row = $stmt->fetch()) {
+            if ($row = $stmt->fetch()) {
                 $_SESSION["userId"] = $row->id;
                 $_SESSION["nickname"] = $row->nickname;
                 $_SESSION["name"] = $row->nombre;
@@ -182,6 +182,10 @@ function loginUser()
 
                 $_SESSION["logged"] = "true";
             }
+            else{
+                echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+            }
+
         }
     }
     closeConnection($dbh);
