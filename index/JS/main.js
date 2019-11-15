@@ -2,7 +2,7 @@ let divExist =false;
 
 
 function signIn(){
-    let contenedorFormulario = $('#contenedor-formulario');
+    let contenedorFormulario = $('.contenedor-formulario');
     contenedorFormulario.load("../PHP/registerForm.html");
 
     if(divExist==false){
@@ -14,7 +14,7 @@ function signIn(){
 }
 
 function logIn() {
-    let contenedorFormulario = $('#contenedor-formulario');
+    let contenedorFormulario = $('.contenedor-formulario');
     contenedorFormulario.load("../PHP/loginForm.html");
 
     if(divExist==false){
@@ -23,6 +23,16 @@ function logIn() {
         document.body.appendChild(div);
         divExist=true;
     }
+}
+
+function closeForm(){
+    let contenedorFormulario = document.getElementsByClassName("contenedor-formulario")
+    let form=contenedorFormulario[0].firstChild;
+    console.log(form);
+    contenedorFormulario[0].removeChild(form);
+    let div = document.getElementById("bodyOnForms");
+    document.body.removeChild(div);
+    divExist = false;
 }
 
 window.onload = function() {
