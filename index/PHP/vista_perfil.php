@@ -9,7 +9,7 @@ $_SESSION["id"] = $persona_id;
 echo $_SESSION["id"];
 
 //recibimos datos del editar perfil y los mandamos a DB
-if(isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagina-contacto'])){
+if (isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagina-contacto'])) {
     $updatedRows = updateUser($_SESSION["id"], $_POST['nickname'], $_POST['password'], $_POST['pagina-contacto']);
     //echo "<p style='padding: 100px'>$updatedRows</p>";
     //echo $updatedRows;
@@ -18,7 +18,7 @@ if(isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagin
 
     <div class="main_container">
         <div id="contenedor_editar_perfil">
-            <?= include 'edit_user.php'; ?>
+            <?php include 'edit_user.php'; ?>
         </div>
         <button id="button-edit-perfil" type='button'>Editar Perfil</button>
         <div id="cabecera_perfil" class="banner_perfil" style='<?= fillPerfil($persona, "banner") ?>'>
