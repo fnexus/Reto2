@@ -1,7 +1,8 @@
 <?php
-    $arrayUser = getUserData($_SESSION["id"]);
+$arrayUser = getUserData($_SESSION["id"]);
 ?>
-<form action="vista_perfil.php?persona_id=<?= $_SESSION['id']?>" method="post" id="edit-user-form">
+
+<form action="vista_perfil.php?persona_id=<?= $_SESSION['id'] ?>" method="post" id="edit-user-form">
     <div><img src="<?= $arrayUser[0]['imagen_banner'] ?>" alt="banner"></div>
     <img src="<?= $arrayUser[0]['foto_perfil'] ?>" alt="foto-perfil">
     <p>
