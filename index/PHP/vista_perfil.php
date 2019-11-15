@@ -1,19 +1,20 @@
 <?php require 'head.php';
 
+//recibimos datos del editar perfil y los mandamos a DB
+if(isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagina-contacto'])){
+    $updatedRows = updateUser($_SESSION["userId"], $_POST['nickname'], $_POST['password'], $_POST['pagina-contacto']);
+}
+
+
+if (isset($_POST["adImg"], $_POST["adTitle"], $_POST["adDescription"], $_POST["companyName"], $_POST["tags"])) {
+    insertAd();
+}
+
+
 // TODO el id persona estara guardado en session
 $persona_id = isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID perona";
 $persona = getPersonaById($persona_id);
 
-//En teoria ya esta guardado por lo que no haria falta hacer esto
-$_SESSION["id"] = $persona_id;
-echo $_SESSION["id"];
-
-//recibimos datos del editar perfil y los mandamos a DB
-if (isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagina-contacto'])) {
-    $updatedRows = updateUser($_SESSION["id"], $_POST['nickname'], $_POST['password'], $_POST['pagina-contacto']);
-    //echo "<p style='padding: 100px'>$updatedRows</p>";
-    //echo $updatedRows;
-}
 ?>
 
     <div class="main_container">
@@ -36,6 +37,10 @@ if (isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['pagi
         <main id="ads_container">
             <!-- Pasarle el id persona para buscar sus anuncios-->
             <?= add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
+            <div class='ad'>
+                <input type="button" name="showAd" id="showAd" value="+">
+                <?php include 'publicar_anuncio.php'; ?>
+            </div>
         </main>
     </div>
 

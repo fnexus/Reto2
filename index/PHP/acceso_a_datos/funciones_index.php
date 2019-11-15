@@ -141,7 +141,7 @@ function loginUser()
          WHERE nickname = :nickname AND password = :password");
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
-        if ($_GET["nickname"] == "" || $_GET["password"] == "" || $stmt->execute($data) == false) {
+        if($_GET["nickname"]==""||$_GET["password"]==""){
             echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
         } else {
             while ($row = $stmt->fetch()) {
@@ -156,6 +156,10 @@ function loginUser()
 
                 $_SESSION["logged"] = "true";
             }
+            else{
+                echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+            }
+
         }
     }
     closeConnection($dbh);
@@ -175,6 +179,8 @@ function logoutUser()
     unset($_SESSION["bannerImg"]);
 
     $_SESSION["logged"] = "false";
+
+    session_destroy();
 
     closeConnection($dbh);
 }

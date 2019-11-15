@@ -17,11 +17,11 @@
     include 'acceso_a_datos/funciones_vista_anuncio.php';
     include 'acceso_a_datos/funciones_vista_perfil.php';
     include 'acceso_a_datos/funciones_publicar_anuncio.php';
+    require 'actions.php';
     ?>
 
 </head>
 <body>
-<!--<body onload="logged()">-->
 
 <!-- Barra de navegacion -->
 <?php
