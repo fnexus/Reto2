@@ -1,8 +1,9 @@
 <nav id="nav_container">
-    <div id="logo_container">
+    <a href="index.php" id="logo_container">
         <img id="logo">
         <span>FNEXUS</span>
-    </div>
+    </a>
+
     <form id="search_container" action="index.php">
         <label>Titulo<input type="text" name="search_titulo" id="search_titulo"> </label>
         <label>Categoria<select name="search_categoria" id="search_categoria">
@@ -11,19 +12,20 @@
             </select></label>
         <button type="submit" id="search_button">Buscar</button>
     </form>
-    <input type="button" name="signIn" id="signIn" value="Registrarse" onclick="SignIn()">
-    <input type="button" name="logIn" id="logIn" value="Iniciar Sesion" onclick="LogIn()">
+    <!--<button name="signIn" id="signIn">Registrarse</button>
+    <button name="logIn" id="logIn">Iniciar Sesión</button>-->
+    <input type="button" name="signIn" id="signIn" value="Registrarse">
+    <input type="button" name="logIn" id="logIn" value="Iniciar Sesion">
+
+    <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile" style="display: none">Mi perfil</a>
+
+
+    <form>
+    <input type="submit" name="action" id="logOut" value="Cerrar_Sesion" style="display: none">
+    </form>
+    <input type="button" name="logged" id="logged" value="<?= $_SESSION["logged"] ?>" style="display: none">
+
+    <div class="contenedor-formulario">
+    </div>
 </nav>
-<?php
-if (isset($_GET["action"])) {
-    $action = $_GET["action"];
-}
-switch ($action) {
-    case "Registrarse":
-        insertUser();
-        break;
-    case "Iniciar Sesion":
-        loginUser();
-        break;
-}
-?>
+

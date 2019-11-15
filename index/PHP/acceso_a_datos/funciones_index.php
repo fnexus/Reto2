@@ -9,24 +9,21 @@
 function add_categorias_bar($tipoDOM)
 {
     // conectar a base de datos
-    $db = connection();
-    $stmt = $db->prepare("SELECT * FROM CATEGORIA WHERE 1=1");
-    $stmt->execute();
+    $stmt = selectAll("CATEGORIA");
     $stmt->setFetchMode(2);
 
     while ($row = $stmt->fetch()) {
         if ($tipoDOM == "barra") {
             echo "<div class='tags_child'>    
-                <a class='tag' href='index.php?search_titulo=&search_categoria={$row['id']}'>
-                {$row['nombre']}</a>                
-            </div>";
+                        <a class='tag' href='index.php?search_titulo=&search_categoria={$row['id']}'>
+                            {$row['nombre']}</a>                
+                  </div>";
         } else {
             echo "<option class='option' value='{$row['id']}'>    
-                {$row['nombre']}            
-            </option>";
+                    {$row['nombre']}            
+                  </option>";
         }
     }
-    closeConnection($db);
 }
 
 /**
@@ -35,9 +32,6 @@ function add_categorias_bar($tipoDOM)
  */
 function add_ads()
 {
-    // conectar a base de datos
-    $db = connection();
-
     $titulo = "";
     $categoria = "";
     $ads = null;
@@ -54,71 +48,62 @@ function add_ads()
 
     // si al menos uno esta lleno, buscar con filtro, sino buscar todos
     if ($titulo != "" || $categoria != "") {
-        $ads = selectAds($db, $titulo, $categoria);
+        $ads = selectAds($titulo, $categoria);
     } else {
-        $ads = selectAllAds($db);
+        $ads = selectAll("ANUNCIO");
     }
 
     // recorrer el objeto fetch y crear contenedores dom de anuncios
     while ($anuncio = $ads->fetchObject()) {
         echo "<div class='ad'>
-                <a href='vista_anuncio.php?id_anuncio={$anuncio->id}' target='_blank' class='ad_enlacePagina'>                
+                <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
                     <p class='ad_titulo'>{$anuncio->titulo}</p>
                     <img src='{$anuncio->imagen}' class='ad_imagen'>                    
                 </a>
             </div>";
     }
+}
+
+/**
+ * @param $tabla
+ * @return bool|PDOStatement
+ */
+function selectAll($tabla)
+{
+    $db = connection();
+    $stmt = $db->prepare("SELECT * FROM $tabla WHERE 1=1");
+    $stmt->execute();
     closeConnection($db);
-}
-
-/**
- * @param $connection
- * @return objeto con los datos de la tabla Categoria
- */
-function selectAllTags($connection)
-{
-    $stmt = $connection->prepare("SELECT * FROM CATEGORIA WHERE 1=1");
-    $stmt->execute();
     return $stmt;
 }
 
-/**
- * @param $connection
- * @return objeto con los datos de la tabla Anuncio
- */
-function selectAllAds($connection)
-{
-    $stmt = $connection->prepare("SELECT * FROM ANUNCIO WHERE 1=1");
-    $stmt->execute();
-    return $stmt;
-}
 
 /**
- * @param $connection
+ * Select compuesta de WHERE que se va creando dependiendo de los parametros de busqueda
  * @param $titulo
  * @param $categoria
- * @return objeto con los datos de la tabla Anuncio
+ * @return bool|PDOStatement
  */
-function selectAds($connection, $titulo, $categoria)
+function selectAds($titulo, $categoria)
 {
+    $db = connection();
     $query = "SELECT * FROM ANUNCIO WHERE 1=1";
-
     if ($titulo != "") {
         $query .= " AND titulo like '%$titulo%'";
     }
     if ($categoria != "") {
         $query .= " AND categoria_id = " . $categoria;
     }
-
-    $stmt = $connection->prepare($query);
+    $stmt = $db->prepare($query);
     $stmt->execute();
+    closeConnection($db);
     return $stmt;
 }
 
 //registrar un usuario y posteriormente iniciar sesion con el nickname y la contraseña otorgadas
 function insertUser()
 {
-    $dbh = connection();
+    $db = connection();
 
     if (isset($_GET["nickname"], $_GET["email"], $_GET["password"], $_GET["repeatPassword"], $_GET["name"], $_GET["surname"], $_GET["contactPage"])) {
         $nickname = $_GET["nickname"];
@@ -129,19 +114,21 @@ function insertUser()
         $surname = $_GET["surname"];
         $contactPage = $_GET["contactPage"];
         if ($password == $repeatpassword) {
-            $stmt = $dbh->prepare(
+            $stmt = $db->prepare(
                 "INSERT INTO PERSONA(nickname,email,password,nombre,apellidos,pagina_contacto)
                                 VALUES('$nickname', '$email', '$password', '$name', '$surname', '$contactPage');");
-            loginUser($nickname, $password);
             $stmt->execute();
+        } else {
+            echo "<p class='formError'>Las contraseñas no coinciden</p>";
         }
     }
-    closeConnection($dbh);
+    closeConnection($db);
 
 }
 
+
 //inicio de sesion de un usuario, y introducion de los datos de ese usuario en sesiones
-function loginUser($userNickname, $userPassword)
+function loginUser()
 {
     $dbh = connection();
     if (isset($_GET["nickname"], $_GET["password"])) {
@@ -154,72 +141,46 @@ function loginUser($userNickname, $userPassword)
          WHERE nickname = :nickname AND password = :password");
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
+        if($_GET["nickname"]==""||$_GET["password"]==""){
+            echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+        } else {
+            if ($row = $stmt->fetch()) {
+                $_SESSION["userId"] = $row->id;
+                $_SESSION["nickname"] = $row->nickname;
+                $_SESSION["name"] = $row->nombre;
+                $_SESSION["surname"] = $row->apellidos;
+                $_SESSION["email"] = $row->email;
+                $_SESSION["contactPage"] = $row->pagina_contacto;
+                $_SESSION["profileImg"] = $row->foto_perfil;
+                $_SESSION["bannerImg"] = $row->imagen_banner;
 
-        while ($row = $stmt->fetch()) {
-            $_userNickname["nickname"] = $row->nickname;
-            $_userName["name"] = $row->nombre;
-            $_userSurname["surname"] = $row->apellidos;
-            $_userEmail["email"] = $row->email;
-            $_userPage["contactPage"] = $row->pagina_contacto;
-        }
-    } else {
-        $data = array('nickname' => $userNickname, 'password' => $userPassword);
-        $stmt = $dbh->prepare("
-         SELECT *
-         FROM PERSONA
-         WHERE nickname = :nickname AND password = :password");
-        $stmt->execute($data);
-        $stmt->setFetchMode(PDO::FETCH_OBJ);
+                $_SESSION["logged"] = "true";
+            }
+            else{
+                echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+            }
 
-        while ($row = $stmt->fetch()) {
-            $_userImg["img"] = $row->foto_perfil;
-            $_userNickname["nickname"] = $row->nickname;
-            $_userName["name"] = $row->nombre;
-            $_userSurname["surname"] = $row->apellidos;
-            $_userEmail["email"] = $row->email;
-            $_userPage["contactPage"] = $row->pagina_contacto;
         }
     }
     closeConnection($dbh);
 }
 
-function addComments()
+function logoutUser()
 {
-    // conectar a base de datos
     $dbh = connection();
-    $stmt = $dbh->prepare("SELECT p.foto_perfil, c.fecha_creacion, p.id, p.nickname, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id");
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-    /*$row = $stmt->fetchAll();
-    print_r($row);*/
 
-    while ($row = $stmt->fetch()) {
-        //rellenar caja con los comentarios que hay en la base de datos
-        echo "<div class='comment'>    
-                <img src=$row->foto_perfil>
-                <p>$row->nickname</p>       
-                <p>$row->descripcion</p>    
-                <p>$row->fecha_creacion</p>  
-            </div>";
-    }
-    //cerrar la conexion a base de datos
+    unset($_SESSION["userId"]);
+    unset($_SESSION["nickname"]);
+    unset($_SESSION["name"]);
+    unset($_SESSION["surname"]);
+    unset($_SESSION["email"]);
+    unset($_SESSION["contactPage"]);
+    unset($_SESSION["profileImg"]);
+    unset($_SESSION["bannerImg"]);
+
+    $_SESSION["logged"] = "false";
+
+    session_destroy();
+
     closeConnection($dbh);
 }
-/*function calculateLikes(){
-    // conectar a base de datos
-    $dbh = connection();
-    $stmt = $dbh->prepare("SELECT COUNT(*) FROM LIKES WHERE P.ID=C.PERSONA_ID");
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-
-    while ($row = $stmt->fetch()) {
-        //rellenar caja con los comentarios que hay en la base de datos
-        echo "<div class='comment'>
-                <img src=$row->foto_perfil><p>$row->nickname</p>
-                <p>$row->descripcion</p>
-                <p>$row->fecha_creacion</p>
-            </div>";
-    }
-    //cerrar la conexion a base de datos
-    closeConnection($dbh);
-}*/
