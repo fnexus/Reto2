@@ -1,5 +1,5 @@
-<form action="vista_perfil.php?persona_id=<?=$_SESSION['userId']?>" method="post" id="publicateAd" style="display: none">
-    <input type="button" id="exitForm" name="exitForm" onclick="closeForm()">
+<form action="vista_perfil.php?persona_id=<?=$_SESSION['userId']?>" method="post" id="publicateAd">
+    <input type="button" class="exitForm" name="exitForm">
 
     <div>
         <label for="adImg">Añadir imagen</label>
