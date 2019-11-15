@@ -5,17 +5,17 @@
     <input type="button" id="exitForm" name="exitForm" onclick="closeForm()">
     <div><img src="<?= $arrayUser[0]['imagen_banner'] ?>" alt="banner"></div>
     <img src="<?= $arrayUser[0]['foto_perfil'] ?>" alt="foto-perfil">
-    <p>
+    <div>
         <label for="edit-nickname">Nickname</label>
         <input type="text" name="nickname" id="edit-nickname" value="<?= $arrayUser[0]['nickname'] ?>">
-    </p>
-    <p>
+    </div>
+    <div>
         <label for="edit-password">Password</label>
         <input type="password" name="password" id="edit-password" value="<?= $arrayUser[0]['password'] ?>">
-    </p>
-    <p>
+    </div>
+    <div>
         <label for="edit-contacto">Website</label>
         <input type="text" name="pagina-contacto" id="edit-contacto" value="<?= $arrayUser[0]['pagina_contacto'] ?>">
-    </p>
+    </div>
     <button>Guardar Datos</button>
 </form>
