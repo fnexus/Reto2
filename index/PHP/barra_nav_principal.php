@@ -1,30 +1,4 @@
-<?php
-session_start();
-if($_SESSION["logged"] == "true"){
-
-}
-else{
-    $_SESSION["logged"] = "false";
-}
-
-if (isset($_GET["action"])) {
-    $action = $_GET["action"];
-}
-switch ($action) {
-    case "Registrarse":
-        insertUser();
-        break;
-    case "Iniciar_Sesion":
-        loginUser();
-        break;
-    case "Cerrar_Sesion":
-        logoutUser();
-        break;
-    case "Guardar":
-        insertAd();
-        break;
-}
-?>
+<?php require 'actions.php';?>
 
 <nav id="nav_container">
     <a href="index.php" id="logo_container">
@@ -41,8 +15,9 @@ switch ($action) {
     </form>
     <input type="button" name="signIn" id="signIn" value="Registrarse" onclick="signIn()">
     <input type="button" name="logIn" id="logIn" value="Iniciar Sesion" onclick="logIn()">
-
-    <input type="button" name="profile" id="profile" value="Mi_Perfil" style="display: none">
+    <form action="vista_perfil.php?persona_id=5">
+    <input type="submit" name="profile" id="profile" value="Mi_Perfil" style="display: none">
+    </form>
     <form>
     <input type="submit" name="action" id="logOut" value="Cerrar_Sesion" style="display: none">
     </form>
