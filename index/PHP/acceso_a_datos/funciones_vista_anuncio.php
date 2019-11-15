@@ -55,7 +55,7 @@ function getUserData($idPersona)
     closeConnection($db);
     return $resultado;
 }
-function addComments($idAnuncio)
+function getComments($idAnuncio)
 {
     $db = connection();
     $stmt = $db->prepare("SELECT p.foto_perfil, p.id, p.nickname, c.fecha_creacion, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id AND c.anuncio_id = :id");

@@ -21,7 +21,6 @@
 
 </head>
 <body>
-<!--<body onload="logged()">-->
 
 <!-- Barra de navegacion -->
 <?php
