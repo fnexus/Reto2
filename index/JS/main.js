@@ -1,4 +1,5 @@
 
+
     let divExist =false;
 
 
@@ -35,7 +36,7 @@
         }
     }
 
-    window.onload = function() {
+  window.onload = function() {
 
 
     let status = document.getElementById("logged").value;
@@ -59,8 +60,10 @@
         $('#edit-user-form').css('display', 'block');
     });
 
+
     $('#showAd').on('click', function () {
         $('#publicateAd').css('display', 'block');
     });
 
 };
+
