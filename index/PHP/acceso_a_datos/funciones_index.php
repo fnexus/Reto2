@@ -144,7 +144,7 @@ function loginUser()
         if($_GET["nickname"]==""||$_GET["password"]==""){
             echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
         } else {
-            while ($row = $stmt->fetch()) {
+            if ($row = $stmt->fetch()) {
                 $_SESSION["userId"] = $row->id;
                 $_SESSION["nickname"] = $row->nickname;
                 $_SESSION["name"] = $row->nombre;

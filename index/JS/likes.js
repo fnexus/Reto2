@@ -26,16 +26,16 @@ $(document).ready(function () {
             boton.prop("disabled", false);
             boton.text("Quitar Like");
             // quitarle el like
-            if (boton.val() === "1") {
+            if (boton.val() == "1") {
                 // quitar like
                 dissLike();
                 boton.text("Dar Like");
             }
-        } else if (ifLike === 0) {
+        } else if (ifLike == 0) {
             boton.prop("disabled", false);
             boton.text("Dar Like");
             // sumarle like
-            if (boton.val() === "1") {
+            if (boton.val() == "1") {
                 //dar like
                 like();
                 boton.text("Quitar Like");
