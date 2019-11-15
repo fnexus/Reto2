@@ -25,7 +25,7 @@
     </form>
     <input type="button" name="logged" id="logged" value="<?= $_SESSION["logged"] ?>" style="display: none">
 
-    <div id="contenedor-formulario">
+    <div class="contenedor-formulario">
     </div>
 </nav>
 
