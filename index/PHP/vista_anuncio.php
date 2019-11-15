@@ -9,7 +9,7 @@
         //se han enviado los valores del comentario
         if(isset($_GET['id_user']) && isset($_GET['id_anuncio']) && isset($_GET['comment'])){
             $idAnuncio = $_GET['id_anuncio'];
-            insertComment($_GET['id_user'], $_GET['id_anuncio'], $_GET['comment']);
+            insertComment($_SESSION['userId'], $_GET['id_anuncio'], $_GET['comment']);
         }
         //entrada a vista del anuncio
         else if(isset($_GET['id_anuncio'])){
@@ -33,7 +33,7 @@
         <?php
         $arrayAssocAnuncio = getAdvertisementData($idAnuncio);
         $arrayAssocUser = getUserData($arrayAssocAnuncio[0]['persona_id']);
-        $arrayAssocComments = addComments($idAnuncio);
+        $arrayAssocComments = getComments($idAnuncio);
 
         //valor del id_usuario  COGER EL ID USUARIO NO DEL DEL PROPIO ANUNCIO, sino del SESSION id del usuario conectado
         echo '<input type="text" value="' . $_SESSION['userId'] . '" id="vista_anuncio_persona_id" name="persona_id" hidden>';
