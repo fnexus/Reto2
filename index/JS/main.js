@@ -1,41 +1,7 @@
 let divExist =false;
 
-
-function signIn(){
-    let contenedorFormulario = $('.contenedor-formulario');
-    contenedorFormulario.load("../PHP/registerForm.html");
-
-    if(divExist==false){
-        let div = document.createElement("div");
-        div.setAttribute("id","bodyOnForms")
-        document.body.appendChild(div);
-        divExist=true;
-    }
-}
-
-function logIn() {
-    let contenedorFormulario = $('.contenedor-formulario');
-    contenedorFormulario.load("../PHP/loginForm.html");
-
-    if(divExist==false){
-        let div = document.createElement("div");
-        div.setAttribute("id","bodyOnForms")
-        document.body.appendChild(div);
-        divExist=true;
-    }
-}
-
-function closeForm(){
-    let contenedorFormulario = document.getElementsByClassName("contenedor-formulario")
-    let form=contenedorFormulario[0].firstChild;
-    console.log(form);
-    contenedorFormulario[0].removeChild(form);
-    let div = document.getElementById("bodyOnForms");
-    document.body.removeChild(div);
-    divExist = false;
-}
-
 window.onload = function() {
+
     let status = document.getElementById("logged").value;
 
     if(status=="true"){
@@ -52,6 +18,16 @@ window.onload = function() {
         document.getElementById("profile").style.display="none";
         document.getElementById("logOut").style.display="none";;
     }
+  
+    function closeForm(){
+        let contenedorFormulario = document.getElementsByClassName("contenedor-formulario")
+        let form=contenedorFormulario[0].firstChild;
+        console.log(form);
+        contenedorFormulario[0].removeChild(form);
+        let div = document.getElementById("bodyOnForms");
+        document.body.removeChild(div);
+        divExist = false;
+    }
 
 
     $('#button-edit-perfil').on('click', function () {
@@ -61,6 +37,30 @@ window.onload = function() {
 
     $('#showAd').on('click', function () {
         $('#publicateAd').css('display', 'block');
+    });
+
+    $('#signIn').on('click', function () {
+        let contenedorFormulario = $('.contenedor-formulario');
+        contenedorFormulario.load("../PHP/registerForm.html");
+
+        if(divExist==false) {
+            let div = document.createElement("div");
+            div.setAttribute("id", "bodyOnForms")
+            document.body.appendChild(div);
+            divExist = true;
+        }
+    });
+
+    $('#logIn').on('click', function () {
+        let contenedorFormulario = $('.contenedor-formulario');
+        contenedorFormulario.load("../PHP/loginForm.html");
+
+        if(divExist==false){
+            let div = document.createElement("div");
+            div.setAttribute("id","bodyOnForms")
+            document.body.appendChild(div);
+            divExist=true;
+        }
     });
 
 };
