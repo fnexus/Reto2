@@ -1,4 +1,3 @@
-window.onload = function () {
     $(document).ready(function () {
 
         let boton = $('#dar_quitar_like');
@@ -100,4 +99,3 @@ window.onload = function () {
             return variable;
         }
     });
-};
