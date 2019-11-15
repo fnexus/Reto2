@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <title>FNEXUS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon2.png"/>
 
     <!-- estilos CSS-->
     <link href="../CSS/estilos.css" type="text/css" rel="stylesheet">

@@ -21,7 +21,7 @@
 
 
     <form>
-    <input type="submit" name="action" id="logOut" value="Cerrar_Sesion" style="display: none">
+    <input type="submit" name="action" id="logOut" value="Cerrar Sesion" style="display: none">
     </form>
     <input type="button" name="logged" id="logged" value="<?= $_SESSION["logged"] ?>" style="display: none">
 

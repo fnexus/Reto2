@@ -13,10 +13,10 @@ switch ($action) {
     case "Registrarse":
         insertUser();
         break;
-    case "Iniciar_Sesion":
+    case "Iniciar Sesion":
         loginUser();
         break;
-    case "Cerrar_Sesion":
+    case "Cerrar Sesion":
         logoutUser();
         break;
 }
