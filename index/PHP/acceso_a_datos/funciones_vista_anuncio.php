@@ -55,7 +55,12 @@ function getUserData($idPersona)
     closeConnection($db);
     return $resultado;
 }
-function getComments($idAnuncio)
+
+/**
+ * @param $idAnuncio
+ * @return array
+ */
+function addComments($idAnuncio)
 {
     $db = connection();
     $stmt = $db->prepare("SELECT p.foto_perfil, p.id, p.nickname, c.fecha_creacion, c.descripcion FROM COMENTARIO c, PERSONA p WHERE p.id=c.persona_id AND c.anuncio_id = :id");
@@ -69,4 +74,106 @@ function getComments($idAnuncio)
     return $resultado;
 }
 
+
+
+/*
+function addDetails($idAnuncio) {
+    $arrayAssocAnuncio = getAdvertisementData($idAnuncio);
+    $arrayAssocUser = getUserData($arrayAssocAnuncio[0]['persona_id']);
+    $arrayAssocComments = addComments($idAnuncio);
+
+    //valor del id_usuario  COGER EL ID USUARIO NO DEL DEL PROPIO ANUNCIO, sino del SESSION id del usuario conectado
+    echo '<input type="text" value="' . $_SESSION['userId'] . '" id="vista_anuncio_persona_id" name="persona_id" hidden>';
+
+    //echo datos usuario
+    echo '<p>DATOS USUARIO<p>';
+    echo '<img src="' . $arrayAssocUser[0]['foto_perfil'] . '">';
+    echo '<br>';
+    echo $arrayAssocUser[0]['nickname'];
+    echo '<br><br>';
+
+    //echo datos anuncio
+    echo '<p>DATOS ANUNCIO<p>';
+    echo $arrayAssocAnuncio[0]['titulo'];
+    echo '<br>';
+    echo $arrayAssocAnuncio[0]['descripcion'];
+    echo '<br>';
+    echo $arrayAssocAnuncio[0]['nombre_empresa'];
+    echo '<br>';
+    echo $arrayAssocAnuncio[0]['fecha_creacion'];
+    echo '<br><br>';
+}*/
+
+/**
+ * Coge el id del anuncio y luego devuelve una persona entera
+ * @param $anuncio_id
+ * @return objeto persona
+ */
+function getPersonaByIdFromAnuncio($anuncio_id)
+{
+    // array asociativo para la query
+    $anuncio = array("id" => $anuncio_id);
+    // conectar a base de datos
+    $db = connection();
+    $stmt = $db->prepare("SELECT persona_id FROM ANUNCIO WHERE id = :id ");
+    $stmt->execute($anuncio);
+    // devolver un objeto
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+    $persona = array("id" => $result->persona_id);
+    $stmt = $db->prepare("SELECT * FROM PERSONA WHERE id = :id ");
+    $stmt->execute($persona);
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    closeConnection($db);
+    return $result;
+}
+
+/**
+ * @param $persona_id
+ * @return objeto con los datos del anuncio
+ */
+function getAnuncioById($anuncio_id)
+{
+    // array asociativo para la query
+    $persona = array("id" => $anuncio_id);
+    // conectar a base de datos
+    $db = connection();
+    $stmt = $db->prepare("SELECT * FROM ANUNCIO WHERE id = :id ");
+    $stmt->execute($persona);
+    // devolver un objeto
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    return $result;
+}
+
+/**
+ * @param $variable
+ * @param $queLlenar
+ */
+function fillAnuncio($variable, $queLlenar)
+{
+
+    switch ($queLlenar) {
+        case "persona_imagen":
+            echo $variable->foto_perfil;
+            break;
+        case "persona_nickname":
+            echo $variable->nickname;
+            break;
+        case "anuncio_titulo":
+            echo $variable->titulo;
+            break;
+        case "anuncio_descripcion":
+            echo $variable->descripcion;
+            break;
+        case "anuncio_nombre_empresa":
+            echo $variable->nombre_empresa;
+            break;
+        case "anuncio_fecha":
+            echo $variable->fecha_creacion;
+            break;
+        case "anuncio_imagen":
+            echo $variable->imagen;
+            break;
+    }
+}
 
