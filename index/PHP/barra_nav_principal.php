@@ -14,8 +14,10 @@
             </select></label>
         <button type="submit" id="search_button">Buscar</button>
     </form>
-    <input type="button" name="signIn" id="signIn" value="Registrarse" onclick="signIn()">
-    <input type="button" name="logIn" id="logIn" value="Iniciar Sesion" onclick="logIn()">
+    <!--<button name="signIn" id="signIn">Registrarse</button>
+    <button name="logIn" id="logIn">Iniciar Sesión</button>-->
+    <input type="button" name="signIn" id="signIn" value="Registrarse">
+    <input type="button" name="logIn" id="logIn" value="Iniciar Sesion">
 
     <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile" style="display: none">Mi perfil</a>
 
