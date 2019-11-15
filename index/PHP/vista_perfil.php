@@ -13,8 +13,9 @@ $persona = getPersonaById($_SESSION['userId']);
 
 ?>
 
+
 <div class="main_container">
-    <div id="contenedor_editar_perfil">
+    <div class="contenedor_formulario">
         <?php include 'edit_user.php'; ?>
     </div>
     <button id="button-edit-perfil" type='button'>Editar Perfil</button>

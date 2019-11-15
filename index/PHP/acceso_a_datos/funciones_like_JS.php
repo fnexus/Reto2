@@ -73,7 +73,6 @@ function like($persona_id, $anuncio_id)
 function disslike($persona_id, $anuncio_id)
 {
     $data = array("persona_id" => $persona_id, "anuncio_id" => $anuncio_id);
-
     $url = "DELETE FROM LIKES WHERE persona_id = :persona_id AND anuncio_id = :anuncio_id";
     return theCall($data, $url);
 }

@@ -1,6 +1,5 @@
 let divExist =false;
 
-
 window.onload = function() {
 
     let status = document.getElementById("logged").value;
@@ -19,6 +18,16 @@ window.onload = function() {
         document.getElementById("profile").style.display="none";
         document.getElementById("logOut").style.display="none";;
     }
+  
+    function closeForm(){
+        let contenedorFormulario = document.getElementsByClassName("contenedor-formulario")
+        let form=contenedorFormulario[0].firstChild;
+        console.log(form);
+        contenedorFormulario[0].removeChild(form);
+        let div = document.getElementById("bodyOnForms");
+        document.body.removeChild(div);
+        divExist = false;
+    }
 
 
     $('#button-edit-perfil').on('click', function () {
@@ -31,8 +40,7 @@ window.onload = function() {
     });
 
     $('#signIn').on('click', function () {
-        console.log('entro');
-        let contenedorFormulario = $('#contenedor-formulario');
+        let contenedorFormulario = $('.contenedor-formulario');
         contenedorFormulario.load("../PHP/registerForm.html");
 
         if(divExist==false) {
@@ -44,8 +52,7 @@ window.onload = function() {
     });
 
     $('#logIn').on('click', function () {
-        console.log('entro');
-        let contenedorFormulario = $('#contenedor-formulario');
+        let contenedorFormulario = $('.contenedor-formulario');
         contenedorFormulario.load("../PHP/loginForm.html");
 
         if(divExist==false){
