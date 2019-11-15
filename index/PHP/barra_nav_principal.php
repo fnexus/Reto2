@@ -1,5 +1,3 @@
-<?php require 'actions.php';?>
-
 <nav id="nav_container">
     <a href="index.php" id="logo_container">
         <img id="logo">
@@ -18,6 +16,7 @@
     <input type="button" name="logIn" id="logIn" value="Iniciar Sesion" onclick="logIn()">
 
     <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile" style="display: none">Mi perfil</a>
+
 
     <form>
     <input type="submit" name="action" id="logOut" value="Cerrar_Sesion" style="display: none">

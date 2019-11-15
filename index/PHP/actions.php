@@ -1,7 +1,6 @@
 <?php
 session_start();
 if($_SESSION["logged"] == "true"){
-
 }
 else{
     $_SESSION["logged"] = "false";
