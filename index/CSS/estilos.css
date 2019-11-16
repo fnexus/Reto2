@@ -257,19 +257,55 @@ img#logo {
 footer{
     margin: 0;
     padding: 0;
-    font-family: "montserrat",sans-serif;
-    background: #f1f1f1;
+    font-family: "Montserrat",sans-serif;
+    background: #222222;
     display: flex;
-    height: 130px;
+    height: 120px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    color:white;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+footer a{
+    text-decoration: none;
+    color:inherit;
+}
+
+#footer-brand{
+    display: flex;
+    align-items: center;
+    width: 15%;
+    font-size: 12px;
+    height: 100%;
+    overflow: hidden;
+}
+#footer-logo{
+    width: 100%;
+    height: auto;
+
+}
+#license-logo{
+    width: 25px;
+    height: auto;
+}
+#footer-contact{
+    display: flex;
+    align-items: center;
+}
+.footer-divider{
+    height: 30px;
+    width: 1px;
+    background: white;
+    margin: 0 20px;
 }
 
 /*social media*/
 .share-button{
     width: 280px;
-    height: 80px;
-    background: #dfe6e9;
+    height: 35px;
+    background: #1c1c1c;
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -295,6 +331,10 @@ footer{
     z-index: 999;
     transition: .6s linear;
     border-radius: 40px;
+    /*CODE TO CREATE TEXT GRADIENT*/
+    /*background: linear-gradient(45deg, #ffb76b 0%,#ffa73d 50%,#ff7c00 51%,#ff7f04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
 }
 
 .share-button:hover span{
@@ -305,11 +345,13 @@ footer{
 .share-button a{
     flex: 1;
     font-size: 26px;
-    color: #2d3436;
+    color: #f4efff;
     text-align: center;
     transform: translateX(-100%);
     opacity: 0;
     transition: 0.3s linear;
+    /*Para ajustar*/
+    margin-bottom: 5px;
 }
 
 .share-button:hover a{
@@ -331,6 +373,15 @@ footer{
 
 .share-button a:nth-of-type(4){
     transition-delay: 0.4s;
+}
+i.fas{
+    margin-right: 6px;
+    margin-left: -6px;
+}
+.share-button>span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
