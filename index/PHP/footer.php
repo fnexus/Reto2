@@ -12,7 +12,7 @@
     <div class="share-button">
         <span><i class="fas fa-share-alt"></i> Follow us!</span>
         <a href="#"><i class="fab fa-facebook-f fa-xs"></i></a>
-        <a href="#"><i class="fab fa-twitter fa-xs"></i></a>
+        <a target="_blank" href="https://twitter.com/fnexusTeam"><i class="fab fa-twitter fa-xs"></i></a>
         <a href="#"><i class="fab fa-instagram fa-xs"></i></a>
         <a href="#"><i class="fab fa-linkedin-in fa-xs"></i></a>
     </div>
