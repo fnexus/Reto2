@@ -16,7 +16,15 @@ switch ($modo) {
     case "insertar_comentario":
         //echo "$modo - $id_anuncio - $persona_id - $comentario";
         echo insertComment($persona_id, $id_anuncio, $comentario);
+        sendEmail(getUserEmail($idAnuncio));
         break;
+}
+
+function getUserEmail($idAnuncio)
+{
+    $data = array('anuncio_id' => $idAnuncio);
+    $url = "SELECT p.email FROM PERSONA p join ANUNCIO a ON a.persona_id = p.id WHERE a.id = :anuncio_id ";
+    return getAll($data, $url);
 }
 
 /**
