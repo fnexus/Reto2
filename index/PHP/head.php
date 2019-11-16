@@ -25,12 +25,14 @@
 
     <!-- includes php datos-->
     <?php
+    require_once('PHPMailer/PHPMailerAutoload.php');
+    require 'sendEmails.php';
+    require 'actions.php';
     include 'acceso_a_datos/conexion.php';
     include 'acceso_a_datos/funciones_index.php';
     include 'acceso_a_datos/funciones_vista_anuncio.php';
     include 'acceso_a_datos/funciones_vista_perfil.php';
     include 'acceso_a_datos/funciones_publicar_anuncio.php';
-
     ?>
 
 </head>
@@ -38,7 +40,8 @@
 
 <!-- Barra de navegacion -->
 <?php
-require 'actions.php';
-require 'barra_nav_principal.php'
+require 'barra_nav_principal.php';
+//sendEmail('adrianf1team@gmail.com');
+//La anterior linea de codigo funciona pero al llamarle desde funciones_comentarios_JS linea 19 (sendEmail(getUserEmail($idAnuncio))) NO FUNCIONA
 ?>
 
