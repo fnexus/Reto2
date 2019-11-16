@@ -1,8 +1,8 @@
 <?php
     $arrayUser = getUserData($_SESSION["userId"]);
 ?>
-<form action="vista_perfil.php?persona_id=<?= $_SESSION["userId"] ?>" method="post" id="edit-user-form">
-    <input type="button" class="exitForm" name="exitForm">
+
+<form action="vista_perfil.php?persona_id=<?= $_SESSION["userId"] ?>" method="post" id="edit-profile" class="modal">
     <div><img src="<?= $arrayUser[0]['imagen_banner'] ?>" alt="banner"></div>
     <img src="<?= $arrayUser[0]['foto_perfil'] ?>" alt="foto-perfil">
     <div>

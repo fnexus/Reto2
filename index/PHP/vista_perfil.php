@@ -19,7 +19,7 @@ $persona = getPersonaById($_SESSION['userId']);
         <?php include 'edit_user.php'; ?>
         <?php include 'publicar_anuncio.php'; ?>
     </div>
-    <button id="button-edit-perfil" type='button'>Editar Perfil</button>
+    <a href="#edit-profile" class="efectoFade" rel="modal:open">Editar perfil</a></p>
     <div id="cabecera_perfil" class="banner_perfil" style='<?= fillPerfil($persona, "banner") ?>'>
         <div class="foto_perfil">
             <div class="imagen_perfil" alt="Imagen_perfil" style='<?= fillPerfil($persona, "imagen") ?>'></div>
@@ -36,7 +36,7 @@ $persona = getPersonaById($_SESSION['userId']);
         <!-- Pasarle el id persona para buscar sus anuncios-->
         <?= add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
         <div class='ad'>
-            <input type="button" name="showAd" id="showAd" value="+">
+            <a href="#publicateAd" class="efectoFade" rel="modal:open">ADD +</a></p>
         </div>
     </main>
 </div>

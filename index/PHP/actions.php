@@ -1,10 +1,5 @@
 <?php
 session_start();
-if($_SESSION["logged"] == "true"){
-}
-else{
-    $_SESSION["logged"] = "false";
-}
 
 if (isset($_GET["action"])) {
     $action = $_GET["action"];
