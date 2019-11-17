@@ -1,4 +1,5 @@
 USE FNEXUS;
+
 /*CATEGORIA*/
 INSERT INTO CATEGORIA (nombre)
 VALUES ("coches");

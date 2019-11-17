@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="" />
+    </include_path>
+  </component>
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter id="6076a942-36e7-4e5a-8f3c-a98c23342853" name="Remote PHP 7.2" home="vagrant://DATA" debugger_id="php.debugger.XDebug">
+      <interpreter id="db22abc4-2578-4a71-a886-6799448509bc" name="Remote PHP 7.2" home="vagrant://DATA" debugger_id="php.debugger.XDebug">
         <remote_data VAGRANT_FOLDER="$PROJECT_DIR$" INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="/home/vagrant/.phpstorm_helpers" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" />
       </interpreter>
     </interpreters>
@@ -80,5 +85,4 @@
       </interpreter>
     </phpInfoCache>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
 </project>
