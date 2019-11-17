@@ -37,6 +37,10 @@ img#logo {
     border-radius: 25%;
 }
 
+#logged, #profile, #logOut{
+    display: none;
+}
+
 
 /* el contenedor del resto de la pagina que no es navegacion*/
 
@@ -115,17 +119,6 @@ img#logo {
     margin: 0;
     padding: 0;
     z-index: -1;
-}
-
-#loginForm, #registerForm, #publicateAd{
-    position:fixed;
-    top:15%;
-    left:30%;
-    width: 40%;
-    height: 700px;
-    border: 2px solid black;
-    background: radial-gradient(#ffffff, #a39fa8);
-    z-index: 3;
 }
 
 
@@ -225,29 +218,153 @@ img#logo {
     background-size: 100% 100%;
 }
 
-#bodyOnForms{
-    top:0%;
+/*EDITAR PERFIL*/
+
+#edit-profile img{
+    width: 50px;
+}
+
+
+/*FOOTER*/
+
+footer{
+    padding: 0;
+    font-family: "Montserrat",sans-serif;
+    background: #222222;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: space-around;
+    color:white;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+footer a{
+    text-decoration: none;
+    color:inherit;
+}
+
+#footer-brand{
+    display: flex;
+    align-items: center;
+    width: 15%;
+    font-size: 12px;
+    height: 100%;
+    overflow: hidden;
+}
+#footer-logo{
+    width: 100%;
+    height: auto;
+
+}
+#license-logo{
+    width: 25px;
+    height: auto;
+}
+#footer-contact{
+    display: flex;
+    align-items: center;
+}
+.footer-divider{
+    height: 30px;
+    width: 1px;
+    background: white;
+    margin: 0 20px;
+}
+
+/*social media*/
+.share-button{
+    width: 280px;
+    height: 35px;
+    background: #1c1c1c;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.share-button:hover{
+    transform: scale(1.1);
+}
+
+.share-button span{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: black;
-    opacity: 0.7;
-    z-index: 2;
+    background: #2d3436;
+    color: #f1f1f1;
+    text-align: center;
+    line-height: 80px;
+    z-index: 999;
+    transition: .6s linear;
+    border-radius: 40px;
+    /*CODE TO CREATE TEXT GRADIENT*/
+    /*background: linear-gradient(45deg, #ffb76b 0%,#ffa73d 50%,#ff7c00 51%,#ff7f04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
 }
 
-/*EDITAR PERFIL*/
-#edit-user-form{
-    display: none;
-    position:fixed;
-    left:30%;
-    width: 40%;
-    height: 700px;
-    border:2px solid black;
-    background:radial-gradient(#ffffff, #a39fa8);
-    z-index: 3;
+.share-button:hover span{
+    transform: translateX(-100%);
+    transition-delay: .3s;
 }
 
-#edit-user-form img{
-    width: 50px;
+.share-button a{
+    flex: 1;
+    font-size: 26px;
+    color: #f4efff;
+    text-align: center;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: 0.3s linear;
+    /*Para ajustar*/
+    margin-bottom: 5px;
 }
+
+.share-button:hover a{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.share-button a:nth-of-type(1){
+    transition-delay: 1s;
+}
+
+.share-button a:nth-of-type(2){
+    transition-delay: 0.8s;
+}
+
+.share-button a:nth-of-type(3){
+    transition-delay: 0.6s;
+}
+
+.share-button a:nth-of-type(4){
+    transition-delay: 0.4s;
+}
+i.fas{
+    margin-right: 6px;
+    margin-left: -6px;
+}
+.share-button>span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*MODALS: VENTANAS EMERGENTES*/
+.blocker{
+    z-index: 1000;
+}
+
+
+
+
+
+
+
 

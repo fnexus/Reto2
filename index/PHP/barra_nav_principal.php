@@ -12,20 +12,24 @@
             </select></label>
         <button type="submit" id="search_button">Buscar</button>
     </form>
-    <!--<button name="signIn" id="signIn">Registrarse</button>
-    <button name="logIn" id="logIn">Iniciar Sesión</button>-->
-    <input type="button" name="signIn" id="signIn" value="Registrarse">
-    <input type="button" name="logIn" id="logIn" value="Iniciar Sesion">
+    <!--Este input manda el valor de la sesion -->
+    <input type="button" name="logged" id="logged" value="<?= $_SESSION["logged"] ?>">
 
-    <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile" style="display: none">Mi perfil</a>
+    <!--Botones iniciales-->
+    <a href="#loginForm" id="logIn-button" class="efectoFade" rel="modal:open">Iniciar Sesion</a>
+    <a href="#registerForm" id="signIn-button" class="efectoFade" rel="modal:open">Registrarse</a>
 
-
+    <!--Botones cuando estas logeado-->
+    <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile">Mi perfil</a>
+    <!-- cuando pulsamos en cerrar sesion queremos que se recargue la pagina por lo que metemos el boton en un form. El action default del form es la pagina actual -->
     <form>
-    <input type="submit" name="action" id="logOut" value="Cerrar_Sesion" style="display: none">
+        <input type="submit" name="action" id="logOut" value="Cerrar Sesion">
     </form>
-    <input type="button" name="logged" id="logged" value="<?= $_SESSION["logged"] ?>" style="display: none">
 
-    <div id="contenedor-formulario">
+
+    <div class="contenedor-formulario">
+        <?php include 'loginForm.html'; ?>
+        <?php include 'registerForm.html'; ?>
     </div>
 </nav>
 
