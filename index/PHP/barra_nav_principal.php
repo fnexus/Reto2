@@ -8,7 +8,7 @@
         <label>Titulo<input type="text" name="search_titulo" id="search_titulo"> </label>
         <label>Categoria<select name="search_categoria" id="search_categoria">
                 <option value="">Selecciona</option>
-                <?= add_categorias_bar("option") ?>
+                <?php add_categorias_bar("option") ?>
             </select></label>
         <button type="submit" id="search_button">Buscar</button>
     </form>

@@ -22,7 +22,7 @@ $(document).ready(function () {
      */
     function verBotonLikes() {
         var ifLike = comprobarSiHeHechoLike();
-        if (ifLike > 0) {
+        if (ifLike > "0") {
             boton.prop("disabled", false);
             boton.text("Quitar Like");
             // quitarle el like
@@ -31,7 +31,7 @@ $(document).ready(function () {
                 dissLike();
                 boton.text("Dar Like");
             }
-        } else if (ifLike == 0) {
+        } else if (ifLike == "0") {
             boton.prop("disabled", false);
             boton.text("Dar Like");
             // sumarle like
@@ -41,7 +41,7 @@ $(document).ready(function () {
                 boton.text("Quitar Like");
             }
         } else {
-            boton.text("Dar Like");
+            boton.text("Inicia sesión para poder dar a Like a un anuncio");
             boton.prop("disabled", true);
         }
     }
