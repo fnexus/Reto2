@@ -40,11 +40,14 @@ window.onload = function() {
 
     deleteButton.addEventListener("click", function () {
         // borrar este anuncio
+        let confirmacion =confirm("¿Estas seguro de que quieres eliminar este anuncio?")
+
+        if(confirmacion==true){
         $.ajax({
 
             url: urlBasica + "?id_anuncio=" + id_anuncio + "&action=Borrar",
             type: "GET",
-            async: false,
+            async: true,
             success: function (result) {
                 console.log("borrar " + result);
 
@@ -53,7 +56,8 @@ window.onload = function() {
                 console.log(thrownError);
             }
         });
-
+        location.href ="http://localhost:8765/index/PHP/index.php";
+        }
     });
 
 };
