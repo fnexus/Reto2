@@ -161,7 +161,7 @@ img#logo {
     text-align: end;
 }
 #dar_quitar_like:disabled {
-    color: lightgrey;
+    color: grey;
 }
 
 #likes_count {
