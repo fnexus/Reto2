@@ -19,24 +19,24 @@ $persona = getPersonaById($_SESSION['userId']);
         <?php include 'edit_user.php'; ?>
         <?php include 'publicar_anuncio.php'; ?>
     </div>
-    <a href="#edit-profile" class="efectoFade" rel="modal:open">Editar perfil</a></p>
-    <div id="cabecera_perfil" class="banner_perfil" style='<?= fillPerfil($persona, "banner") ?>'>
+    <a href="#edit-profile" class="efectoFade" rel="modal:open">Editar perfil</a>
+    <div id="cabecera_perfil" class="banner_perfil" style='<?php fillPerfil($persona, "banner") ?>'>
         <div class="foto_perfil">
-            <div class="imagen_perfil" alt="Imagen_perfil" style='<?= fillPerfil($persona, "imagen") ?>'></div>
+            <img class="imagen_perfil" alt="Imagen_perfil" src='<?php fillPerfil($persona, "imagen") ?>'>
         </div>
         <div class="info_perfil">
-            <h3 class="nickname_perfil"><?= fillPerfil($persona, "nickname") ?></h3>
-            <p class="nombre_apellidos_perfil"><?= fillPerfil($persona, "nombre_apellidos") ?></p>
-            <p class="email_perfil"><?= fillPerfil($persona, "email") ?></p>
-            <a class="contacto_perfil" href="http://<?= fillPerfil($persona, 'contacto') ?>">Página de
+            <h3 class="nickname_perfil"><?php fillPerfil($persona, "nickname") ?></h3>
+            <p class="nombre_apellidos_perfil"><?php fillPerfil($persona, "nombre_apellidos") ?></p>
+            <p class="email_perfil"><?php fillPerfil($persona, "email") ?></p>
+            <a class="contacto_perfil" href="http://<?php fillPerfil($persona, 'contacto') ?>">Página de
                 contacto</a>
         </div>
     </div>
     <main id="ads_container">
         <!-- Pasarle el id persona para buscar sus anuncios-->
-        <?= add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
+        <?php add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
         <div class='ad'>
-            <a href="#publicateAd" class="efectoFade" rel="modal:open">ADD +</a></p>
+            <a href="#publicateAd" class="efectoFade" rel="modal:open">ADD +</a>
         </div>
     </main>
 </div>
