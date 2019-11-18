@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../JS/jquery.modal.min.css"/>
 
     <!-- estilos CSS-->
+    <link href="../CSS/normalize.css" rel="stylesheet"/>
     <link href="../CSS/estilos.css" type="text/css" rel="stylesheet">
     <link href="../CSS/vista_usuario.css" type="text/css" rel="stylesheet">
 
