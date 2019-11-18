@@ -16,3 +16,13 @@ function insertAd()
     closeConnection($db);
 
 }
+function deleteAd($id_anuncio){
+    include "conexion.php";
+    $db = connection();
+
+    $data = array('id_anuncio' => $id_anuncio);
+    $stmt = $db->prepare("DELETE FROM ANUNCIO WHERE id = :id_anuncio");
+    $stmt->execute($data);
+
+    closeConnection($db);
+}

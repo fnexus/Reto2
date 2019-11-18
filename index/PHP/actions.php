@@ -15,4 +15,10 @@ switch ($action) {
         logoutUser();
         header("Location: index.php");
         break;
+    case "Borrar":
+        include 'acceso_a_datos/funciones_publicar_anuncio.php';
+        $id_anuncio = isset($_GET['id_anuncio']) ? $_GET['id_anuncio'] : "";
+        deleteAd($id_anuncio);
+        break;
+
 }
