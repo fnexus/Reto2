@@ -1,9 +1,10 @@
 <?php
 
 function sendEmail($email){
+    //echo $email;
     $mail = new PHPMailer();
     $mail->isSmtp();
-    $mail->SMTPDebug = 1;
+    $mail->SMTPDebug = 0;
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'ssl';
     $mail->Host = 'smtp.gmail.com';
@@ -13,7 +14,7 @@ function sendEmail($email){
     $mail->Password = 'fn3xu5team';
     $mail->SetFrom('fnexus.co@gmail.com');
     $mail->Subject = 'FNEXUS';
-    $mail->Body = 'Somos una organización criminal que se expande como un virus con el objetivo de destruir google. Tu ya estás infectado, asume las consecuencias de apoyar a google. Nos vemos pronto.';
+    $mail->Body = 'Se ha realizado un nuevo comentario en tu anuncio!';
     $mail->AddAddress($email);
 
     $mail->Send();

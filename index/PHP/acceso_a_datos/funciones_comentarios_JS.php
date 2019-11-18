@@ -1,4 +1,6 @@
 <?php
+require ('../PHPMailer/PHPMailerAutoload.php');
+require '../sendEmails.php';
 // lo necesita porque es independiente de los otros includes, por asi decir
 // cuando se le llama, solo es a esta pagina y no a la connection etc;
 include "conexion.php";
@@ -16,7 +18,7 @@ switch ($modo) {
         break;
     case "insertar_comentario":
         insertComment($persona_id, $id_anuncio, $comentario);
-        sendEmail(getUserEmail($idAnuncio));
+        sendEmail(getUserEmail($id_anuncio));
         break;
     case "borrar_comentario":
         if ($idComentario != "") {
@@ -27,9 +29,18 @@ switch ($modo) {
 
 function getUserEmail($idAnuncio)
 {
+
+    $db = connection();
     $data = array('anuncio_id' => $idAnuncio);
-    $url = "SELECT p.email FROM PERSONA p join ANUNCIO a ON a.persona_id = p.id WHERE a.id = :anuncio_id ";
-    return getAll($data, $url);
+    $stmt = $db->prepare("SELECT p.email FROM PERSONA p join ANUNCIO a ON a.persona_id = p.id WHERE a.id = :anuncio_id");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute($data);
+
+    // En este caso $resultado será un array asociativo con email
+    $resultado = $stmt->fetchAll();
+    echo $resultado[0]['email'];
+    closeConnection($db);
+    return $resultado[0]['email'];
 }
 
 /**
@@ -75,6 +86,7 @@ function query($data, $url)
     $stmt = $db->prepare($url);
     $stmt->execute($data);
     closeConnection($db);
+    return $stmt;
 }
 
 /**
