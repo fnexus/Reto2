@@ -6,6 +6,7 @@ $modo = isset($_GET['modo']) ? $_GET['modo'] : "";
 $id_anuncio = isset($_GET['id_anuncio']) ? $_GET['id_anuncio'] : "";
 $persona_id = isset($_GET['persona_id']) ? $_GET['persona_id'] : "";
 $comentario = isset($_GET['comentario']) ? $_GET['comentario'] : "";
+$idComentario = isset($_GET['id_comentario']) ? $_GET['id_comentario'] : "";
 
 switch ($modo) {
     case "comentarios":
@@ -14,9 +15,13 @@ switch ($modo) {
         }
         break;
     case "insertar_comentario":
-        //echo "$modo - $id_anuncio - $persona_id - $comentario";
-        echo insertComment($persona_id, $id_anuncio, $comentario);
+        insertComment($persona_id, $id_anuncio, $comentario);
         sendEmail(getUserEmail($idAnuncio));
+        break;
+    case "borrar_comentario":
+        if ($idComentario != "") {
+            deleteComment($idComentario);
+        }
         break;
 }
 
@@ -34,7 +39,7 @@ function getUserEmail($idAnuncio)
 function sendComments($idAnuncio)
 {
     $data = array('anuncio_id' => $idAnuncio);
-    $url = "SELECT p.nickname, c.descripcion, c.fecha_creacion FROM COMENTARIO c join PERSONA p WHERE c.anuncio_id = :anuncio_id AND c.persona_id = p.id";
+    $url = "SELECT p.nickname, c.descripcion, c.fecha_creacion, c.persona_id, c.id FROM COMENTARIO c join PERSONA p WHERE c.anuncio_id = :anuncio_id AND c.persona_id = p.id";
     return getAll($data, $url);
 }
 
@@ -47,15 +52,24 @@ function insertComment($idUser, $idAnuncio, $comment)
 {
     $data = array('anuncio_id' => $idAnuncio, 'persona_id' => $idUser, 'descripcion' => $comment);
     $url = "INSERT INTO COMENTARIO (anuncio_id, persona_id, descripcion) VALUES (:anuncio_id, :persona_id, :descripcion)";
-    return insert($data, $url);
+    query($data, $url);
 }
 
+/**
+ * @param $idComment
+ */
+function deleteComment($idComment)
+{
+    $data = array('id_comentario' => $idComment);
+    $url = "DELETE FROM COMENTARIO WHERE id = :id_comentario";
+    query($data, $url);
+}
 
 /**
  * @param $data
  * @param $url
  */
-function insert($data, $url)
+function query($data, $url)
 {
     $db = connection();
     $stmt = $db->prepare($url);
