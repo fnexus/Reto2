@@ -1,0 +1,75 @@
+/* Codigo de ver_perfil */
+
+#cabecera_perfil {
+    margin: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    max-height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    -webkit-box-shadow: inset -1px -200px 200px -9px rgba(0, 0, 0, 0.77);
+    box-shadow: inset -1px -200px 200px -9px rgba(0, 0, 0, 0.90);
+
+    color: #bbb;
+    line-height: 1.75em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .37);
+}
+
+
+.foto_perfil {
+    flex: 1 1 100%;
+}
+
+.imagen_perfil {
+    width: 120px;
+    height: 120px;
+    padding-top: 150px;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.info_perfil {
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.info_perfil a {
+    color: #13aff0;
+    text-decoration: none;
+}
+
+.info_perfil a:focus, a:hover {
+    color: #0b7cac;
+    text-decoration: none;
+    -webkit-transition: all .3s cubic-bezier(.25, .46, .45, .94);
+    transition: all .3s cubic-bezier(.25, .46, .45, .94);
+}
+.icono {
+    padding-left: 7px;
+}
+
+.imagen_perfil {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+}
+
+.nickname_perfil {
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.2em;
+}
+

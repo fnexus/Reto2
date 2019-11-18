@@ -20,6 +20,7 @@
 
     <!-- estilos CSS-->
     <link href="../CSS/estilos.css" type="text/css" rel="stylesheet">
+    <link href="../CSS/vista_usuario.css" type="text/css" rel="stylesheet">
 
 
     <!-- includes php datos-->

@@ -45,7 +45,7 @@ img#logo {
 /* el contenedor del resto de la pagina que no es navegacion*/
 
 .main_container {
-    padding-top: 66px;
+    padding-top: 60px;
 }
 
 
@@ -181,42 +181,7 @@ img#logo {
 }
 
 
-/* Codigo de ver_perfil */
 
-#cabecera_perfil {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: gold;
-}
-
-.banner_perfil {
-
-}
-
-.foto_perfil {
-    flex: 1 1 100%;
-}
-
-.info_perfil {
-    flex: 1 1 100%;
-}
-
-.imagen_perfil {
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: 100px 100px;
-}
-
-.banner_perfil {
-    width: 100%;
-    height: 300px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
 
 /*EDITAR PERFIL*/
 
