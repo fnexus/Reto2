@@ -57,8 +57,8 @@ function add_ads()
     while ($anuncio = $ads->fetchObject()) {
         echo "<div class='ad'>
                 <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
-                    <p class='ad_titulo'>{$anuncio->titulo}</p>
-                    <img src='{$anuncio->imagen}' class='ad_imagen'>                    
+                    <!--<p class='ad_titulo'>{$anuncio->titulo}</p>-->
+                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'></div>                 
                 </a>
             </div>";
     }
