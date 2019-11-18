@@ -16,23 +16,22 @@
     <script src="../JS/main.js"></script>
     <!-- Ventanas emergentes-->
     <script src="../JS/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="../JS/jquery.modal.min.css" />
+    <link rel="stylesheet" href="../JS/jquery.modal.min.css"/>
 
     <!-- estilos CSS-->
     <link href="../CSS/estilos.css" type="text/css" rel="stylesheet">
-
 
 
     <!-- includes php datos-->
     <?php
     require_once('PHPMailer/PHPMailerAutoload.php');
     require 'sendEmails.php';
-    require 'actions.php';
     include 'acceso_a_datos/conexion.php';
     include 'acceso_a_datos/funciones_index.php';
     include 'acceso_a_datos/funciones_vista_anuncio.php';
     include 'acceso_a_datos/funciones_vista_perfil.php';
     include 'acceso_a_datos/funciones_publicar_anuncio.php';
+    require 'actions.php';
     ?>
 
 </head>
