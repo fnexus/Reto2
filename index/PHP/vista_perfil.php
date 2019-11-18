@@ -20,8 +20,9 @@ $persona = getPersonaById($_SESSION['userId']);
             <?php include 'publicar_anuncio.php'; ?>
         </div>
         <div id="cabecera_perfil" class="banner_perfil" style='<?= fillPerfil($persona, "banner") ?>; height: auto'>
+
             <div class="foto_perfil">
-                <div class="imagen_perfil" alt="Imagen_perfil" style='<?= fillPerfil($persona, "imagen") ?>'></div>
+                <img class="imagen_perfil" alt="Imagen_perfil" src='<?= fillPerfil($persona, "imagen") ?>'>
             </div>
             <div class="info_perfil">
                 <h3 class="nickname_perfil"><?= fillPerfil($persona, "nickname") ?></h3>
@@ -32,7 +33,7 @@ $persona = getPersonaById($_SESSION['userId']);
                     <i class="fas fa-external-link-alt icono"></i>
                 </a>
                 <br>
-                <a href="#edit-profile" class="efectoFade" rel="modal:open">Editar perfil</a>
+                <a href="#edit-profile" class="efectoFade editar_perfil" rel="modal:open">Editar perfil</a>
             </div>
         </div>
         <main id="ads_container">

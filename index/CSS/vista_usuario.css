@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
     position: relative;
     width: 100%;
@@ -26,37 +25,44 @@
 
 
 .foto_perfil {
-    flex: 1 1 100%;
+    align-self: center;
+    padding-top: 150px;
 }
 
 .imagen_perfil {
     width: 120px;
     height: 120px;
-    padding-top: 150px;
+    margin-top: 150px;
     margin: auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-radius: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .info_perfil {
     flex-direction: column;
-    flex: 1 1 100%;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.info_perfil > * {
+    margin: auto;
+    text-align: center;
 }
 
 .info_perfil a {
     color: #13aff0;
     text-decoration: none;
+    margin-left: 25px;
 }
 
-.info_perfil a:focus, a:hover {
+.info_perfil a:focus, .info_perfil a:hover {
     color: #0b7cac;
     text-decoration: none;
     -webkit-transition: all .3s cubic-bezier(.25, .46, .45, .94);
     transition: all .3s cubic-bezier(.25, .46, .45, .94);
 }
-.icono {
+
+.icono { /* el simbolo fa icon de enlace a pagina web*/
     padding-left: 7px;
 }
 
@@ -68,8 +74,12 @@
 }
 
 .nickname_perfil {
-    text-align: center;
     font-size: 32px;
     line-height: 1.2em;
 }
 
+.editar_perfil {
+    flex: 1 1 100%;
+    border: solid white;
+    background: white;
+}

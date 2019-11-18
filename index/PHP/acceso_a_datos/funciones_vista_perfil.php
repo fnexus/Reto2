@@ -50,7 +50,7 @@ function fillPerfil($persona, $queLlenar)
 {
     switch ($queLlenar) {
         case "imagen":
-            echo "background-image: url({$persona->foto_perfil});";
+            echo $persona->foto_perfil;
             break;
         case "nickname":
             echo $persona->nickname;
