@@ -22,19 +22,33 @@ nav#nav_container {
 
 #logo_container {
     text-decoration: none;
-    color: darkblue;
+    color: #8b6f00;
     display: flex;
     flex-direction: row;
-    width: 100%;
-    margin: 4%;
+    width: 90%;
+    margin: 1%;
+
+    justify-content: center;
+align-items: center;
+}
+
+
+#logo_container > * {
+    flex: 1 1 50%;
+    justify-content: center;
 }
 
 img#logo {
-    content: url("../img/fnexus logo 2.png");
     width: auto;
+    object-fit: contain;
     height: 100%;
     justify-self: center;
-    border-radius: 25%;
+}
+
+#logo_container span {
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
 }
 
 #logged, #profile, #logOut{
@@ -95,8 +109,8 @@ img#logo {
 .ad {
     max-width: 300px;
     height: auto;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    border: solid 5px hsla(0, 95%, 35%, 1);
+   // border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+ //   border: solid 5px hsla(0, 95%, 35%, 1);
     z-index: 2;
 }
 
