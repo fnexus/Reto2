@@ -1,4 +1,5 @@
 <?php
+
 function insertAd()
 {
     $db = connection();
@@ -15,4 +16,13 @@ function insertAd()
 
     closeConnection($db);
 
+}
+function deleteAd($id_anuncio){
+   $db = connection();
+
+    $data = array('id_anuncio' => $id_anuncio);
+    $url = "DELETE FROM ANUNCIO WHERE id = :id_anuncio";
+    query($data, $url);
+
+    closeConnection($db);
 }
