@@ -1,8 +1,8 @@
 <?php require 'head.php'; ?>
     <div class="main_container">
-        <article id="tags_container">
+        <div id="tags_container" class="slider demo thing">
             <?= add_categorias_bar("barra") ?>
-        </article>
+        </div>
         <main id="ads_container">
             <?= add_ads() ?>
         </main>
