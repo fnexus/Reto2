@@ -8,6 +8,12 @@ ubuntu-bionic-18.04-cloudimg-console.log
 .AppleDouble
 .LSOverride
 
+# todas las imagenes excepto las default
+index/img/imagenes_usuario/*.png
+!index/img/imagenes_usuario/defaultBanner.png
+!index/img/imagenes_usuario/defaultFoto.png
+
+
 
 # Icon must end with two \r
 Icon
