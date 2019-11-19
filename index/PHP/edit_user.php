@@ -19,13 +19,26 @@ $arrayUser = getUserData($_SESSION["userId"]);
         <input type="text" name="nickname" id="edit-nickname" value="<?= $arrayUser[0]['nickname'] ?>">
     </div>
     <div>
-        <label for="edit-password">Password</label>
-        <input type="password" name="password" id="edit-password" value="<?= $arrayUser[0]['password'] ?>">
+        <label for="edit-nickname" class="inp">
+            <input type="text" name="nickname" id="edit-nickname" class="input" placeholder="&nbsp;">
+
+            <span class="label"><p>NICKNAME</p><?= $arrayUser[0]['nickname'] ?></span>
+            <span class="border"></span>
+        </label>
     </div>
     <div>
-        <label for="edit-contacto">Website</label>
-        <input type="text" name="pagina-contacto" id="edit-contacto" value="<?= $arrayUser[0]['pagina_contacto'] ?>">
+        <label for="edit-password" class="inp">
+            <input type="password" name="password" id="edit-password" class="input" placeholder="&nbsp;">
+            <span class="label"><p>CONTRASEÑA</p><?= $arrayUser[0]['password'] ?></span>
+            <span class="border"></span>
+        </label>
     </div>
-
-    <button>Guardar Datos</button>
+    <div>
+        <label for="edit-contacto" class="inp">
+            <input type="text" name="pagina-contacto" id="edit-contacto" class="input" placeholder="&nbsp;">
+            <span class="label"><p>PAGINA DE CONTACTO</p><?= $arrayUser[0]['pagina_contacto'] ?></span>
+            <span class="border"></span>
+        </label>
+    </div>
+    <button class="button">Guardar Datos</button>
 </form>
