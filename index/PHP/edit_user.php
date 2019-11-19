@@ -15,10 +15,6 @@ $arrayUser = getUserData($_SESSION["userId"]);
         <input type="file" name="subida_foto_perfil" accept="image/*" id="nueva_foto">
     </div>
     <div>
-        <label for="edit-nickname">Nickname</label>
-        <input type="text" name="nickname" id="edit-nickname" value="<?= $arrayUser[0]['nickname'] ?>">
-    </div>
-    <div>
         <label for="edit-nickname" class="inp">
             <input type="text" name="nickname" id="edit-nickname" class="input" placeholder="&nbsp;">
 
