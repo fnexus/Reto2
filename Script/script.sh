@@ -58,4 +58,4 @@ composer self-update
 rm -rf /var/www
 mkdir /var/www
 ln -s /vagrant/ /var/www/html
-#chmod 777 /index/img/imagenes_usuarios/
+#chmod 777 /var/www/html/index/img/imagenes_usuarios/

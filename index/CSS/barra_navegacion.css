@@ -53,6 +53,7 @@ form#search_container {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-right: 5px;
 }
 
 select#search_categoria {
@@ -66,9 +67,14 @@ select#search_categoria {
     font-size: 17px;
     color: #555;
     user-select: none;
-    border-right: solid 0.1px;
+    -webkit-user-select: none;
+    border-right: solid 0.2px lightslategray;
+    border-radius: 0;
 
     -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+
 }
 
 option.option {
@@ -86,6 +92,8 @@ input#search_titulo {
     padding: 10px 32px;
     font-size: 17px;
     color: #555;
+    outline: none;
+
 }
 
 #search_button {
@@ -112,7 +120,57 @@ input#search_titulo {
 
 }
 
+.sesion_control {
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    color: #bfa000;
+    font-size: 17px;
+    padding: 16px 5px;
+    text-decoration: none;
+}
+
+.session_entered {
+    text-align: center;
+    background: transparent;
+    border: 0;
+    text-decoration: none;
+    color: #bfa000;
+    flex-basis: 50%;
+    flex-grow: 2;
+}
+
+
 #sesion_container > * {
     margin: auto;
     height: auto;
+}
+
+/* pantalla algo pequeña */
+@media screen and (max-width: 900px ) {
+    nav#nav_container {
+        grid-template-columns: 10% 90%;
+        grid-template-rows: 50% 50%;
+        height: 120px;
+
+    }
+
+    #logo_container span {
+        display: none;
+    }
+
+    #sesion_container {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+    }
+}
+
+/* Ya esto es MOVIL */
+@media screen and (max-width: 550px ) {
+
 }

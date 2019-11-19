@@ -19,25 +19,31 @@ body {
 .main_container {
     padding-top: 60px;
 }
+@media screen and (max-width: 900px ) {
+    .main_container {
+        padding-top: 120px;
+    }
+}
 
 /* Estilos de los tooltip */
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
+    width: 160px;
+    background-color: #bfa000;
+    color: black;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-
     position: absolute;
     z-index: 1;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 30px;
+    margin-left: -85px;
 }
 
 .tooltip:hover .tooltiptext {
@@ -175,17 +181,6 @@ body {
 #anuncio-details-container img {
     width: 100px;
 }
-
-
-
-
-/*EDITAR PERFIL*/
-
-#edit-profile img{
-    width: 50px;
-}
-
-
 /*FOOTER*/
 
 footer{
@@ -383,6 +378,7 @@ i.fas{
 .input:focus + span{
     color: #0077FF;
     transform: translateY(-26px) scale(.75);
+
 }
 .input:focus + .border{
     transform: scaleX(1);
@@ -391,10 +387,8 @@ i.fas{
 #cont_passwords .input{
     width: 49.4%;
 }
-#edit-profile .inp{
-    width: 85%;
-    float:right;
-    padding-bottom: 20px;
+#edit-profile .label{
+    top:20px;
 }
 /*Estilo de los labels del formulario para editar el usuario*/
 .edit_labels{
@@ -407,12 +401,92 @@ i.fas{
     background: dodgerblue;
     border-radius: 50px;
     margin: 2% 0 0 27%;
+    font-size: 16px;
+    color:white;
+    outline: none;
+}
+.button:hover{
+    background-color: darkcyan;
+}
+/*Estilo de los input file de los formularios*/
+.fileInputs{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.fileInputs + label{
+    padding:10px;
+    border-radius: 50px;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: dodgerblue;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 19%;
+}
+.fileInputs:focus + label, .fileInputs + label:hover {
+    background-color: darkcyan;
+}
+.fileInputs:focus + label {
+    outline: none;
 }
 
+/*Estilo para boton de guardar y select del formulario publicar anuncio*/
+#tags{
+    background-color: rgb(239, 239, 239);
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    outline: 0px;
+    padding: 0px 14px;
+
+}
+#insertAd{
+    width: 130px;
+    height: 45px;
+    background: dodgerblue;
+    border-radius: 50px;
+    font-size: 16px;
+    color:white;
+    margin-left: 18%;
+    outline: none;
+}
+#cont_guardar{
+    margin-top:20px;
+}
+/*EDITAR PERFIL*/
+
+#edit-profile .fileInputs + label {
+    float:right;
+    margin-top: 27px;
+    width:250px;
+    height: 44px;
+}
+
+#edit-profile img{
+    min-width: 100px;
+    min-height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/*div de cambiar banner y cambiar foto perfil del formulario de editar usuario*/
+.changecont{
+    height: 60px;
+    margin: 0 20px 70px 20px;
 
 
-
-
-
+}
+/*imagenes para cambiar del banner y de la foto de perfil del formulario editar usuario*/
+.editImg{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 100px;
+}
 
 
