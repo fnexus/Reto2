@@ -59,7 +59,12 @@ window.onload = function() {
         location.href ="http://localhost:8765/index/PHP/index.php";
         }
     });
+    /*let anuncio = document.getElementsByClassName("ad_enlacePagina");
 
+    anuncio.addEventListener("hover", function () {
+        // mostrar div con nombre del anuncio
+        anuncio.style.backgroundImage="url('../img/boton_añadir.png')";
+    });*/
 };
 
 

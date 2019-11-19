@@ -17,8 +17,8 @@ function add_adsByUser($persona_id)
     while ($anuncio = $stmt->fetchObject()) {
         echo "<div class='ad'>
                 <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
-                    <p class='ad_titulo'>{$anuncio->titulo}</p>
-                    <img src='{$anuncio->imagen}' class='ad_imagen'>                    
+                    <!--<p class='ad_titulo'>{$anuncio->titulo}</p>-->
+                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'></div>                 
                 </a>
             </div>";
     }
