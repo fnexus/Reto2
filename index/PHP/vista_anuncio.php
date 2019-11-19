@@ -17,6 +17,8 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
 <!-- importar script para comentarios -->
 <script src="../JS/comentarios.js"></script>
 
+<script src="../JS/borrar_anuncio.js"></script>
+
 
 <div class="main_container vista-anuncio-container">
     <div id="anuncio-container">
@@ -27,6 +29,8 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
             <button type="button" value="0" id="dar_quitar_like"></button>
             <div id="likes_count">❤️</div>
         </div>
+        <input id="anuncio_comentario_publisher_nickname" type="hidden" name="publisher_nickname" value="<?php fillAnuncio($personaQueCreoElAnuncio, "persona_nickname"); ?>">
+        <input id="anuncio_comentario_user_nickname" type="hidden" name="user_nickname" value="<?= $_SESSION['nickname'] ?>">
     </div>
     <div id="anuncio-details-container">
         <div id="anuncio_datos_usuario">
