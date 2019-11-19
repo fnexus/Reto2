@@ -12,6 +12,7 @@ nav#nav_container {
     grid-template-rows: 100%;
     position: fixed; /* Se mantenga arriba */
     z-index: 99;
+
 }
 
 /* Zona del logo */
@@ -66,9 +67,14 @@ select#search_categoria {
     font-size: 17px;
     color: #555;
     user-select: none;
-    border-right: solid 0.1px;
+    -webkit-user-select: none;
+    border-right: solid 0.2px lightslategray;
+    border-radius: 0;
 
     -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+
 }
 
 option.option {
@@ -86,6 +92,8 @@ input#search_titulo {
     padding: 10px 32px;
     font-size: 17px;
     color: #555;
+    outline: none;
+
 }
 
 #search_button {
@@ -111,6 +119,27 @@ input#search_titulo {
     justify-content: center;
 
 }
+
+.sesion_control {
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    color: #bfa000;
+    font-size: 17px;
+    padding: 16px 5px;
+    text-decoration: none;
+}
+
+.session_entered {
+    text-align: center;
+    background: transparent;
+    border: 0;
+    text-decoration: none;
+    color: #bfa000;
+    flex-basis: 50%;
+    flex-grow: 2;
+}
+
 
 #sesion_container > * {
     margin: auto;
