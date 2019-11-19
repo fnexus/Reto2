@@ -20,15 +20,23 @@
         <input type="button" name="logged" id="logged" value="<?= $_SESSION["logged"] ?>">
 
         <!--Botones iniciales-->
-        <a href="#loginForm" id="logIn-button" class="efectoFade" rel="modal:open">Iniciar Sesion</a>
-        <a href="#registerForm" id="signIn-button" class="efectoFade" rel="modal:open">Registrarse</a>
+        <a href="#loginForm" id="logIn-button" class="efectoFade sesion_control" rel="modal:open">Iniciar Sesion</a>
+        <a href="#registerForm" id="signIn-button" class="efectoFade sesion_control" rel="modal:open">Registrarse</a>
 
         <!--Botones cuando estas logeado-->
-        <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile">Mi perfil</a>
+
+        <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile" class="session_entered"><i
+                    class="far fa-user fa-icon tooltip">
+                <span class="tooltiptext">Mi perfil</span>
+            </i></a>
         <!-- cuando pulsamos en cerrar sesion queremos que se recargue la pagina por lo que metemos el boton en un form. El action default del form es la pagina actual -->
-        <form>
-            <input type="submit" name="action" id="logOut" value="Cerrar Sesion">
-        </form>
+
+        <input hidden name="action" value="Cerrar Sesion">
+        <a id="logOut" href="vista_perfil.php?action=Cerrar+Sesion" class="session_entered"><i
+                    class="fas fa-sign-out-alt fa-icon tooltip">
+                <span class="tooltiptext">Cerrar Sesión</span>
+            </i></a>
+
     </div>
     <!-- Contenedor de los formularios de registrarse e iniciar sesion -->
     <div class="contenedor-formulario">

@@ -24,20 +24,21 @@ body {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
+    width: 160px;
+    background-color: #bfa000;
+    color: black;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-
     position: absolute;
     z-index: 1;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 30px;
+    margin-left: -85px;
 }
 
 .tooltip:hover .tooltiptext {
