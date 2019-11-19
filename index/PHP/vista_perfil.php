@@ -37,8 +37,11 @@ $persona = getPersonaById($_SESSION['userId']);
         <main id="ads_container">
             <!-- Pasarle el id persona para buscar sus anuncios-->
             <?php add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
+
             <div class='ad'>
-                <a href="#publicateAd" class="efectoFade" rel="modal:open">ADD +</a>
+                <a href='#publicateAd'  class='ad_enlacePagina efectoFade' rel="modal:open">
+                    <div style='background-image: url("../img/boton_añadir.png")' class='ad_imagen'></div>
+                </a>
             </div>
         </main>
     </div>
