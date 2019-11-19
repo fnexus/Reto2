@@ -1,6 +1,6 @@
 <nav id="nav_container">
     <a href="index.php" id="logo_container">
-        <img id="logo">
+        <img id="logo" src="../img/favicon2.png">
         <span>FNEXUS</span>
     </a>
 
