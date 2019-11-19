@@ -12,7 +12,6 @@ nav#nav_container {
     grid-template-rows: 100%;
     position: fixed; /* Se mantenga arriba */
     z-index: 99;
-
 }
 
 /* Zona del logo */
@@ -54,6 +53,7 @@ form#search_container {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-right: 5px;
 }
 
 select#search_categoria {
@@ -144,4 +144,33 @@ input#search_titulo {
 #sesion_container > * {
     margin: auto;
     height: auto;
+}
+
+/* pantalla algo pequeña */
+@media screen and (max-width: 900px ) {
+    nav#nav_container {
+        grid-template-columns: 10% 90%;
+        grid-template-rows: 50% 50%;
+        height: 120px;
+
+    }
+
+    #logo_container span {
+        display: none;
+    }
+
+    #sesion_container {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+    }
+}
+
+/* Ya esto es MOVIL */
+@media screen and (max-width: 550px ) {
+
 }

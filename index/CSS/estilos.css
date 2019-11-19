@@ -19,6 +19,11 @@ body {
 .main_container {
     padding-top: 60px;
 }
+@media screen and (max-width: 900px ) {
+    .main_container {
+        padding-top: 120px;
+    }
+}
 
 /* Estilos de los tooltip */
 .tooltip {
