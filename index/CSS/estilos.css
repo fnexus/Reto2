@@ -87,8 +87,6 @@ body {
 }
 
 .ad {
-    width: 12.5vw;
-    height: 12.5vw;
     z-index: 2;
 }
 
@@ -114,9 +112,11 @@ body {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 250px;
-    height: 250px;
+    width: 12.5vw;
+    height: 12.5vw;
+    border:1px solid red;
 }
+
 
 
 /*VISTA ANUNCIO*/
