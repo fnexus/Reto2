@@ -16,8 +16,8 @@ CREATE TABLE PERSONA (
   nombre varchar(100) NOT NULL,
   apellidos varchar(100) NOT NULL,
   email varchar(100) UNIQUE NOT NULL,
-  foto_perfil varchar(500),
-  imagen_banner varchar(500),
+  foto_perfil varchar(500) DEFAULT '../img/imagenes_usuarios/defaultFoto.png',
+  imagen_banner varchar(500) DEFAULT '../img/imagenes_usuarios/defaultBanner.png',
   pagina_contacto varchar(100) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
