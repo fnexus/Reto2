@@ -421,6 +421,7 @@ i.fas{
     background-color: dodgerblue;
     display: inline-block;
     cursor: pointer;
+    margin-left: 19%;
 }
 .fileInputs:focus + label, .fileInputs + label:hover {
     background-color: darkcyan;
@@ -446,7 +447,7 @@ i.fas{
     border-radius: 50px;
     font-size: 16px;
     color:white;
-    margin-left: 24%;
+    margin-left: 18%;
     outline: none;
 }
 #cont_guardar{
@@ -457,7 +458,7 @@ i.fas{
 #edit-profile .fileInputs + label {
     float:right;
     margin-top: 27px;
-    width:225px;
+    width:250px;
     height: 44px;
 }
 
