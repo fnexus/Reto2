@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 *,
@@ -34,9 +34,8 @@ nav#nav_container {
     flex-direction: row;
     width: 90%;
     margin: 1%;
-
     justify-content: center;
-align-items: center;
+    align-items: center;
 }
 
 
@@ -72,37 +71,35 @@ img#logo {
 
 /* estilos de la categoria (se crea por codigo) */
 
+.slick-slide{
+    margin-right: 10px;
+    margin-left: 10px;
+}
 #tags_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /*
-    formato carrousel
-    flex-wrap: nowrap;
-    overflow: scroll;
-     */
+    margin-top:25px;
 }
 
 .tags_child {
-    margin: 3px;
-    flex: 1 1;
-    flex-basis: auto;
-    text-align: center;
     padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%);
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+}
+.slick-slide:hover .tags_child {
+    background-image: linear-gradient(to left, #2b5876 0%, #4e4376 51%, #236e76 100%);
 }
 
 .tag {
     text-decoration: none;
-    color: black;
+    color: white;
+    font-weight: 300;
+    font-size: 15px;
     cursor: pointer;
-    padding: 10px;
-    background: lightcoral;
+    outline:none
 }
 
-.tag:hover {
-    margin: -3px; /* pa que no se haga mas grande y ocurra como con los memes de css*/
-    border: solid #f04e4f;
-}
 
 /* estilos de los anuncios (se crea por codigo) */
 
