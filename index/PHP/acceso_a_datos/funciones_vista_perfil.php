@@ -50,7 +50,11 @@ function fillPerfil($persona, $queLlenar)
 {
     switch ($queLlenar) {
         case "imagen":
-            echo $persona->foto_perfil;
+            if ($persona->foto_perfil == "") {
+                echo "../img/imagenes_usuarios/defaultFoto.png";
+            } else {
+                echo $persona->foto_perfil;
+            }
             break;
         case "nickname":
             echo $persona->nickname;
@@ -65,7 +69,11 @@ function fillPerfil($persona, $queLlenar)
             echo $persona->pagina_contacto;
             break;
         case "banner":
-            echo "background-image: url({$persona->imagen_banner});";
+            if ($persona->imagen_banner == null) {
+                echo "background-image: url(../img/imagenes_usuarios/defaultBanner.png);";
+            } else {
+                echo "background-image: url({$persona->imagen_banner});";
+            }
             break;
     }
 }

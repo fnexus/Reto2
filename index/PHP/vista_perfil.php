@@ -33,13 +33,6 @@ $persona = getPersonaById($_SESSION['userId']);
                 </a>
                 <a href="#edit-profile" class="efectoFade editar_perfil" rel="modal:open">Editar perfil</a>
             </div>
-            <main id="ads_container">
-                <!-- Pasarle el id persona para buscar sus anuncios-->
-                <?php add_adsByUser(isset($_GET['persona_id']) ? $_GET['persona_id'] : "ERROR ID persona") ?>
-                <div class='ad'>
-                    <a href="#publicateAd" class="efectoFade" rel="modal:open">ADD +</a>
-                </div>
-            </main>
         </div>
         <main id="ads_container">
             <!-- Pasarle el id persona para buscar sus anuncios-->
