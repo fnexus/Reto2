@@ -4,6 +4,8 @@
     <title>FNEXUS</title>
     <!--Favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon2.png"/>
+    <!-- ViewPort para diferentes media-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Libreria iconos social media footer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -29,6 +31,7 @@
     <link href="../CSS/normalize.css" rel="stylesheet"/>
     <link href="../CSS/estilos.css" type="text/css" rel="stylesheet">
     <link href="../CSS/vista_usuario.css" type="text/css" rel="stylesheet">
+    <link href="../CSS/barra_navegacion.css" type="text/css" rel="stylesheet">
 
 
     <!-- includes php datos-->
