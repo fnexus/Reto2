@@ -17,5 +17,49 @@
         <a href="#"><i class="fab fa-linkedin-in fa-xs"></i></a>
     </div>
 </footer>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.demo').slick({
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            infinite: true,
+            speed: 1100,
+            slidesToShow: 6,
+            slidesToScroll: 6,
+            draggable:true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 5,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -15,10 +15,17 @@
 
     <!-- archivos JavaScript-->
     <script src="../JS/jquery-3.4.1.min.js"></script>
+    <script src="../JS/slick.js" type="text/javascript"></script>
     <script src="../JS/main.js"></script>
+
     <!-- Ventanas emergentes-->
     <script src="../JS/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="../JS/jquery.modal.min.css"/>
+
+    <!--slick slides-->
+    <link rel="stylesheet" href="../CSS/slick.css">
+    <link rel="stylesheet" href="../CSS/slick-theme.css">
+
 
     <!-- estilos CSS-->
     <link href="../CSS/normalize.css" rel="stylesheet"/>
