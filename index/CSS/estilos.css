@@ -1,12 +1,12 @@
-html {
+* {
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
-
-*,
 *:before,
 *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -119,7 +119,6 @@ body {
     background-size: cover;
     width: 12.5vw;
     height: 12.5vw;
-    border:1px solid red;
 }
 
 
