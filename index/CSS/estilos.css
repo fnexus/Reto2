@@ -13,62 +13,35 @@ body {
     margin: auto;
 }
 
-
-/* Barra de navegacion que tiene el logo, search y los Iniciar sesion y registrarse */
-
-nav#nav_container {
-    background: rgb(230, 230, 230);
-    width: 100%;
-    height: 60px;
-    display: grid;
-    grid-template-columns: 20% 60% 10% 10%;
-    grid-template-rows: 100%;
-    position: fixed; /* Se mantenga arriba */
-    z-index: 99;
-}
-
-#logo_container {
-    text-decoration: none;
-    color: #8b6f00;
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    margin: 1%;
-
-    justify-content: center;
-align-items: center;
-}
-
-
-#logo_container > * {
-    flex: 1 1 50%;
-    justify-content: center;
-}
-
-img#logo {
-    width: auto;
-    object-fit: contain;
-    height: 100%;
-    justify-self: center;
-}
-
-#logo_container span {
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
-}
-
-#logged, #profile, #logOut{
-    display: none;
-}
-
-
 /* el contenedor del resto de la pagina que no es navegacion*/
 
 .main_container {
     padding-top: 60px;
 }
 
+/* Estilos de los tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 
 /* estilos de la categoria (se crea por codigo) */
 

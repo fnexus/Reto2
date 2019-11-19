@@ -1,0 +1,117 @@
+/* Codigo nav bar */
+#logged, #profile, #logOut {
+    display: none;
+}
+
+nav#nav_container {
+    background: rgb(230, 230, 230);
+    width: 100%;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 100%;
+    position: fixed; /* Se mantenga arriba */
+    z-index: 99;
+}
+
+/* Zona del logo */
+#logo_container {
+    text-decoration: none;
+    color: #8b6f00;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 1%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#logo_container > * {
+    flex: 1 1 50%;
+    justify-content: center;
+}
+
+img#logo {
+    width: auto;
+    object-fit: contain;
+    height: 100%;
+    justify-self: center;
+}
+
+#logo_container span {
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Zona del BUSCADOR */
+
+form#search_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+select#search_categoria {
+    flex: 1 1 40%;
+    height: 45px;
+    background: whitesmoke;
+    border: 0;
+    display: block;
+    width: 100%;
+    padding: 10px 32px;
+    font-size: 17px;
+    color: #555;
+    user-select: none;
+    border-right: solid 0.1px;
+
+    -webkit-appearance: none;
+}
+
+option.option {
+    position: absolute;
+    background-color: whitesmoke;
+}
+
+input#search_titulo {
+    flex: 1 1 60%;
+    height: 45px;
+    background: whitesmoke;
+    border: 0;
+    display: block;
+    width: 100%;
+    padding: 10px 32px;
+    font-size: 17px;
+    color: #555;
+}
+
+#search_button {
+    flex: 1 1 40px;
+    height: 45px;
+    width: 100%;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    background: #bfa000;
+}
+
+#search_button:hover {
+    background: #8b6f00;
+}
+
+/* Zona del inicio de sesion , registro y mi perfil */
+
+#sesion_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#sesion_container > * {
+    margin: auto;
+    height: auto;
+}
