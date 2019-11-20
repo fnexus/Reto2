@@ -42,7 +42,7 @@ CREATE TABLE ANUNCIO (
   titulo varchar(100) NOT NULL,
   descripcion varchar(500) NOT NULL,
   datos_contacto varchar(100) NOT NULL,
-  imagen varchar(500),
+  imagen varchar(500) DEFAULT '../img/imagenes_usuarios/defaultAnuncio.png',
   nombre_empresa varchar (100) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
