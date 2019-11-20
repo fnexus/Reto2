@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700&display=swap" rel="stylesheet">
 
     <!-- archivos JavaScript-->
     <script src="../JS/jquery-3.4.1.min.js"></script>
@@ -48,6 +48,7 @@
 
 </head>
 <body>
+<div id="page-container">
 
 <!-- Barra de navegacion -->
 <?php
