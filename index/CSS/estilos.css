@@ -100,19 +100,26 @@ body {
     cursor: zoom-in;
     color: black;
 }
-
+/*estilo que aparece al hacer hover sobre cualquier caja de tio ad_enlacepagina*/
 .ad_titulo {
-    flex: 1 1 100%;
-    height: content-box;
-    margin: 0;
-    padding: 5px;
+    color: white;
 }
-
-
-.ad_imagen {
+.ad_user_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 5% 10% 0 0;
+}
+.ad_user_nickname{
+    color:white;
+    font-weight: lighter;
+    font-size: small;
+    margin: -10px 0 -10px 0;
+}
+.ad_imagen, .ad_hover{
     margin: 0;
     padding: 0;
-    z-index: -1;
     position: relative;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -120,8 +127,27 @@ body {
     width: 12.5vw;
     height: 12.5vw;
 }
-
-
+.ad_information{
+    display: none;
+    width: 85%;
+    margin-bottom: 7%;
+}
+.user_information{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.ad_hover{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.ad_hover:hover{
+    background-image: url('../img/degradado.png');
+}
+.ad_hover:hover .ad_information{
+    display: flex;
+}
 
 /*VISTA ANUNCIO*/
 .vista-anuncio-container {
