@@ -58,8 +58,8 @@
 .info_perfil a:focus, .info_perfil a:hover {
     color: #0b7cac;
     text-decoration: none;
-    -webkit-transition: all .3s cubic-bezier(.25, .46, .45, .94);
-    transition: all .3s cubic-bezier(.25, .46, .45, .94);
+    -webkit-transition: all .1s cubic-bezier(.25, .46, .45, .94);
+    transition: all .1s cubic-bezier(.25, .46, .45, .94);
 }
 
 .icono { /* el simbolo fa icon de enlace a pagina web*/

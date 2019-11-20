@@ -1,6 +1,5 @@
 window.onload = function() {
 
-
     let status = document.getElementById("logged").value;
 
     if(status=="true"){
