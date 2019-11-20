@@ -16,9 +16,8 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
 <script src="../JS/likes.js"></script>
 <!-- importar script para comentarios -->
 <script src="../JS/comentarios.js"></script>
-
+<!-- importar script para borrar anuncio -->
 <script src="../JS/borrar_anuncio.js"></script>
-
 
 <div class="main_container vista-anuncio-container">
     <div id="anuncio-container">
@@ -35,9 +34,11 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
     <div id="anuncio-details-container">
         <div id="anuncio_datos_usuario">
             <h3>DATOS USUARIO</h3>
-            <img id="anuncio_usuario_foto_perfil"
-                 src="<?php fillAnuncio($personaQueCreoElAnuncio, "persona_imagen"); ?>">
-            <p id="anuncio_usuario_nickname"><?php fillAnuncio($personaQueCreoElAnuncio, "persona_nickname"); ?></p>
+            <a href='<?php fillAnuncio($personaQueCreoElAnuncio, "enlace_a_su_perfil") ?>'>
+                <img id="anuncio_usuario_foto_perfil"
+                     src="<?php fillAnuncio($personaQueCreoElAnuncio, "persona_imagen"); ?>">
+                <p id="anuncio_usuario_nickname"><?php fillAnuncio($personaQueCreoElAnuncio, "persona_nickname"); ?></p>
+            </a>
         </div>
         <div id="anuncio_datos_anuncio">
             <h3>DATOS ANUNCIO</h3>
