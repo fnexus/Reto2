@@ -132,19 +132,20 @@ function validateAndUploadImage($url, $idUsuario, $queImagen, $siFotoOBanner)
     //Hemos recibido el fichero TODO cambiar como se muestran los errores
     //Comprobamos que es un fichero subido por PHP, y no hay inyección por otros medios
     if (!is_uploaded_file($_FILES[$queImagen]['tmp_name'])) {
-        echo "Error: El fichero encontrado no fue procesado por la subida correctamente";
+
+        echo ' <p class="formError"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\\"></path></svg>Error: El fichero encontrado no fue procesado por la subida correctamente</p>';
         exit;
     }
     $source = $_FILES[$queImagen]['tmp_name'];
 
     if (is_file($destination)) {
-        echo "Error: Ya existe almacenado un fichero con ese nombre";
+        echo ' <p class="formError"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\\"></path></svg>Error: Ya existe almacenado un fichero con ese nombre</p>';
         @unlink(ini_get('upload_tmp_dir') . $_FILES[$queImagen]['tmp_name']);
         exit;
     }
 
     if (!@move_uploaded_file($source, $destination)) {
-        echo "Error: No se ha podido mover el fichero enviado a la carpeta de destino";
+        echo ' <p class="formError"><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\\"></path></svg>Error: No se ha podido mover el fichero enviado a la carpeta de destino</p>';
         echo "<br>  $destination";
         @unlink(ini_get('upload_tmp_dir') . $_FILES[$queImagen]['tmp_name']);
         exit;
