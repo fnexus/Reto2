@@ -84,9 +84,9 @@ VALUES ('5', 'Electric cars are here', 'Help saving the earth while driving the 
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('6', 'Clean energy!', 'You dont need to keep destroying the planet. Get clean energy now!', 'SolarCity.com', '../img/imagenes_usuarios/home.jpg','SolarCity', '12');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('7', 'Bye Bye Traffic', 'Drive under the city at high speeds to reach your destination in minutes.', 'boringcompany.com', '../img/imagenes_usuarios/boringcompany.jpg','boringcompany', '18');
+VALUES ('7', 'Bye Bye Traffic', 'Drive under the city at high speeds to reach your destination in minutes.', 'boringcompany.com', '../img/imagenes_usuarios/boringcompany.jpg','Boringcompany', '18');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('8', 'Connect yourself', 'Have you ever dreamed of connecting your brain to a computer? We are the answer.', 'neuralink.com', '../img/imagenes_usuarios/neuralink.jpg','neuralink', '21');
+VALUES ('8', 'Connect yourself', 'Have you ever dreamed of connecting your brain to a computer? We are the answer.', 'neuralink.com', '../img/imagenes_usuarios/neuralink.jpg','Neuralink', '21');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('9', 'Dress like the future', 'The most stylish clothes for the new generation. Wear the future in the present.', 'DressX.com', '../img/imagenes_usuarios/moda.jpg','DressX', '4');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
@@ -94,9 +94,9 @@ VALUES ('10', 'Tech meds', 'Science has helped to create the most advanced meds 
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('11', 'CRISPR deliver', 'Change your DNA in seconds. Custom yourself the way you always wanted to be.', 'CRISPR.com', '../img/imagenes_usuarios/crispr.jpg','CRISPR', '21');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('1', 'Smart Homes are here!', 'The houses of the future are here. Be the first in your neighborhood.', 'smarthomeX.com', '../img/imagenes_usuarios/smarthome.jpg','smarthomeX', '5');
+VALUES ('1', 'Smart Homes are here!', 'The houses of the future are here. Be the first in your neighborhood.', 'smarthomeX.com', '../img/imagenes_usuarios/smarthome.jpg','SmarthomeX', '5');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('2', 'Make your sport team successful', 'Our management team will provide everything you need to be succesful as a brand in sports.', 'g2esports.com', '../img/imagenes_usuarios/g2.png','g2esports', '11');
+VALUES ('2', 'Make your sport team successful', 'Our management team will provide everything you need to be succesful as a brand in sports.', 'g2esports.com', '../img/imagenes_usuarios/g2.png','G2esports', '11');
 /*COMENTARIO*/
 INSERT INTO COMENTARIO (persona_id, anuncio_id, descripcion)
 VALUES ('1', '1', 'programar es superdivertido, quiero vuestro software');
