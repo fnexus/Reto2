@@ -137,7 +137,7 @@ function insertUser()
                                 VALUES('$nickname', '$email', '$password', '$name', '$surname', '$contactPage');");
             $stmt->execute();
         } else {
-            echo "<p class='formError'>Las contraseñas no coinciden</p>";
+            printError("register");
         }
     }
     closeConnection($db);
@@ -160,7 +160,7 @@ function loginUser()
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
         if($_GET["nickname"]==""||$_GET["password"]==""){
-            echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+            printError("login");
         } else {
             if ($row = $stmt->fetch()) {
                 $_SESSION["userId"] = $row->id;
@@ -171,16 +171,32 @@ function loginUser()
                 $_SESSION["contactPage"] = $row->pagina_contacto;
                 $_SESSION["profileImg"] = $row->foto_perfil;
                 $_SESSION["bannerImg"] = $row->imagen_banner;
-
                 $_SESSION["logged"] = "true";
             }
             else{
-                echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+                printError("login");
             }
 
         }
     }
     closeConnection($dbh);
+}
+
+function printError($action){
+    echo '<div class="error-container">',
+            '<div class="error-image-container">',
+                '<img src="../img/error.png">',
+            '</div>';
+    if($action == "login"){
+        echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+    }
+    else{
+        echo "<p class='formError'>Las contraseñas no coinciden</p>";
+    }
+    echo '<div class="cross-image-container">',
+            '<img id="navbar-cross" src="../img/cross.png">',
+        '</div>';
+        echo '</div>';
 }
 
 function logoutUser()
@@ -202,3 +218,4 @@ function logoutUser()
 
     closeConnection($dbh);
 }
+
