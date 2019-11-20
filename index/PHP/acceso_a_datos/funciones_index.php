@@ -48,7 +48,7 @@ function add_ads()
 
     // si al menos uno esta lleno, buscar con filtro, sino buscar todos
     if ($titulo != "" || $categoria != "") {
-        $ads = selectAds($titulo, $categoria);
+        $ads = selectAds($titulo, $categoria,"ANUNCIO","PERSONA");
     } else {
         $ads = selectAll("ANUNCIO");
     }
@@ -78,18 +78,18 @@ function add_ads()
  * @param $tabla
  * @return bool|PDOStatement
  */
-function selectAll($tabla)
+function selectAll($tabla1,$tabla2 = "PERSONA")
 {
-    if($tabla=="ANUNCIO") {
+    if($tabla1=="ANUNCIO") {
         $db = connection();
-        $stmt = $db->prepare("SELECT * FROM $tabla a, PERSONA p WHERE 1=1 AND a.Persona_id = p.Id");
+        $stmt = $db->prepare("SELECT a.id, a.titulo, a.imagen, p.foto_perfil, p.nickname FROM $tabla1 a, $tabla2 p WHERE 1=1 AND a.persona_id = p.id");
         $stmt->execute();
         closeConnection($db);
         return $stmt;
     }
     else {
         $db = connection();
-        $stmt = $db->prepare("SELECT * FROM $tabla WHERE 1=1");
+        $stmt = $db->prepare("SELECT * FROM $tabla1 WHERE 1=1");
         $stmt->execute();
         closeConnection($db);
         return $stmt;
@@ -103,27 +103,15 @@ function selectAll($tabla)
  * @param $categoria
  * @return bool|PDOStatement
  */
-function selectAds($titulo, $categoria)
+function selectAds($titulo, $categoria,$tabla1,$tabla2)
 {
-    /*$db = connection();
-    $query = "SELECT * FROM ANUNCIO WHERE 1=1";
-    if ($titulo != "") {
-        $query .= " AND titulo like '%$titulo%'";
-    }
-    if ($categoria != "") {
-        $query .= " AND categoria_id = " . $categoria;
-    }
-    $stmt = $db->prepare($query);
-    $stmt->execute();
-    closeConnection($db);
-    return $stmt;*/
     $db = connection();
-    $query = "SELECT * FROM ANUNCIO a, PERSONA p WHERE 1=1 AND a.Persona_id = p.Id";
+    $query = "SELECT a.id, a.titulo, a.imagen, p.foto_perfil, p.nickname FROM $tabla1 a, $tabla2 p WHERE 1=1 AND a.persona_id = p.id";
     if ($titulo != "") {
-        $query .= " AND titulo like '%$titulo%'";
+        $query .= " AND a.titulo like '%$titulo%'";
     }
     if ($categoria != "") {
-        $query .= " AND categoria_id = " . $categoria;
+        $query .= " AND a.categoria_id = " . $categoria;
     }
     $stmt = $db->prepare($query);
     $stmt->execute();

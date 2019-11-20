@@ -10,9 +10,13 @@ if (isset($_POST["adTitle"], $_POST["adDescription"], $_POST["companyName"], $_P
 // control de perfil, si es el propio usuario u otro
 $persona = null;
 if (isset($_GET['anunciante_id']) && $_GET['anunciante_id'] != "") {
-    $persona = getPersonaById($_GET['anunciante_id']);
-    // desactivar añadir add y editar perfil
-    echo "<script src='../JS/control_ver_perfil_ajeno.js'></script>";
+    if ($_GET['anunciante_id'] != $_SESSION['userId']) {
+        $persona = getPersonaById($_GET['anunciante_id']);
+        // desactivar añadir add y editar perfil
+        echo "<script src='../JS/control_ver_perfil_ajeno.js'></script>";
+    } else {
+        $persona = getPersonaById($_GET['persona_id']);
+    }
 } else {
     $persona = getPersonaById($_SESSION['userId']);
 }
@@ -42,10 +46,18 @@ if (isset($_GET['anunciante_id']) && $_GET['anunciante_id'] != "") {
         <main id="ads_container">
             <!-- Pasarle el id persona para buscar sus anuncios-->
             <?php
-            if (isset($_GET['persona_id']) && $_GET['persona_id'] != "") {
+            if (isset($_GET['anunciante_id'])) {
+                if (isset($_GET['persona_id'])) {
+                    if ($_GET['persona_id'] == $_GET['anunciante_id']) {
+                        add_adsByUser($_GET['persona_id']);
+                    } elseif ($_GET['anunciante_id'] != "") {
+                            add_adsByUser($_GET['anunciante_id']);
+                    } elseif ($_GET['persona_id'] != "") {
+                        add_adsByUser($_GET['persona_id']);
+                    }
+                }
+            } else {
                 add_adsByUser($_GET['persona_id']);
-            } elseif (isset($_GET['anunciante_id']) && $_GET['anunciante_id'] != "") {
-                add_adsByUser($_GET['anunciante_id']);
             }
             ?>
 
