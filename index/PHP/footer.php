@@ -1,3 +1,4 @@
+
 <footer>
     <div id="footer-brand">
         <img id="footer-logo" src="../img/fnexus_no_bg.png" alt="logo">
@@ -17,57 +18,8 @@
         <a href="#"><i class="fab fa-linkedin-in fa-xs"></i></a>
     </div>
 </footer>
+<script type="text/javascript" src="../JS/personalizacion-slick.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.demo').slick({
-            arrows: false,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            infinite: true,
-            speed: 1100,
-            slidesToShow: 6,
-            slidesToScroll: 6,
-            draggable:true,
-            responsive: [
-                {
-                    breakpoint: 1350,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 5,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 1120,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4
-                    }
-                },
-                {
-                    breakpoint: 850,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 450,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        });
-    });
-</script>
 
 </body>
 </html>

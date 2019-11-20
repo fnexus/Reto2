@@ -22,11 +22,11 @@ window.onload = function() {
     let id_anuncio =  document.getElementById("anuncio_comentario_id_anuncio").value;
     let urlBasica = "../PHP/actions.php";
 
-    let contAnuncio=document.getElementById("anuncio-container");
+    let detallesAnuncio=document.getElementById("anuncio-details-container");
     let deleteButton = document.createElement("button");
     let textnode = document.createTextNode("Borrar esta publicacion");
     deleteButton.appendChild(textnode);
-    contAnuncio.appendChild(deleteButton);
+    detallesAnuncio.appendChild(deleteButton);
 
     let user_nickname= document.getElementById("anuncio_comentario_user_nickname").value;
     let publisher_nickname = document.getElementById("anuncio_comentario_publisher_nickname").value;
