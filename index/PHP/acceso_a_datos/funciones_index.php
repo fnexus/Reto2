@@ -58,7 +58,17 @@ function add_ads()
         echo "<div class='ad'>
                 <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
                     <!--<p class='ad_titulo'>{$anuncio->titulo}</p>-->
-                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'></div>                 
+                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'>
+                        <div class='ad_hover'>
+                            <div class='ad_information'>
+                                <img class='ad_user_img' src='{$anuncio->foto_perfil}'>
+                                <div class='user_information'>
+                                    <p class='ad_titulo'>{$anuncio->titulo}</p>
+                                    <p class='ad_user_nickname'>{$anuncio->nickname}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                       
                 </a>
             </div>";
     }
@@ -70,11 +80,20 @@ function add_ads()
  */
 function selectAll($tabla)
 {
-    $db = connection();
-    $stmt = $db->prepare("SELECT * FROM $tabla WHERE 1=1");
-    $stmt->execute();
-    closeConnection($db);
-    return $stmt;
+    if($tabla=="ANUNCIO") {
+        $db = connection();
+        $stmt = $db->prepare("SELECT * FROM $tabla a, PERSONA p WHERE 1=1 AND a.Persona_id = p.Id");
+        $stmt->execute();
+        closeConnection($db);
+        return $stmt;
+    }
+    else {
+        $db = connection();
+        $stmt = $db->prepare("SELECT * FROM $tabla WHERE 1=1");
+        $stmt->execute();
+        closeConnection($db);
+        return $stmt;
+    }
 }
 
 
@@ -86,8 +105,20 @@ function selectAll($tabla)
  */
 function selectAds($titulo, $categoria)
 {
-    $db = connection();
+    /*$db = connection();
     $query = "SELECT * FROM ANUNCIO WHERE 1=1";
+    if ($titulo != "") {
+        $query .= " AND titulo like '%$titulo%'";
+    }
+    if ($categoria != "") {
+        $query .= " AND categoria_id = " . $categoria;
+    }
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    closeConnection($db);
+    return $stmt;*/
+    $db = connection();
+    $query = "SELECT * FROM ANUNCIO a, PERSONA p WHERE 1=1 AND a.Persona_id = p.Id";
     if ($titulo != "") {
         $query .= " AND titulo like '%$titulo%'";
     }

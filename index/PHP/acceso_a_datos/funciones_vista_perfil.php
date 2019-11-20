@@ -18,7 +18,13 @@ function add_adsByUser($persona_id)
         echo "<div class='ad'>
                 <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
                     <!--<p class='ad_titulo'>{$anuncio->titulo}</p>-->
-                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'></div>                 
+                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'>
+                        <div class='ad_hover'>
+                            <div class='ad_information'>
+                                    <p class='ad_titulo'>{$anuncio->titulo}</p>
+                            </div>
+                        </div>
+                    </div>                       
                 </a>
             </div>";
     }
