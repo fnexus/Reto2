@@ -114,7 +114,7 @@ body {
 .ad_user_nickname{
     color:white;
     font-weight: lighter;
-    font-size: small;
+    font-size: 0.5em;
     margin: -10px 0 -10px 0;
 }
 .ad_imagen, .ad_hover{
@@ -512,5 +512,34 @@ i.fas{
     border: 1px solid black;
     border-radius: 100px;
 }
+/*estilo de os errores*/
+.formError{
+    opacity: 0;
+    background-color: white;
+    position: absolute;
+    width: 25%;
+    height: 100px;
+    border:0.5px solid rgb(239, 239, 239);
+    z-index: 100;
+    text-align: center;
+    left: 37.5%;
+    top:6%;
+    padding-top: 39px;
+    box-shadow: 0 6px 22px 0px black;
+    animation: appear ease 6s normal;
 
-
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    7%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
