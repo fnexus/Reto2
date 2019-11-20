@@ -1,9 +1,8 @@
-window.onload = function() {
-
+window.onload = function () {
 
     let status = document.getElementById("logged").value;
 
-    if(status=="true"){
+    if (status == "true") {
         $('#signIn-button').css('display', 'none');
         $('#logIn-button').css('display', 'none');
 
@@ -11,7 +10,7 @@ window.onload = function() {
         $('#logOut').css('display', 'inline-block');
     }
 
-    $('.efectoFade').on('click',function(event) {
+    $('.efectoFade').on('click', function (event) {
         $(this).modal({
             fadeDuration: 400,
             fadeDelay: 0
@@ -19,14 +18,15 @@ window.onload = function() {
         return false;
     });
 
+
     let id_anuncio =  document.getElementById("anuncio_comentario_id_anuncio").value;
     let urlBasica = "../PHP/actions.php";
 
-    let contAnuncio=document.getElementById("anuncio-container");
+    let detallesAnuncio=document.getElementById("anuncio-details-container");
     let deleteButton = document.createElement("button");
     let textnode = document.createTextNode("Borrar esta publicacion");
     deleteButton.appendChild(textnode);
-    contAnuncio.appendChild(deleteButton);
+    detallesAnuncio.appendChild(deleteButton);
 
     let user_nickname= document.getElementById("anuncio_comentario_user_nickname").value;
     let publisher_nickname = document.getElementById("anuncio_comentario_publisher_nickname").value;

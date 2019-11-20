@@ -5,9 +5,7 @@ $arrayUser = getUserData($_SESSION["userId"]);
 <form action="vista_perfil.php?persona_id=<?= $_SESSION["userId"] ?>" method="post" id="edit-profile" class="modal"
       enctype="multipart/form-data">
     <div class="changecont">
-        <img src="<?php if($arrayUser[0]['imagen_banner']==""){
-
-        } ?>" alt="banner" class="editImg">
+        <img src="<?= $arrayUser[0]['imagen_banner']?>" alt="banner" class="editImg">
 
         <input type="file" name="subida_imagen_banner" accept="image/*" id="nuevo_fondo" class="fileInputs">
         <label for="nuevo_fondo">
@@ -41,7 +39,7 @@ $arrayUser = getUserData($_SESSION["userId"]);
     <div>
         <label for="edit-contacto" class="inp">
             <input type="text" name="pagina-contacto" id="edit-contacto" class="input" value="<?= $arrayUser[0]['pagina_contacto'] ?>">
-            <span class="label">PAGINA DE CONTACTO</span>
+            <span class="label">PÁGINA DE CONTACTO</span>
             <span class="border"></span>
         </label>
     </div>

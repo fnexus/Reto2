@@ -2,7 +2,7 @@
     <!-- Contenedor con el logo y/o nombre -->
     <a href="index.php" id="logo_container">
         <img id="logo" src="../img/favicon2.png">
-        <span>FNEXUS</span>
+        <img id="header-logo" src="../img/fnexus_no_bg.png" alt="logo">
     </a>
 
     <!-- Contenedor con el buscador por titulo y/o categoria -->
