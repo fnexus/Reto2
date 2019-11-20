@@ -1,9 +1,8 @@
-window.onload = function() {
-
+window.onload = function () {
 
     let status = document.getElementById("logged").value;
 
-    if(status=="true"){
+    if (status == "true") {
         $('#signIn-button').css('display', 'none');
         $('#logIn-button').css('display', 'none');
 
@@ -11,13 +10,14 @@ window.onload = function() {
         $('#logOut').css('display', 'inline-block');
     }
 
-    $('.efectoFade').on('click',function(event) {
+    $('.efectoFade').on('click', function (event) {
         $(this).modal({
             fadeDuration: 400,
             fadeDelay: 0
         });
         return false;
     });
+
 
     let id_anuncio =  document.getElementById("anuncio_comentario_id_anuncio").value;
     let urlBasica = "../PHP/actions.php";

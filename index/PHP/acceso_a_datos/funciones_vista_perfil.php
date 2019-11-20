@@ -18,7 +18,13 @@ function add_adsByUser($persona_id)
         echo "<div class='ad'>
                 <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
                     <!--<p class='ad_titulo'>{$anuncio->titulo}</p>-->
-                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'></div>                 
+                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'>
+                        <div class='ad_hover'>
+                            <div class='ad_information'>
+                                    <p class='ad_titulo'>{$anuncio->titulo}</p>
+                            </div>
+                        </div>
+                    </div>                       
                 </a>
             </div>";
     }
@@ -86,6 +92,7 @@ function updateUser($idUser, $nickname, $password, $paginaContacto)
     $url_banner = null;
     if (isset($_FILES) && isset($_FILES['subida_imagen_banner']) && !empty($_FILES['subida_imagen_banner']['name'] && !empty($_FILES['subida_imagen_banner']['tmp_name']))) {
         $url_banner = validateAndUploadImage($url_basica, $idUser, "subida_imagen_banner", "Banner");
+        echo "BANNER--";
     }
 
     $url_imagen = null;
@@ -114,9 +121,9 @@ function updateUser($idUser, $nickname, $password, $paginaContacto)
     return $stmt->rowCount();
 }
 
-function validateAndUploadImage($url, $idUsuario, $queImagen, $siFotoOBanner)
+function validateAndUploadImage($url, $idUsuario, $queImagen, $siFotoOBanner, $extra = "")
 {
-    $destination = $url . $idUsuario . $siFotoOBanner . ".png";
+    $destination = $url . $idUsuario . $siFotoOBanner . $extra . ".png";
 
     // borrar la existente
     if (file_exists($destination)) {

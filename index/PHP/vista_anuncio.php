@@ -16,9 +16,10 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
 <script src="../JS/likes.js"></script>
 <!-- importar script para comentarios -->
 <script src="../JS/comentarios.js"></script>
-
+<!-- importar script para borrar anuncio -->
 <script src="../JS/borrar_anuncio.js"></script>
-
+<!-- importar script porque no funciona el main cuando llego a esta pagina -->
+<script src="../JS/control_ver_perfil_ajeno.js"></script>
 
 <div class="main_container vista-anuncio-container">
     <div id="anuncio-container">
@@ -26,8 +27,10 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
     </div>
     <div id="anuncio-details-container">
         <div id="userInfo-container">
-            <img id="anuncio_usuario_foto_perfil" src="<?php fillAnuncio($personaQueCreoElAnuncio, "persona_imagen"); ?>">
-            <span id="anuncio_usuario_nickname"><?php fillAnuncio($personaQueCreoElAnuncio, "persona_nickname"); ?></span>
+            <a href='<?php fillAnuncio($personaQueCreoElAnuncio, "enlace_a_su_perfil") ?>'>
+                <img id="anuncio_usuario_foto_perfil" src="<?php fillAnuncio($personaQueCreoElAnuncio, "persona_imagen"); ?>">
+                <p id="anuncio_usuario_nickname"><?php fillAnuncio($personaQueCreoElAnuncio, "persona_nickname"); ?></p>
+            </a>
         </div>
 
         <div id="anuncio_datos_anuncio">
