@@ -21,6 +21,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('.demo').slick({
+            arrows: false,
             dots: true,
             autoplay: true,
             autoplaySpeed: 5000,
@@ -31,7 +32,7 @@
             draggable:true,
             responsive: [
                 {
-                    breakpoint: 1024,
+                    breakpoint: 1350,
                     settings: {
                         slidesToShow: 5,
                         slidesToScroll: 5,
@@ -40,17 +41,24 @@
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 1120,
                     settings: {
                         slidesToShow: 4,
                         slidesToScroll: 4
                     }
                 },
                 {
-                    breakpoint: 480,
+                    breakpoint: 850,
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 450,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
                     }
                 }
                 // You can unslick at a given breakpoint now by adding:

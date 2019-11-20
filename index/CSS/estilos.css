@@ -1,12 +1,12 @@
-html {
+* {
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
-
-*,
 *:before,
 *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -119,7 +119,6 @@ body {
     background-size: cover;
     width: 12.5vw;
     height: 12.5vw;
-    border:1px solid red;
 }
 
 
@@ -426,7 +425,6 @@ i.fas{
     background-color: dodgerblue;
     display: inline-block;
     cursor: pointer;
-    margin-left: 19%;
 }
 .fileInputs:focus + label, .fileInputs + label:hover {
     background-color: darkcyan;
@@ -452,7 +450,7 @@ i.fas{
     border-radius: 50px;
     font-size: 16px;
     color:white;
-    margin-left: 18%;
+    float:right;
     outline: none;
 }
 #cont_guardar{
@@ -463,10 +461,10 @@ i.fas{
 #edit-profile .fileInputs + label {
     float:right;
     margin-top: 27px;
-    width:250px;
+    width:60%;
     height: 44px;
+    margin-left: 12%;
 }
-
 #edit-profile img{
     min-width: 100px;
     min-height: 100px;
