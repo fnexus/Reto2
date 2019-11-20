@@ -53,7 +53,5 @@
 <!-- Barra de navegacion -->
 <?php
 require 'barra_nav_principal.php';
-//sendEmail('adrianf1team@gmail.com');
-//La anterior linea de codigo funciona pero al llamarle desde funciones_comentarios_JS linea 19 (sendEmail(getUserEmail($idAnuncio))) NO FUNCIONA
 ?>
 

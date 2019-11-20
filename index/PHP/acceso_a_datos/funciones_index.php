@@ -14,10 +14,9 @@ function add_categorias_bar($tipoDOM)
 
     while ($row = $stmt->fetch()) {
         if ($tipoDOM == "barra") {
-            echo "<div class='tags_child'>    
-                        <a class='tag' href='index.php?search_titulo=&search_categoria={$row['id']}'>
-                            {$row['nombre']}</a>                
-                  </div>";
+            echo "<a class='tags_child' href='index.php?search_titulo=&search_categoria={$row['id']}'>    
+                        <span class='tag'>{$row['nombre']}</span>                
+                  </a>";
         } else {
             echo "<option class='option' value='{$row['id']}'>    
                     {$row['nombre']}            

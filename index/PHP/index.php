@@ -7,8 +7,7 @@
             <?php add_ads() ?>
         </main>
     </div>
-</div>
 <?php require 'footer.php'; ?>
-
+</div>
 
 
