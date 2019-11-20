@@ -148,7 +148,7 @@ VALUES ('8', 'Connect yourself', 'Have you ever dreamed of connecting your brain
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('9', 'Dress like the future', 'The most stylish clothes for the new generation. Wear the future in the present.', 'DressX.com', '../img/imagenes_usuarios/modav3-min.jpg','DressX', '4');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('10', 'Tech meds', 'Science has helped to create the most advanced meds humanity has ever known', 'MedsX.com', '../img/imagenes_usuarios/medsv3-min.jpeg','MedsX', '20');
+VALUES ('10', 'Tech meds', 'Science has helped to create the most advanced meds humanity has ever known', 'MedsX.com', '../img/imagenes_usuarios/medsv3-min.jpg','MedsX', '20');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('11', 'CRISPR deliver', 'Change your DNA in seconds. Custom yourself the way you always wanted to be.', 'CRISPR.com', '../img/imagenes_usuarios/crisprv3-min.jpg','CRISPR', '21');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
