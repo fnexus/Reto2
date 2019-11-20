@@ -16,7 +16,8 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
 <script src="../JS/likes.js"></script>
 <!-- importar script para comentarios -->
 <script src="../JS/comentarios.js"></script>
-
+<!-- importar script para borrar anuncio -->
+<script src="../JS/borrar_anuncio.js"></script>
 
 <div class="main_container vista-anuncio-container">
     <div id="anuncio-container">
