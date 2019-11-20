@@ -1,6 +1,5 @@
 <?php
 $arrayUser = getUserData($_SESSION["userId"]);
-echo "<p>{$arrayUser[0]['imagen_banner']}</p>"
 ?>
 
 <form action="vista_perfil.php?persona_id=<?= $_SESSION["userId"] ?>" method="post" id="edit-profile" class="modal"
