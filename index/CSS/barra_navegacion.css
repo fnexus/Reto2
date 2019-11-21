@@ -17,7 +17,7 @@ nav#nav_container {
 /* Zona del logo */
 #logo_container {
     text-decoration: none;
-    color: #8b6f00;
+    color: #21195e;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -102,18 +102,17 @@ input#search_titulo {
     color: #fff;
     border: 0;
     cursor: pointer;
-    background: #bfa000;
+    background: #362e71;
 }
 
 #search_button:hover {
-    background: #8b6f00;
+    background: #001667;;
 }
 
 /* Zona del inicio de sesion , registro y mi perfil */
 
 #sesion_container {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
 
@@ -123,7 +122,7 @@ input#search_titulo {
     border: 0;
     display: inline-block;
     cursor: pointer;
-    color: #bfa000;
+    color: #21195e;
     font-size: 17px;
     padding: 16px 5px;
     text-decoration: none;
@@ -134,16 +133,43 @@ input#search_titulo {
     background: transparent;
     border: 0;
     text-decoration: none;
-    color: #bfa000;
-    flex-basis: 50%;
-    flex-grow: 2;
+    color: #21195e;
+    flex-basis: 20%;
 }
 
 
 #sesion_container > * {
-    margin: auto;
     height: auto;
 }
+
+#logIn-button{
+    margin-right: 30px;
+}
+.error-container{
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    position:fixed;
+    background: #f7f7f7;
+    margin-top:60px; /*navbar height*/
+    z-index: 1000;
+    width: 100%;
+    height: 63px;
+    -webkit-box-shadow:0px 1px 1px lightgrey;
+    -moz-box-shadow:0px 1px 1px lightgrey;
+    box-shadow:0px 1px 1px lightgrey;
+}
+.error-image-container{
+    width: 50px;
+}
+.error-image-container img{
+    width: 100%;
+    height: auto;
+}
+.cross-image-container{
+    margin-left: auto;
+}
+
 
 /* pantalla algo pequeña */
 @media screen and (max-width: 900px ) {
