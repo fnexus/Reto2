@@ -430,7 +430,7 @@ i.fas{
 }
 
 #cont_passwords .input{
-    width: 49.4%;
+    width: 49.3%;
 }
 #edit-profile .label{
     top:20px;
@@ -445,14 +445,19 @@ i.fas{
     height: 60px;
     background: dodgerblue;
     border-radius: 50px;
-    margin: 2% 0 0 27%;
     font-size: 16px;
     color:white;
     outline: none;
+    margin-top: 10px;
 }
 .button:hover{
     background-color: darkcyan;
 }
+#edit-profile .button{
+    margin-top:12px;
+    float: right;
+}
+
 /*Estilo de los input file de los formularios*/
 .fileInputs{
     width: 0.1px;
@@ -507,9 +512,9 @@ i.fas{
 #edit-profile .fileInputs + label {
     float:right;
     margin-top: 27px;
-    width:60%;
+    width:62%;
     height: 44px;
-    margin-left: 12%;
+    margin-left: 11%;
 }
 #edit-profile img{
     min-width: 100px;
@@ -553,13 +558,35 @@ i.fas{
     0% {
         opacity: 0;
     }
-    7%{
+    7% {
         opacity: 1;
     }
-    90%{
+    90% {
         opacity: 1;
     }
     100% {
         opacity: 0;
     }
 }
+/* pantalla algo pequeña */
+@media screen and (max-width: 900px ) {
+
+}
+
+/* Ya esto es MOVIL */
+@media screen and (max-width: 550px ) {
+    .blocker{
+        padding: 0;
+    }
+    .modal{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        padding-top: 20%;
+    }
+    .modal a.close-modal {
+        top:0.5px;
+        right: 0.5px;
+    }
+}
+

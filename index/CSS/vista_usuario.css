@@ -81,3 +81,24 @@
 .editar_perfil {
     flex: 1 1 100%;
 }
+@media screen and (max-width: 900px ) {
+
+}
+
+/* Ya esto es MOVIL */
+@media screen and (max-width: 550px ) {
+    #edit-profile .fileInputs + label {
+        margin-top: 12px;
+        width: 61%;
+        height: 60px;
+        margin-left: 0;
+    }
+    #edit-profile img {
+        min-width: 80px;
+        min-height: 80px;
+    }
+    .editImg {
+        width: 80px;
+        height: 80px;
+    }
+}

@@ -23,6 +23,7 @@
         <a href="#loginForm" id="logIn-button" class="efectoFade sesion_control" rel="modal:open">Iniciar Sesion</a>
         <a href="#registerForm" id="signIn-button" class="efectoFade sesion_control" rel="modal:open">Registrarse</a>
 
+
         <!--Botones cuando estas logeado-->
 
         <a href="vista_perfil.php?persona_id=<?= $_SESSION['userId'] ?>" id="profile" class="session_entered"><i
@@ -36,9 +37,12 @@
                     class="fas fa-sign-out-alt fa-icon tooltip">
                 <span class="tooltiptext">Cerrar Sesión</span>
             </i></a>
+        <!--Para mostrar y ocultar el menu de la version movil -->
+           <a id="deploymenu" class="sesion_control"><i class="fas fa-bars fa-icon tooltip"></i></a>
+           <input id="deploymenu_event" type="hidden" name="deploymenu_event" value="cerrado">
 
-    </div>
-    <!-- Contenedor de los formularios de registrarse e iniciar sesion -->
+           </div>
+           <!-- Contenedor de los formularios de registrarse e iniciar sesion -->
     <div class="contenedor-formulario">
         <?php include 'loginForm.php'; ?>
         <?php include 'registerForm.html'; ?>
