@@ -49,6 +49,7 @@ window.onload = function () {
                 deploymenu.style.transform="rotate(0deg)";
                 deploymenu.style.paddingLeft="0%"
 
+
                 let contbuscar=document.getElementById("search_container");
                 let navcont=document.getElementById("nav_container");
                 let tagscont=document.getElementById("tags_container")
