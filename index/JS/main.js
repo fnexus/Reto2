@@ -41,7 +41,8 @@ window.onload = function () {
                 contbuscar.style.display="flex";
                 navcont.style.height="160px";
                 navcont.style.gridTemplateRows="37% 63%";
-                tagscont.style.marginTop="50px";
+
+
             }
             else{
                 // ocultar barra buscadora
@@ -56,7 +57,6 @@ window.onload = function () {
                 contbuscar.style.display="none";
                 navcont.style.gridTemplateRows="100% 0";
                 navcont.style.height="60px";
-                tagscont.style.marginTop="-10%";
 
                 deploymenu_event.value="cerrado";
             }

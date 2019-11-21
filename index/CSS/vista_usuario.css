@@ -101,4 +101,7 @@
         width: 80px;
         height: 80px;
     }
+    #cabecera_perfil{
+        margin-top: -13%;
+    }
 }
