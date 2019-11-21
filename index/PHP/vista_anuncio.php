@@ -1,5 +1,4 @@
-<?php require 'head.php'; ?>
-<?php
+<?php require 'head.php';
 
 $idAnuncio = isset($_GET['id_anuncio']) ? $_GET['id_anuncio'] : "ERROR id_anuncio";
 $anuncio = getAnuncioById($idAnuncio);
