@@ -1,6 +1,7 @@
-window.onload = function () {
 
     $(document).ready(function () {
+
+        console.log("Borrar_anuncio");
 
         let id_anuncio = document.getElementById("anuncio_comentario_id_anuncio").value;
 
@@ -32,17 +33,13 @@ window.onload = function () {
                     type: "GET",
                     async: false,
                     success: function (result) {
-                        console.log("borrar " + result);
                         prueba = result;
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
-                        console.log(thrownError);
                         prueba = thrownError;
                     }
                 });
-                console.log(prueba);
-                location.href = "http://localhost:8765/index/PHP/index.php";
+                location.href = "index.php";
             }
         });
     });
-};
