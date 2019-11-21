@@ -1,5 +1,4 @@
-<?php require 'head.php'; ?>
-<?php
+<?php require 'head.php';
 
 $idAnuncio = isset($_GET['id_anuncio']) ? $_GET['id_anuncio'] : "ERROR id_anuncio";
 $anuncio = getAnuncioById($idAnuncio);
@@ -16,10 +15,10 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
 <script src="../JS/likes.js"></script>
 <!-- importar script para comentarios -->
 <script src="../JS/comentarios.js"></script>
-<!-- importar script para borrar anuncio -->
-<script src="../JS/borrar_anuncio.js"></script>
 <!-- importar script porque no funciona el main cuando llego a esta pagina -->
 <script src="../JS/control_ver_perfil_ajeno.js"></script>
+<!-- importar script para borrar anuncio -->
+<script src="../JS/borrar_anuncio.js"></script>
 
 <div class="main_container vista-anuncio-container">
     <div id="anuncio-container">

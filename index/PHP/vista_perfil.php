@@ -57,7 +57,7 @@ if (isset($_GET['anunciante_id']) && $_GET['anunciante_id'] != "") {
                     }
                 }
             } else {
-                add_adsByUser($_GET['persona_id']);
+                add_adsByUser($_SESSION['userId']);
             }
             ?>
 

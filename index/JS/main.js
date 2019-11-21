@@ -21,57 +21,47 @@ window.onload = function () {
         });
         return false;
     });
+    let deploymenu_event =  document.getElementById("deploymenu_event");
+    let deploymenu = document.getElementById("deploymenu");
 
-    //No lee correctamente los eventos en las lineas de codigo posteriores a este error
-    let idAnuncio =  document.getElementById("anuncio_comentario_id_anuncio").value;
-    let urlBasica = "../PHP/actions.php";
 
-    let detallesAnuncio=document.getElementById("anuncio-details-container");
-    let deleteButton = document.createElement("button");
-    let textnode = document.createTextNode("Borrar esta publicacion");
-    deleteButton.appendChild(textnode);
-    detallesAnuncio.appendChild(deleteButton);
+        deploymenu.addEventListener("click", function () {
+            // mostrar barra buscadora
+                deploymenu_event.value="abierto";
+            if(deploymenu_event.value=="cerrado"){
 
-    let user_nickname= document.getElementById("anuncio_comentario_user_nickname").value;
-    let publisher_nickname = document.getElementById("anuncio_comentario_publisher_nickname").value;
+                deploymenu.style.transform="rotate(90deg)";
+                deploymenu.style.paddingLeft="3%"
 
-    if(user_nickname==publisher_nickname){
-        deleteButton.style.display="block";
-    }
-    else{
-        deleteButton.style.display="none";
-    }
+                let contbuscar=document.getElementById("search_container");
+                let navcont=document.getElementById("nav_container");
+                let tagscont=document.getElementById("tags_container")
 
-    deleteButton.addEventListener("click", function () {
-        // borrar este anuncio
-        let confirmacion =confirm("¿Estas seguro de que quieres eliminar este anuncio?")
 
-        if(confirmacion==true){
-        $.ajax({
+                contbuscar.style.display="flex";
+                navcont.style.height="160px";
+                navcont.style.gridTemplateRows="37% 63%";
 
-            url: urlBasica + "?id_anuncio=" + idAnuncio + "&action=Borrar",
-            type: "GET",
-            async: true,
-            success: function (result) {
-                console.log("borrar " + result);
 
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log(thrownError);
+            }
+            else{
+                // ocultar barra buscadora
+                deploymenu.style.transform="rotate(0deg)";
+                deploymenu.style.paddingLeft="0%"
+
+
+                let contbuscar=document.getElementById("search_container");
+                let navcont=document.getElementById("nav_container");
+                let tagscont=document.getElementById("tags_container")
+
+
+                contbuscar.style.display="none";
+                navcont.style.gridTemplateRows="100% 0";
+                navcont.style.height="60px";
+
+                deploymenu_event.value="cerrado";
             }
         });
-        location.href ="http://localhost:8765/index/PHP/index.php";
-        }
-    });
-
-
-
-    /*let anuncio = document.getElementsByClassName("ad_enlacePagina");
-
-    anuncio.addEventListener("hover", function () {
-        // mostrar div con nombre del anuncio
-        anuncio.style.backgroundImage="url('../img/boton_añadir.png')";
-    });*/
 };
 
 
