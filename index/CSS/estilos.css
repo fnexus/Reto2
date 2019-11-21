@@ -99,10 +99,16 @@ html, body{
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
+    max-width: 100%;
 }
 
 .ad {
+    width: 12.5%;
     z-index: 2;
+}
+
+.ad_enlacePagina, .ad_imagen, .ad_hover{
+    width: 100% !important;
 }
 
 .ad_enlacePagina {
@@ -666,13 +672,56 @@ i.fas{
         opacity: 0;
     }
 }
-/* pantalla algo pequeña */
-@media screen and (max-width: 900px ) {
 
+@media screen and (max-width: 1300px) {
+    .ad{
+        width: 16.666%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 16.666vw;
+        height: 16.666vw;
+    }
+    #header-logo{
+        transform: scale(1.7);
+        margin-right: 35px;
+    }
+}
+
+/* pantalla algo pequeña */
+@media screen and (max-width: 950px) {
+    .ad{
+        width: 25%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 25vw;
+        height: 25vw;
+    }
+    #header-logo{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .ad{
+        width: 33%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 33vw;
+        height: 33vw;
+    }
+}
+@media screen and (max-width: 600px) {
+    .ad{
+        width: 100%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 100vw;
+        height: 100vw;
+    }
 }
 
 /* Ya esto es MOVIL */
-@media screen and (max-width: 550px ) {
+@media screen and (max-width: 550px) {
     .blocker{
         padding: 0;
     }
@@ -691,6 +740,13 @@ i.fas{
         height: 100px;
         left: 22.5%;
         padding-top: 30px;
+    }
+    #logo_container{
+        height: 60px !important;
+        margin-left: 10px !important;
+    }
+    #tags_container {
+        margin-bottom: 15px;
     }
 }
 
