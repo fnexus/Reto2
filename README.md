@@ -1,8 +1,6 @@
 <p align="center">
   <img src="https://github.com/fnexus/Reto2/blob/master/index/img/fnexus_no_bg.png?raw=true">
 </p>
-
-<h1 align="center"></h1>
 <h1 align="center">
   <span>FNEXUS WEBAPP</span>
 </h1>
