@@ -15,6 +15,5 @@
     </div>
     <div>
         <input type="submit" name="action" id="logIn" class="button" value="Iniciar Sesion">
-
     </div>
 </form>

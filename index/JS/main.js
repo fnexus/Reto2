@@ -1,5 +1,9 @@
 window.onload = function () {
 
+    $('#navbar-cross').on('click', function () {
+        $('.error-container').remove();
+    });
+
     let status = document.getElementById("logged").value;
 
     if (status == "true") {
@@ -18,8 +22,8 @@ window.onload = function () {
         return false;
     });
 
-
-    let id_anuncio =  document.getElementById("anuncio_comentario_id_anuncio").value;
+    //No lee correctamente los eventos en las lineas de codigo posteriores a este error
+    let idAnuncio =  document.getElementById("anuncio_comentario_id_anuncio").value;
     let urlBasica = "../PHP/actions.php";
 
     let detallesAnuncio=document.getElementById("anuncio-details-container");
@@ -45,7 +49,7 @@ window.onload = function () {
         if(confirmacion==true){
         $.ajax({
 
-            url: urlBasica + "?id_anuncio=" + id_anuncio + "&action=Borrar",
+            url: urlBasica + "?id_anuncio=" + idAnuncio + "&action=Borrar",
             type: "GET",
             async: true,
             success: function (result) {

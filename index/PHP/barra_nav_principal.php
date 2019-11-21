@@ -40,7 +40,7 @@
     </div>
     <!-- Contenedor de los formularios de registrarse e iniciar sesion -->
     <div class="contenedor-formulario">
-        <?php include 'loginForm.html'; ?>
+        <?php include 'loginForm.php'; ?>
         <?php include 'registerForm.html'; ?>
     </div>
 </nav>
