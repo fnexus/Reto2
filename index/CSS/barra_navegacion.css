@@ -1,9 +1,8 @@
 /* Codigo nav bar */
-#logged, #profile, #logOut {
+#logged, #profile, #logOut,#deploymenu {
     display: none;
 }
-
-nav#nav_container {
+#nav_container {
     background: rgb(230, 230, 230);
     width: 100%;
     height: 60px;
@@ -173,11 +172,10 @@ input#search_titulo {
 
 /* pantalla algo pequeña */
 @media screen and (max-width: 900px ) {
-    nav#nav_container {
+    #nav_container {
         grid-template-columns: 10% 90%;
         grid-template-rows: 50% 50%;
         height: 120px;
-
     }
 
     #logo_container span {
@@ -191,11 +189,49 @@ input#search_titulo {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-
     }
 }
 
 /* Ya esto es MOVIL */
 @media screen and (max-width: 550px ) {
+    #deploymenu{
+        display:inline-block;
+        background-image: url("../img/menudesplegable.png");
+        margin-left: 8%;
+        transition-duration: 0.1s;
+    }
+    #sesion_container {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    img#logo{
+        height: 56%;
+    }
+    #header-logo{
+        display: none;
+    }
+    form#search_container{
+        display: none;
+        flex-wrap: wrap;
+        order: 2;
+        padding: 0 10% 0 0;
+    }
+    #nav_container {
+        grid-template-columns: 10% 90%;
+        grid-template-rows: 100% 0;
+        height: 60px;
+        transition-duration: 0.1s;
 
+    }
+    #tags_container{
+        margin-top: -10%;
+    }
+    select#search_categoria{
+        width: 500px;
+        border-right:none;
+    }
 }
