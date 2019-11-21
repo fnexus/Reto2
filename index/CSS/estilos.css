@@ -99,10 +99,16 @@ html, body{
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
+    max-width: 100%;
 }
 
 .ad {
+    width: 12.5%;
     z-index: 2;
+}
+
+.ad_enlacePagina, .ad_imagen, .ad_hover{
+    width: 100% !important;
 }
 
 .ad_enlacePagina {
@@ -183,7 +189,18 @@ html, body{
     width: 75%;
     margin-bottom: auto;
     height: calc(100vh - 116px); /*116px es la height del footer*/
+    position: relative;
 }
+#anuncio-container button{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+#anuncio-container button:hover{
+    border:1px solid white;
+}
+
 #imagen-anuncio{
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -234,7 +251,7 @@ html, body{
     display: flex;
     align-items: center;
 }
-#likes_count, #anuncio_comentario_boton_enviar{ /*Remove css button styles*/
+.vista-anuncio-container button{ /*Remove css button styles*/
     padding: 0;
     border: none;
     outline: none;
@@ -259,16 +276,18 @@ html, body{
 #comments-form{
     margin-bottom: 50px;
 }
-#anuncio_comentario_boton_enviar{
+#anuncio_comentario_boton_enviar, #anuncio-container button{
     padding:8px;
     color: #362e71;
     border:2px solid #362e71;
     float: right;
     margin-top: 10px;
     background:white;
-
 }
-#anuncio_comentario_boton_enviar:hover{
+#boton-eliminar{
+    width: 30px;
+}
+#anuncio_comentario_boton_enviar:hover, #anuncio-container button:hover{
     color:white;
     background: #362e71;
     cursor:pointer;
@@ -276,6 +295,9 @@ html, body{
 #boton-eliminar{
     display: block;
     margin: 10px 0;
+}
+#anuncio_lista_comentarios p{
+    word-wrap:break-word;
 }
 
 /*TEXTAREA COMMENTS*/
@@ -650,13 +672,56 @@ i.fas{
         opacity: 0;
     }
 }
-/* pantalla algo pequeña */
-@media screen and (max-width: 900px ) {
 
+@media screen and (max-width: 1300px) {
+    .ad{
+        width: 16.666%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 16.666vw;
+        height: 16.666vw;
+    }
+    #header-logo{
+        transform: scale(1.7);
+        margin-right: 35px;
+    }
+}
+
+/* pantalla algo pequeña */
+@media screen and (max-width: 950px) {
+    .ad{
+        width: 25%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 25vw;
+        height: 25vw;
+    }
+    #header-logo{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .ad{
+        width: 33%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 33vw;
+        height: 33vw;
+    }
+}
+@media screen and (max-width: 600px) {
+    .ad{
+        width: 100%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 100vw;
+        height: 100vw;
+    }
 }
 
 /* Ya esto es MOVIL */
-@media screen and (max-width: 550px ) {
+@media screen and (max-width: 550px) {
     .blocker{
         padding: 0;
     }
@@ -675,6 +740,13 @@ i.fas{
         height: 100px;
         left: 22.5%;
         padding-top: 30px;
+    }
+    #logo_container{
+        height: 60px !important;
+        margin-left: 10px !important;
+    }
+    #tags_container {
+        margin-bottom: 15px;
     }
 }
 
