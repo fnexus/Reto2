@@ -64,6 +64,8 @@ window.onload = function () {
         }
     });
 
+
+
     /*let anuncio = document.getElementsByClassName("ad_enlacePagina");
 
     anuncio.addEventListener("hover", function () {

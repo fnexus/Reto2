@@ -84,7 +84,7 @@ $(document).ready(function () {
             div.appendChild(addComment("p", objetoJSON[i]['descripcion']));
 
             // fecha creacion
-            div.appendChild(addComment("p", objetoJSON[i]['fecha_creacion']));
+            div.appendChild(addComment("span", objetoJSON[i]['fecha_creacion']));
 
             // boton borrar anuncio si es el dueño del comentario
             if (idPersonaSesion == objetoJSON[i]['persona_id']) {
@@ -109,7 +109,8 @@ $(document).ready(function () {
 
     function deleteComentarioButton(idComentario, idPersonaSesion) {
         let element = document.createElement("button");
-        let textnode = document.createTextNode("X - eliminar mi comentario");
+        element.setAttribute('id', 'boton-eliminar');
+        let textnode = document.createTextNode("Eliminar comentario");
         element.appendChild(textnode);
         element.addEventListener("click", function () {
             // borrar este comentario
