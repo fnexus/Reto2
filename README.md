@@ -1,3 +1,36 @@
-<p align="center">
-  <img src="https://github.com/fnexus/Reto2/blob/master/index/img/FNEXUS-logo.jpg?raw=true">
-</p>
+# Reto 2 - Web de anuncios
+<img src="index/img/logo_chiquito.png" alt="Logo empresa"/>
+
+![PROYECT: ](https://img.shields.io/badge/Fnexus_Proyect-v1.0_Alpaca-green)
+
+![HTML: ](https://img.shields.io/badge/HTML-5-e34f26)
+![CSS: ](https://img.shields.io/badge/CSS-3-orange)
+![JS: ](https://img.shields.io/badge/JavaScript-Last_Version-f7df1e)
+![JQuery: ](https://img.shields.io/badge/JQuery-v3.4.1-0769ad)
+![PHP: ](https://img.shields.io/badge/PHP-v7.2-8892be)
+![MySQL: ](https://img.shields.io/badge/MySQL-v5.7.28-00758f)
+
+
+###### -----------------------------------------------------------------------------------------------------------------------
+
+## Contribuidores
+
+<table>
+  <tr>
+    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars3.githubusercontent.com/u/23460143?    s=400&v=4" width="100px;" alt="inakicl"/><br /><sub><b>Iñaki </b></sub></a><br />
+    </a><br /><a href="https://github.com/fnexus/Reto2/commits?author=inakicl" title="Commits">📖</a>
+  👀
+    </td>
+    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars3.githubusercontent.com/u/27602026?s=400&v=4" width="100px;" alt="julen-C"/><br /><sub><b>Adrian</b></sub></a><br/>
+      </a><br /><a href="https://github.com/fnexus/Reto2/commits?author=AdrianDanlos" title="Commits">📖</a>
+  👀
+    </td>
+    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars3.githubusercontent.com/u/43949194?s=400&v=4" width="100px;" alt="Julen-Ortzi"/><br /><sub><b>Julen</b></sub></a><br />
+      </a><br /><a href="https://github.com/fnexus/Reto2/commits?author=JulenOZegibide" title="Commits">📖</a>   
+      👀
+    </td>
+
+       
+    
+  </tr>
+</table>
