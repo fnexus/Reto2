@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS FNEXUS;
 CREATE DATABASE IF NOT EXISTS FNEXUS;
 USE FNEXUS;
 
+-- DROPS
 DROP TABLE IF EXISTS LIKES;
 DROP TABLE IF EXISTS COMENTARIO;
 DROP TABLE IF EXISTS ANUNCIO;
@@ -15,8 +16,8 @@ CREATE TABLE PERSONA (
   nombre varchar(100) NOT NULL,
   apellidos varchar(100) NOT NULL,
   email varchar(100) UNIQUE NOT NULL,
-  foto_perfil varchar(500),
-  imagen_banner varchar(500),
+  foto_perfil varchar(500) DEFAULT '../img/imagenes_usuarios/defaultFoto.png',
+  imagen_banner varchar(500) DEFAULT '../img/imagenes_usuarios/defaultBanner.png',
   pagina_contacto varchar(100) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
@@ -41,7 +42,7 @@ CREATE TABLE ANUNCIO (
   titulo varchar(100) NOT NULL,
   descripcion varchar(500) NOT NULL,
   datos_contacto varchar(100) NOT NULL,
-  imagen varchar(500),
+  imagen varchar(500) DEFAULT '../img/imagenes_usuarios/defaultAnuncio.png',
   nombre_empresa varchar (100) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 

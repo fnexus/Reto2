@@ -2,8 +2,6 @@ $(document).ready(function () {
     //variables
     let contenedorComentarios = $('#anuncio_lista_comentarios');
     let comentarioTextArea = $('#anuncio_comentario_text_area');
-    let comentarioIdAnuncio = $('#anuncio_comentario_id_anuncio');
-    let comentarioIdUser = $('#anuncio_comentario_id_user');
     let comentarioBoton = $('#anuncio_comentario_boton_enviar');
 
     //valores
@@ -14,15 +12,15 @@ $(document).ready(function () {
 
     // listener de click del boton añadir comentario
     comentarioBoton.bind("click", function () {
-        if(comentarioTextArea.val()){
+        if (comentarioTextArea.val()) {
             insertarComentario();
-            mostrarComentariosDelAnuncio();
+            mostrarComentariosDelAnuncio(persona_id);
         }
         comentarioTextArea.val("");
     });
 
     // al abrir ejecutar esto por primera vez
-    mostrarComentariosDelAnuncio();
+    mostrarComentariosDelAnuncio(persona_id);
     if (persona_id == "") {
         comentarioTextArea.prop("disabled", true);
         comentarioBoton.prop("disabled", true);
@@ -30,8 +28,9 @@ $(document).ready(function () {
 
     /**
      *
+     * @param idPersonaSesion
      */
-    function mostrarComentariosDelAnuncio() {
+    function mostrarComentariosDelAnuncio(idPersonaSesion) {
         var objetoJSON = null;
         $.ajax({
             // llamar al php con un id anuncio y me devuelva el count de likes de ese anuncio
@@ -45,9 +44,12 @@ $(document).ready(function () {
             }
         });
         // le paso el json y crea los bloques comentarios y los añade a la lista o contenedor para que se vean
-        crearYAnyadirComentarios(JSON.parse(objetoJSON));
+        crearYAnyadirComentarios(JSON.parse(objetoJSON), idPersonaSesion);
     }
 
+    /**
+     *
+     */
     function insertarComentario() {
         $.ajax({
             // llamar al php con un id anuncio y me devuelva el count de likes de ese anuncio
@@ -66,30 +68,65 @@ $(document).ready(function () {
     /**
      *
      * @param objetoJSON
+     * @param idPersonaSesion
      */
-    function crearYAnyadirComentarios(objetoJSON) {
+    function crearYAnyadirComentarios(objetoJSON, idPersonaSesion) {
         let div = document.createElement("div");
-        // borrar anteriores comentarios y refrescarlos
 
+        // borrar anteriores comentarios y refrescarlos
         contenedorComentarios.empty();
 
         for (let i = 0; i < objetoJSON.length; i++) {
             // nickname
-            let nombre = document.createElement("h4");
-            let nombre2 = document.createTextNode(objetoJSON[i]['nickname']);
-            nombre.appendChild(nombre2);
-            div.appendChild(nombre);
-            //descripcion
-            let desc = document.createElement("p");
-            let desc2 = document.createTextNode(objetoJSON[i]['descripcion']);
-            desc.appendChild(desc2);
-            div.appendChild(desc);
-            //fecha creacion
-            let f = document.createElement("p");
-            let f2 = document.createTextNode(objetoJSON[i]['fecha_creacion']);
-            f.appendChild(f2);
-            div.appendChild(f);
+            div.appendChild(addComment("h4", objetoJSON[i]['nickname']));
+
+            // descripcion
+            div.appendChild(addComment("p", objetoJSON[i]['descripcion']));
+
+            // fecha creacion
+            div.appendChild(addComment("span", objetoJSON[i]['fecha_creacion']));
+
+            // boton borrar anuncio si es el dueño del comentario
+            if (idPersonaSesion == objetoJSON[i]['persona_id']) {
+                div.appendChild(deleteComentarioButton(objetoJSON[i]['id']), idPersonaSesion);
+            }
         }
         contenedorComentarios.append(div);
+    }
+
+    /**
+     *
+     * @param tagName
+     * @param textNode
+     * @returns {any} element
+     */
+    function addComment(tagName, textNode) {
+        let element = document.createElement(tagName);
+        let textnode = document.createTextNode(textNode);
+        element.appendChild(textnode);
+        return element;
+    }
+
+    function deleteComentarioButton(idComentario, idPersonaSesion) {
+        let element = document.createElement("img");
+        element.setAttribute('id', 'boton-eliminar');
+        element.setAttribute('src', "../img/cross.png");
+        element.addEventListener("click", function () {
+            // borrar este comentario
+            $.ajax({
+                url: urlBasica + "?modo=borrar_comentario" + "&id_comentario=" + idComentario,
+                type: "GET",
+                async: false,
+                success: function (result) {
+                    console.log("borrar " + result);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(thrownError);
+                }
+            });
+            // una vez borrado, volver a cargar los comentarios actualizados
+            mostrarComentariosDelAnuncio(persona_id);
+        });
+        return element;
     }
 });

@@ -14,10 +14,9 @@ function add_categorias_bar($tipoDOM)
 
     while ($row = $stmt->fetch()) {
         if ($tipoDOM == "barra") {
-            echo "<div class='tags_child'>    
-                        <a class='tag' href='index.php?search_titulo=&search_categoria={$row['id']}'>
-                            {$row['nombre']}</a>                
-                  </div>";
+            echo "<a class='tags_child' href='index.php?search_titulo=&search_categoria={$row['id']}'>    
+                        <span class='tag'>{$row['nombre']}</span>                
+                  </a>";
         } else {
             echo "<option class='option' value='{$row['id']}'>    
                     {$row['nombre']}            
@@ -48,7 +47,7 @@ function add_ads()
 
     // si al menos uno esta lleno, buscar con filtro, sino buscar todos
     if ($titulo != "" || $categoria != "") {
-        $ads = selectAds($titulo, $categoria);
+        $ads = selectAds($titulo, $categoria,"ANUNCIO","PERSONA");
     } else {
         $ads = selectAll("ANUNCIO");
     }
@@ -57,8 +56,18 @@ function add_ads()
     while ($anuncio = $ads->fetchObject()) {
         echo "<div class='ad'>
                 <a href='vista_anuncio.php?id_anuncio={$anuncio->id}'  class='ad_enlacePagina'>                
-                    <p class='ad_titulo'>{$anuncio->titulo}</p>
-                    <img src='{$anuncio->imagen}' class='ad_imagen'>                    
+                    <!--<p class='ad_titulo'>{$anuncio->titulo}</p>-->
+                    <div style='background-image: url({$anuncio->imagen})' class='ad_imagen'>
+                        <div class='ad_hover'>
+                            <div class='ad_information'>
+                                <img class='ad_user_img' src='{$anuncio->foto_perfil}'>
+                                <div class='user_information'>
+                                    <p class='ad_titulo'>{$anuncio->titulo}</p>
+                                    <p class='ad_user_nickname'>{$anuncio->nickname}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                       
                 </a>
             </div>";
     }
@@ -68,13 +77,22 @@ function add_ads()
  * @param $tabla
  * @return bool|PDOStatement
  */
-function selectAll($tabla)
+function selectAll($tabla1,$tabla2 = "PERSONA")
 {
-    $db = connection();
-    $stmt = $db->prepare("SELECT * FROM $tabla WHERE 1=1");
-    $stmt->execute();
-    closeConnection($db);
-    return $stmt;
+    if($tabla1=="ANUNCIO") {
+        $db = connection();
+        $stmt = $db->prepare("SELECT a.id, a.titulo, a.imagen, p.foto_perfil, p.nickname FROM $tabla1 a, $tabla2 p WHERE 1=1 AND a.persona_id = p.id");
+        $stmt->execute();
+        closeConnection($db);
+        return $stmt;
+    }
+    else {
+        $db = connection();
+        $stmt = $db->prepare("SELECT * FROM $tabla1 WHERE 1=1");
+        $stmt->execute();
+        closeConnection($db);
+        return $stmt;
+    }
 }
 
 
@@ -84,15 +102,15 @@ function selectAll($tabla)
  * @param $categoria
  * @return bool|PDOStatement
  */
-function selectAds($titulo, $categoria)
+function selectAds($titulo, $categoria,$tabla1,$tabla2)
 {
     $db = connection();
-    $query = "SELECT * FROM ANUNCIO WHERE 1=1";
+    $query = "SELECT a.id, a.titulo, a.imagen, p.foto_perfil, p.nickname FROM $tabla1 a, $tabla2 p WHERE 1=1 AND a.persona_id = p.id";
     if ($titulo != "") {
-        $query .= " AND titulo like '%$titulo%'";
+        $query .= " AND a.titulo like '%$titulo%'";
     }
     if ($categoria != "") {
-        $query .= " AND categoria_id = " . $categoria;
+        $query .= " AND a.categoria_id = " . $categoria;
     }
     $stmt = $db->prepare($query);
     $stmt->execute();
@@ -119,7 +137,8 @@ function insertUser()
                                 VALUES('$nickname', '$email', '$password', '$name', '$surname', '$contactPage');");
             $stmt->execute();
         } else {
-            echo "<p class='formError'>Las contraseñas no coinciden</p>";
+            echo "<p class='formError'><svg aria-hidden=\"true\" class=\"stUf5b qpSchb\" fill=\"currentColor\" focusable=\"false\" width=\"16px\" height=\"16px\" viewBox=\"0 0 24 24\" xmlns=\"https://www.w3.org/2000/svg\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\"></path></svg>Las contraseñas no coinciden</p>";
+
         }
     }
     closeConnection($db);
@@ -142,7 +161,7 @@ function loginUser()
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         $stmt->execute($data);
         if($_GET["nickname"]==""||$_GET["password"]==""){
-            echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+            echo "<p class='formError'><svg aria-hidden=\"true\" class=\"stUf5b qpSchb\" fill=\"currentColor\" focusable=\"false\" width=\"16px\" height=\"16px\" viewBox=\"0 0 24 24\" xmlns=\"https://www.w3.org/2000/svg\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\"></path></svg>El usuario o la contraseña introducidas no son correctas</p>";
         } else {
             if ($row = $stmt->fetch()) {
                 $_SESSION["userId"] = $row->id;
@@ -153,16 +172,34 @@ function loginUser()
                 $_SESSION["contactPage"] = $row->pagina_contacto;
                 $_SESSION["profileImg"] = $row->foto_perfil;
                 $_SESSION["bannerImg"] = $row->imagen_banner;
-
                 $_SESSION["logged"] = "true";
             }
             else{
-                echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+
+                echo "<p class='formError'><svg aria-hidden=\"true\" class=\"stUf5b qpSchb\" fill=\"currentColor\" focusable=\"false\" width=\"16px\" height=\"16px\" viewBox=\"0 0 24 24\" xmlns=\"https://www.w3.org/2000/svg\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\"></path></svg>El usuario o la contraseña introducidas no son correctas</p>";
+
             }
 
         }
     }
     closeConnection($dbh);
+}
+
+function printError($action){
+    echo '<div class="error-container">',
+            '<div class="error-image-container">',
+                '<img src="../img/error.png">',
+            '</div>';
+    if($action == "login"){
+        echo "<p class='formError'>El usuario o la contraseña introducidas no son correctas</p>";
+    }
+    else{
+        echo "<p class='formError'>Las contraseñas no coinciden</p>";
+    }
+    echo '<div class="cross-image-container">',
+            '<img id="navbar-cross" src="../img/cross.png">',
+        '</div>';
+        echo '</div>';
 }
 
 function logoutUser()
@@ -184,3 +221,4 @@ function logoutUser()
 
     closeConnection($dbh);
 }
+

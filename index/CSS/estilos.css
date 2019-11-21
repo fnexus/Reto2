@@ -1,83 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+*:before,
+*:after {
+    box-sizing: border-box;
+}
 html {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     margin: auto;
 }
 
-
-/* Barra de navegacion que tiene el logo, search y los Iniciar sesion y registrarse */
-
-nav#nav_container {
-    background: rgb(230, 230, 230);
-    width: 100%;
-    height: 60px;
-    display: grid;
-    grid-template-columns: 20% 60% 10% 10%;
-    grid-template-rows: 100%;
-    position: fixed; /* Se mantenga arriba */
-    z-index: 99;
+html, body{
+    min-height: 100%;
 }
-
-#logo_container {
-    text-decoration: none;
-    color: darkblue;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin: 4%;
-}
-
-img#logo {
-    content: url("../img/fnexus logo 2.png");
-    width: auto;
-    height: 100%;
-    justify-self: center;
-    border-radius: 25%;
-}
-
 
 /* el contenedor del resto de la pagina que no es navegacion*/
-
-.main_container {
-    padding-top: 66px;
+#page-container {
+    position: relative;
+    min-height: 100vh;
 }
 
+.main_container {
+    padding-top: 60px;
+    padding-bottom: 3.5rem; /* Footer + margin. By giving padding bottom 5.5rem for example (5.5rem-3.5rem = 2rem) 2rem is the padding bottom of the main container which acts as a margin*/
+}
+@media screen and (max-width: 900px ) {
+    .main_container {
+        padding-top: 120px;
+    }
+}
+
+/* Estilos de los tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #362e71;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    margin-top: 30px;
+    margin-left: -85px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 
 /* estilos de la categoria (se crea por codigo) */
 
+.slick-slide{
+    margin-right: 10px;
+    margin-left: 10px;
+}
 #tags_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /*
-    formato carrousel
-    flex-wrap: nowrap;
-    overflow: scroll;
-     */
+    margin-top:25px;
 }
 
 .tags_child {
-    margin: 3px;
-    flex: 1 1;
-    flex-basis: auto;
-    text-align: center;
+    text-decoration: none;
     padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%);
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+}
+.slick-slide:hover .tags_child {
+    background-image: linear-gradient(to left, rgba(43, 88, 118, 0.92) 0%, rgba(78, 67, 118, 0.92) 51%, rgba(35, 110, 118, 0.92) 100%);
 }
 
 .tag {
-    text-decoration: none;
-    color: black;
+    color: white;
+    font-weight: 300;
+    font-size: 15px;
     cursor: pointer;
-    padding: 10px;
-    background: lightcoral;
+    outline:none
 }
 
-.tag:hover {
-    margin: -3px; /* pa que no se haga mas grande y ocurra como con los memes de css*/
-    border: solid #f04e4f;
-}
 
 /* estilos de los anuncios (se crea por codigo) */
 
@@ -89,10 +102,6 @@ img#logo {
 }
 
 .ad {
-    max-width: 300px;
-    height: auto;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    border: solid 5px hsla(0, 95%, 35%, 1);
     z-index: 2;
 }
 
@@ -101,175 +110,273 @@ img#logo {
     cursor: zoom-in;
     color: black;
 }
-
+/*estilo que aparece al hacer hover sobre cualquier caja de tio ad_enlacepagina*/
 .ad_titulo {
-    flex: 1 1 100%;
-    height: content-box;
-    margin: 0;
-    padding: 5px;
+    color: white;
 }
-
-
-.ad_imagen {
-    width: 100%;
+.ad_user_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 5% 10% 0 0;
+}
+.ad_user_nickname{
+    color:white;
+    font-weight: lighter;
+    font-size: 0.5em;
+    margin: -10px 0 -10px 0;
+}
+.ad_imagen, .ad_hover{
     margin: 0;
     padding: 0;
-    z-index: -1;
+    position: relative;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 12.5vw;
+    height: 12.5vw;
 }
-
-#loginForm, #registerForm, #publicateAd{
+.ad_information{
     display: none;
-    position:fixed;
-    top:15%;
-    left:30%;
-    width: 40%;
-    height: 700px;
-    border: 2px solid black;
-    background: radial-gradient(#ffffff, #a39fa8);
-    z-index: 3;
+    width: 85%;
+    margin-bottom: 7%;
 }
-
-
+.user_information{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.ad_hover{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.ad_hover:hover{
+    background-image: url('../img/degradado.png');
+    animation: showhover ease 0.6s normal;
+}
+.ad_hover:hover .ad_information{
+    display: flex;
+}
+/*animacion que hace que el hover tarde en aparecer*/
+@keyframes showhover {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 /*VISTA ANUNCIO*/
 .vista-anuncio-container {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
 }
-
+.vista-anuncio-container a{
+    text-decoration: none;
+    color: inherit;
+}
 #anuncio-container {
-    width: 100%;
-    grid-column-start: 1;
-    grid-column-end: 2;
+    display: flex;
+    justify-content: center;
+    background:rgb(56, 56, 56);
+    width: 75%;
+    margin-bottom: auto;
+    height: calc(100vh - 116px); /*116px es la height del footer*/
+    position: relative;
+}
+#anuncio-container button{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
 
-.imagen_container {
-    width: 90%;
-    height: 450px;
-    margin: auto;
+#anuncio-container button:hover{
+    border:1px solid white;
 }
 
-#anuncio-container img {
-    background-color: #d1cad6;
-    width: 100%;
+#imagen-anuncio{
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 95%;
     height: 100%;
     overflow: hidden;
-    object-fit: contain;
-}
-
-/* Vista anuncio - parte de dar like y detalles */
-.likes_container {
-    margin: auto;
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-}
-#dar_quitar_like {
-    flex: 1 1 70%;
-    border: solid crimson;
-    text-align: end;
-}
-#dar_quitar_like:disabled {
-    color: lightgrey;
-}
-
-#likes_count {
-    flex:1 1 30%;
-    border: solid darkred;
+    margin: 0 auto;
 }
 
 #anuncio-details-container {
-    width: 50%;
-    grid-column-start: 2;
-    grid-column-end: 3;
-
+    padding: 10px 20px 0;
+    width: 25%;
+    height: calc(100vh - 116px); /*116px es la height del footer*/
+    overflow-y: scroll;
 }
-
-#anuncio-details-container img {
-    width: 100px;
+#userInfo-container{
+    margin-bottom: 20px;
 }
-
-
-/* Codigo de ver_perfil */
-
-#cabecera_perfil {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#userInfo-container a{
+    display: inline-flex;
     align-items: center;
-    color: gold;
+}
+#anuncio_usuario_foto_perfil{
+    margin-right: 15px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#anuncio_usuario_nickname{
+    color: #362e71;
+}
+#anuncio_nombre_empresa{
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+#anuncio_fecha_creacion, #anuncio_lista_comentarios span{
+    font-size: 12px;
+    color: grey;
+    font-weight: 300;
 }
 
-.banner_perfil {
 
+
+/* LIKES */
+#likes-container{
+    display: flex;
+    align-items: center;
+}
+.vista-anuncio-container button{ /*Remove css button styles*/
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: inherit;
 }
 
-.foto_perfil {
-    flex: 1 1 100%;
+.corazon-img{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    background: url('../img/corazon.png') no-repeat 50% 50%;
+    background-size: cover;
+}
+.corazon-img:hover{
+    background: url('../img/corazon_hover.png') no-repeat 50% 50%;
+    background-size: cover;
+    cursor:pointer;
 }
 
-.info_perfil {
-    flex: 1 1 100%;
+/*COMENTARIOS*/
+#comments-form{
+    margin-bottom: 50px;
+}
+#anuncio_comentario_boton_enviar, #anuncio-container button{
+    padding:8px;
+    color: #362e71;
+    border:2px solid #362e71;
+    float: right;
+    margin-top: 10px;
+    background:white;
+}
+#boton-eliminar{
+    width: 30px;
+}
+#anuncio_comentario_boton_enviar:hover, #anuncio-container button:hover{
+    color:white;
+    background: #362e71;
+    cursor:pointer;
+}
+#boton-eliminar{
+    display: block;
+    margin: 10px 0;
+}
+#anuncio_lista_comentarios p{
+    word-wrap:break-word;
 }
 
-.imagen_perfil {
-    width: 100px;
+/*TEXTAREA COMMENTS*/
+
+.textarea-comments {
+    resize: none;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    padding: 6px;
+    width: 100%;
     height: 100px;
-    background-repeat: no-repeat;
-    background-size: 100px 100px;
+    user-select: none;
+    outline: none;
+    background-color:rgba(0,0,0,0);
+    z-index:10;
+    color:rgba(255,255,255,0);
+    caret-color:black;
+    color:black;
 }
 
-.banner_perfil {
-    width: 100%;
-    height: 300px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+.top.show {
+    color:rgb(200,200,200);
 }
 
-#bodyOnForms{
-    top:0%;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0.7;
-    z-index: 2;
-}
-
-/*EDITAR PERFIL*/
-#edit-user-form{
-    display: none;
-    position:fixed;
-    left:30%;
-    width: 40%;
-    height: 700px;
-    border:2px solid black;
-    background:radial-gradient(#ffffff, #a39fa8);
-    z-index: 3;
-}
-
-#edit-user-form img{
-    width: 50px;
+.textarea-comments::-webkit-input-placeholder, .textarea-comments{
+    font-size: 15px;
 }
 
 /*FOOTER*/
 
 footer{
-    margin: 0;
     padding: 0;
-    font-family: "montserrat",sans-serif;
-    background: #f1f1f1;
+    font-family: "Montserrat",sans-serif;
+    background: #222222;
     display: flex;
-    height: 130px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    color:white;
+    font-weight: 300;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3.5rem;            /* Footer height */
+}
+
+footer a{
+    text-decoration: none;
+    color:inherit;
+}
+
+#footer-brand{
+    display: flex;
+    align-items: center;
+    width: 15%;
+    font-size: 12px;
+    height: 100%;
+    overflow: hidden;
+}
+#footer-logo{
+    width: 100%;
+    height: auto;
+}
+
+#license-logo{
+    width: 25px;
+    height: auto;
+}
+#footer-contact{
+    display: flex;
+    align-items: center;
+}
+.footer-divider{
+    height: 30px;
+    width: 1px;
+    background: white;
+    margin: 0 20px;
 }
 
 /*social media*/
 .share-button{
     width: 280px;
-    height: 80px;
-    background: #dfe6e9;
+    height: 35px;
+    background: #1c1c1c;
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -295,6 +402,10 @@ footer{
     z-index: 999;
     transition: .6s linear;
     border-radius: 40px;
+    /*CODE TO CREATE TEXT GRADIENT*/
+    /*background: linear-gradient(45deg, #ffb76b 0%,#ffa73d 50%,#ff7c00 51%,#ff7f04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
 }
 
 .share-button:hover span{
@@ -305,11 +416,13 @@ footer{
 .share-button a{
     flex: 1;
     font-size: 26px;
-    color: #2d3436;
+    color: #f4efff;
     text-align: center;
     transform: translateX(-100%);
     opacity: 0;
     transition: 0.3s linear;
+    /*Para ajustar*/
+    margin-bottom: 5px;
 }
 
 .share-button:hover a{
@@ -332,5 +445,252 @@ footer{
 .share-button a:nth-of-type(4){
     transition-delay: 0.4s;
 }
+i.fas{
+    margin-right: 6px;
+    margin-left: -6px;
+}
+.share-button>span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/*MODALS: VENTANAS EMERGENTES*/
+.blocker{
+    z-index: 1000;
+}
+/*Estilo de los input de los formularios*/
+.inp{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    padding-top: 14px;
+}
+.label{
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 16px;
+    color: #9098A9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all .2s ease;
+    z-index: -9;
+}
+.border{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: dodgerblue;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all .15s ease;
+}
+.input{
+    appearance: none;
+    width: 100%;
+    border: 0;
+    padding: 5px 0;
+    height: 24px;
+    font-size: 16px;
+    font-weight:400;
+    border-bottom: 2px solid #C8CCD4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all .15s ease;
+    z-index: -10;
+    margin-top: 25px;
+}
+.input:hover{
+    background: rgba(163, 159, 168, 0.1);
+}
+.input:not(:placeholder-shown) + span{
+    color: #5A667F;
+    transform: translateY(-26px) scale(.75);
+}
+.input:focus{
+    background: none;
+    outline: none;
+    border-bottom: 2px solid dodgerblue;
+}
+
+.input:focus + span{
+    color: #0077FF;
+    transform: translateY(-26px) scale(.75);
+
+}
+.input:focus + .border{
+    transform: scaleX(1);
+}
+
+#cont_passwords .input{
+    width: 49.3%;
+}
+#edit-profile .label{
+    top:20px;
+}
+/*Estilo de los labels del formulario para editar el usuario*/
+.edit_labels{
+    margin: 10px 0;
+}
+/*Estilo de los botones de los formularios*/
+.button {
+    width: 210px;
+    height: 60px;
+    background: dodgerblue;
+    border-radius: 50px;
+    font-size: 16px;
+    color:white;
+    outline: none;
+    margin-top: 10px;
+}
+.button:hover{
+    background-color: darkcyan;
+}
+#edit-profile .button{
+    margin-top:12px;
+    float: right;
+}
+
+/*Estilo de los input file de los formularios*/
+.fileInputs{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.fileInputs + label{
+    padding:10px;
+    border-radius: 50px;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: dodgerblue;
+    display: inline-block;
+    cursor: pointer;
+}
+.fileInputs:focus + label, .fileInputs + label:hover {
+    background-color: darkcyan;
+}
+.fileInputs:focus + label {
+    outline: none;
+}
+
+/*Estilo para boton de guardar y select del formulario publicar anuncio*/
+#tags{
+    background-color: rgb(239, 239, 239);
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    outline: 0px;
+    padding: 0px 14px;
+
+}
+#insertAd{
+    width: 130px;
+    height: 45px;
+    background: dodgerblue;
+    border-radius: 50px;
+    font-size: 16px;
+    color:white;
+    float:right;
+    outline: none;
+}
+#cont_guardar{
+    margin-top:20px;
+}
+/*EDITAR PERFIL*/
+
+#edit-profile .fileInputs + label {
+    float:right;
+    margin-top: 27px;
+    width:62%;
+    height: 44px;
+    margin-left: 11%;
+}
+#edit-profile img{
+    min-width: 100px;
+    min-height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/*div de cambiar banner y cambiar foto perfil del formulario de editar usuario*/
+.changecont{
+    height: 60px;
+    margin: 0 20px 70px 20px;
+
+
+}
+/*imagenes para cambiar del banner y de la foto de perfil del formulario editar usuario*/
+.editImg{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 100px;
+}
+/*estilo de os errores*/
+.formError{
+    opacity: 0;
+    background-color: white;
+    position: absolute;
+    width: 25%;
+    height: 100px;
+    border:0.5px solid rgb(239, 239, 239);
+    z-index: 100;
+    text-align: center;
+    left: 37.5%;
+    top:6%;
+    padding-top: 39px;
+    box-shadow: 0 6px 22px 0px black;
+    animation: appear ease 6s normal;
+
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    7% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/* pantalla algo pequeña */
+@media screen and (max-width: 900px ) {
+
+}
+
+/* Ya esto es MOVIL */
+@media screen and (max-width: 550px ) {
+    .blocker{
+        padding: 0;
+    }
+    .modal{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        padding-top: 20%;
+    }
+    .modal a.close-modal {
+        top:0.5px;
+        right: 0.5px;
+    }
+    .formError{
+        width: 55%;
+        height: 100px;
+        left: 22.5%;
+        padding-top: 30px;
+    }
+}
 

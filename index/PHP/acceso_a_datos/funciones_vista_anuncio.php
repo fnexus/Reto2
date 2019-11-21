@@ -151,8 +151,10 @@ function getAnuncioById($anuncio_id)
  */
 function fillAnuncio($variable, $queLlenar)
 {
-
     switch ($queLlenar) {
+        case "enlace_a_su_perfil":
+            echo "vista_perfil.php?persona_id={$_SESSION['userId']}&anunciante_id={$variable->id}";
+            break;
         case "persona_imagen":
             echo $variable->foto_perfil;
             break;
@@ -173,6 +175,9 @@ function fillAnuncio($variable, $queLlenar)
             break;
         case "anuncio_imagen":
             echo $variable->imagen;
+            break;
+        case "datos_contacto":
+            echo $variable->datos_contacto;
             break;
     }
 }

@@ -1,10 +1,13 @@
 <?php require 'head.php'; ?>
     <div class="main_container">
-        <article id="tags_container">
-            <?= add_categorias_bar("barra") ?>
-        </article>
+        <div id="tags_container" class="slider demo thing">
+            <?php add_categorias_bar("barra") ?>
+        </div>
         <main id="ads_container">
-            <?= add_ads() ?>
+            <?php add_ads() ?>
         </main>
     </div>
 <?php require 'footer.php'; ?>
+</div>
+
+

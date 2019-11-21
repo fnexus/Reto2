@@ -1,0 +1,5 @@
+# todas las imagenes excepto las default
+*.png
+!defaultBanner.png
+!defaultFoto.png
+!defaultAnuncio.png

@@ -22,26 +22,29 @@ $(document).ready(function () {
      */
     function verBotonLikes() {
         var ifLike = comprobarSiHeHechoLike();
-        if (ifLike > 0) {
+        if (ifLike > "0") {
             boton.prop("disabled", false);
-            boton.text("Quitar Like");
+            //boton.text("Quitar Like");
             // quitarle el like
             if (boton.val() == "1") {
                 // quitar like
                 dissLike();
-                boton.text("Dar Like");
+                //boton.text("Dar Like");
             }
-        } else if (ifLike == 0) {
+        } else if (ifLike == "0") {
             boton.prop("disabled", false);
-            boton.text("Dar Like");
+            //boton.text("Dar Like");
             // sumarle like
             if (boton.val() == "1") {
                 //dar like
                 like();
-                boton.text("Quitar Like");
+                //boton.text("Quitar Like");
             }
         } else {
-            boton.text("Dar Like");
+            //<p class='formError'><svg aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>El usuario o la contraseña introducidas no son correctas</p>
+            let text = document.createElement('span');
+            let textNode =
+            boton.text();
             boton.prop("disabled", true);
         }
     }
@@ -80,10 +83,10 @@ $(document).ready(function () {
             type: "GET",
             async: false,
             success: function (result) {
-                conteo.text("❤️" + " " + result);
+                conteo.text(result);
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                conteo.text("❤️" + xhr.status + " - error");
+                conteo.text(xhr.status + " - error");
             }
         });
     }
