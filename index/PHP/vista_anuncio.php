@@ -22,7 +22,7 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
 
 <div class="main_container vista-anuncio-container">
     <div id="anuncio-container">
-        <img src="<?php fillAnuncio($anuncio, "anuncio_imagen"); ?>">
+        <div id="imagen-anuncio" style="background-image: url('<?php fillAnuncio($anuncio, "anuncio_imagen"); ?>')"></div>
     </div>
     <div id="anuncio-details-container">
         <div id="userInfo-container">
@@ -33,12 +33,12 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
         </div>
 
         <div id="anuncio_datos_anuncio">
-            <p id="anuncio_nombre_empresa"><?php fillAnuncio($anuncio, "anuncio_nombre_empresa"); ?></p>
+            <a id="anuncio_nombre_empresa" target='_blank' href="<?php fillAnuncio($anuncio, "datos_contacto"); ?>"><?php fillAnuncio($anuncio, "anuncio_nombre_empresa"); ?></a>
             <!--<h4 id="anuncio_titulo"><?php fillAnuncio($anuncio, "anuncio_titulo"); ?></h4>-->
             <p id="anuncio_descripcion"><?php fillAnuncio($anuncio, "anuncio_descripcion"); ?></p>
             <div id="likes-container">
-                <button type="button" value="0" id="dar_quitar_like"></button>
-                <div id="likes_count">❤️</div>
+                <div id="dar_quitar_like" class="corazon-img"></div>
+                <div id="likes_count" class="dar_quitar_like">️</div>
             </div>
             <p id="anuncio_fecha_creacion"><?php fillAnuncio($anuncio, "anuncio_fecha"); ?></p>
         </div>
@@ -48,10 +48,8 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
         <input id="anuncio_comentario_user_nickname" type="hidden" name="user_nickname" value="<?= $_SESSION['nickname'] ?>">
 
         <div id="comments-container">
-            <form action="vista_anuncio.php"><!--podriamos utilizar ajax-->
-                <label for="add-comment">Añade un comentario</label>
-                <textarea id="anuncio_comentario_text_area" name="comment" id="comment" cols="30" rows="10" required
-                          placeholder="Escribe aqui tu comentario"></textarea>
+            <form id="comments-form" action="vista_anuncio.php">
+                <textarea name="comment" class="textarea-comments" id="anuncio_comentario_text_area" required placeholder="Escribe aqui tu comentario"></textarea>
                 <input id="anuncio_comentario_id_anuncio" type="hidden" name="id_anuncio" value="<?= $idAnuncio ?>">
                 <input id="anuncio_comentario_id_user" type="hidden" name="id_user" value="<?= $_SESSION['userId'] ?>">
                 <button id="anuncio_comentario_boton_enviar" type="button">Enviar</button>
