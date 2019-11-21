@@ -24,7 +24,7 @@ function insertAd($idUser, $adTitle, $adDescription, $companyName, $tags)
     //Codigo para evitar que se reenvie el formulario y asi poder evitar que lo introducido en el formulario se pueda insertar mas de una vez(intente hacerlo con header("Location: index.php") pero no funciona);
     echo "
       <script language='JavaScript'>
-          location.href = 'http://localhost:8765/index/PHP/index.php';
+          location.href = 'index.php';
       </script>";
 
 }
