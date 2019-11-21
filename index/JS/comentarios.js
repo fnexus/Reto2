@@ -108,10 +108,9 @@ $(document).ready(function () {
     }
 
     function deleteComentarioButton(idComentario, idPersonaSesion) {
-        let element = document.createElement("button");
+        let element = document.createElement("img");
         element.setAttribute('id', 'boton-eliminar');
-        let textnode = document.createTextNode("Eliminar comentario");
-        element.appendChild(textnode);
+        element.setAttribute('src', "../img/cross.png");
         element.addEventListener("click", function () {
             // borrar este comentario
             $.ajax({
