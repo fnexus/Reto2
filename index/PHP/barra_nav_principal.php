@@ -48,4 +48,6 @@
         <?php include 'registerForm.html'; ?>
     </div>
 </nav>
+<!-- importar script para la barra de nav CSS -->
+<script src="../JS/barra_nav_despliege.js"></script>
 
