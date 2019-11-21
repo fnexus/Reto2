@@ -588,5 +588,11 @@ i.fas{
         top:0.5px;
         right: 0.5px;
     }
+    .formError{
+        width: 55%;
+        height: 100px;
+        left: 22.5%;
+        padding-top: 30px;
+    }
 }
 
