@@ -10,6 +10,7 @@ switch ($action) {
         break;
     case "Iniciar Sesion":
         loginUser();
+        header("Location: index.php");
         break;
     case "Cerrar Sesion":
         logoutUser();

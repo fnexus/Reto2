@@ -99,10 +99,16 @@ html, body{
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
+    max-width: 100%;
 }
 
 .ad {
+    width: 12.5%;
     z-index: 2;
+}
+
+.ad_enlacePagina, .ad_imagen, .ad_hover{
+    width: 100% !important;
 }
 
 .ad_enlacePagina {
