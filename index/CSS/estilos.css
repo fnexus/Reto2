@@ -720,7 +720,6 @@ i.fas{
         font-size: 1em;
     }
 }
-
 /* pantalla algo pequeña */
 @media screen and (max-width: 950px) {
     .ad{
@@ -733,7 +732,21 @@ i.fas{
     #header-logo{
         display: none;
     }
-}
+    .vista-anuncio-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #anuncio-container{
+        width: 100%;
+        height: calc(50vh);
+    }
+    #anuncio-details-container{
+        width: 100%;
+        overflow-y: unset;
+    }
+    .vista-anuncio-container{
+        padding-top: 0;
+    }
 
 @media screen and (max-width: 750px) {
     .ad{
@@ -782,21 +795,7 @@ i.fas{
     #tags_container {
         margin-bottom: 15px;
     }
-    .vista-anuncio-container {
-        display: flex;
-        flex-direction: column;
-    }
-    #anuncio-container{
-        width: 100%;
-        height: calc(50vh);
-    }
-    #anuncio-details-container{
-        width: 100%;
-        overflow-y: unset;
-    }
-    .vista-anuncio-container{
-        padding-top: 0;
-    }
+
     .share-button {
          width: 150px;
     }
