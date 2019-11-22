@@ -12,13 +12,14 @@
   <a href="https://github.com/SAMAifyWEB/RETO1">
     <img src="https://img.shields.io/badge/Version-2.0-yellowgreen">
  </a>
- 
-![HTML: ](https://img.shields.io/badge/HTML-5-e34f26)
-![CSS: ](https://img.shields.io/badge/CSS-3-orange)
-![JS: ](https://img.shields.io/badge/JavaScript-Last_Version-f7df1e)
-![MySQL: ](https://img.shields.io/badge/MySQL-v5.7.28-00758f)
-![PHP: ](https://img.shields.io/badge/PHP-v7.2-8892be)
-![JQuery: ](https://img.shields.io/badge/JQuery-v3.4.1-0769ad)
+ <p align="center">
+    <img src="https://img.shields.io/badge/HTML-5-e34f26">
+    <img src="https://img.shields.io/badge/CSS-3-orange">
+    <img src="https://img.shields.io/badge/JavaScript-Last_Version-f7df1e">
+    <img src="https://img.shields.io/badge/MySQL-v5.7.28-00758f">
+    <img src="https://img.shields.io/badge/PHP-v7.2-8892be">
+    <img src="https://img.shields.io/badge/JQuery-v3.4.1-0769ad">
+</p>
 
 
 ## Desarrolladores y RRS
