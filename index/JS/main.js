@@ -1,5 +1,16 @@
 window.onload = function () {
 
+    //on hold click
+    $('#eye').on('click', function () {
+        let passwordInput = document.getElementsByClassName('loginPassword');
+        console.log(passwordInput.type);
+        if (passwordInput[0].type === "password") {
+            passwordInput[0].type = "text";
+        } else {
+            passwordInput[0].type = "password";
+        }
+    });
+
     $('#navbar-cross').on('click', function () {
         $('.error-container').remove();
     });
