@@ -180,6 +180,10 @@ input#search_titulo {
         visibility: visible !important;
         display: flex;
     }
+    #nav_container{
+        height: 60px !important;
+        grid-template-rows: 100% !important;
+    }
 }
 
 
