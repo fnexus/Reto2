@@ -62,7 +62,7 @@ if (isset($_GET['anunciante_id']) && $_GET['anunciante_id'] != "") {
             ?>
 
             <div class='ad'>
-                <a href='#publicateAd' class='ad_enlacePagina efectoFade' rel="modal:open">
+                <a href='#publicateAd' id="uploadAdd" class='ad_enlacePagina efectoFade' rel="modal:open">
                     <div style='background-image: url("../img/boton_añadir.png")' class='ad_imagen anyadir_add'></div>
                 </a>
             </div>
