@@ -1,9 +1,6 @@
 <p align="center">
     <img src="https://raw.githubusercontent.com/fnexus/Reto2/master/index/img/logo_chiquito.png" alt="Logo empresa"/>
 </p>
-<h1 align="center">
-  <span>FNEXUS WEBAPP</span>
-</h1>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0">
@@ -64,6 +61,7 @@ Redes sociales FNEXUS:
  - <a href="https://github.com/fnexus">Github</a>
  
  ## Licencia
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licencia Creative Commons Atribución 4.0 Internacional</a>.
  
  ## Soporte
 Para cualquier incidencia relacionada con la aplicación no dude en contactar con el equipo de FNEXUS a través del correo fnexus.co@gmail.com
