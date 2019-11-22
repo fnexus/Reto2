@@ -59,3 +59,16 @@ rm -rf /var/www
 mkdir /var/www
 ln -s /vagrant/ /var/www/html
 chmod 777 /var/www/html/index/img/imagenes_usuarios/
+
+#Poner la pagina de error 404 personalizada
+ln -s /vagrant/index/lib/colorlib-error-404-19/error.html /var/www/html
+chmod 777 /var/www/html/error.html
+# sobreescribir el archivo /etc/apache2/sites-enabled/000-default.conf
+rm /etc/apache2/sites-enabled/000-default.conf
+cp /vagrant/Script/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+
+#poner bien la hora del servidor
+sudo cp /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+
+#Reiniciar el servicio
+service apache2 restart
