@@ -55,7 +55,6 @@ $(document).ready(function () {
             p.appendChild(texto);
             cont.appendChild(p);
         }
-
     });
 
     /**
