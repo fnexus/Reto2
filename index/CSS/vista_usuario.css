@@ -9,11 +9,12 @@
 
     position: relative;
     width: 100%;
-    min-height: 340px;
-    max-height: 600px;
+    min-height: 300px;
+    max-height: 330px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    padding-bottom: 90px;
 
     -webkit-box-shadow: inset -1px -200px 200px -9px rgba(0, 0, 0, 0.77);
     box-shadow: inset -1px -200px 200px -9px rgba(0, 0, 0, 0.90);
@@ -32,7 +33,6 @@
 .imagen_perfil {
     width: 120px;
     height: 120px;
-    margin-top: 150px;
     margin: auto;
     border-radius: 50%;
     object-fit: cover;
@@ -53,13 +53,13 @@
     color: #13aff0;
     text-decoration: none;
     margin-left: 25px;
+    -webkit-transition: .1s ease-in-out;
+    transition: .1s ease-in-out;
 }
 
 .info_perfil a:focus, .info_perfil a:hover {
     color: #0b7cac;
     text-decoration: none;
-    -webkit-transition: all .1s cubic-bezier(.25, .46, .45, .94);
-    transition: all .1s cubic-bezier(.25, .46, .45, .94);
 }
 
 .icono { /* el simbolo fa icon de enlace a pagina web*/

@@ -1,5 +1,0 @@
-1. Entrar a la máquina de vagrant desde virtualbox. Usuario vagrant contraseña vagrant
-2. Editas el archivo /etc/ssh/sshd_config. La linea que pone PasswordAuthentication lo pones a: PasswordAuthentication yes
-3. sudo service ssh restart
-
-Puede ser también util cambiar la tarjeta de red para que sea puente.

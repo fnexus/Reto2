@@ -174,11 +174,20 @@ input#search_titulo {
     margin-left: auto;
 }
 
+#eye{
+    width: 30px;
+    margin-bottom: -10px;
+}
+
 /* Forzar cosas cuando pantalla completa */
 @media screen  and (min-width: 900px) {
     form#search_container {
         visibility: visible !important;
         display: flex;
+    }
+    #nav_container{
+        height: 60px !important;
+        grid-template-rows: 100% !important;
     }
 }
 

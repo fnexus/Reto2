@@ -98,7 +98,6 @@ html, body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    text-align: center;
     max-width: 100%;
 }
 
@@ -116,22 +115,28 @@ html, body{
     cursor: zoom-in;
     color: black;
 }
+
+.ad_information .ad_titulo{
+    font-size: 1.2em;
+}
+
 /*estilo que aparece al hacer hover sobre cualquier caja de tio ad_enlacepagina*/
 .ad_titulo {
     color: white;
+    margin: 0 0 10px 0;
 }
 .ad_user_img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 5% 10% 0 0;
+    margin-right: 10px;
 }
 .ad_user_nickname{
     color:white;
     font-weight: lighter;
-    font-size: 0.5em;
-    margin: -10px 0 -10px 0;
+    font-size: 0.9em;
+    margin: 0;
 }
 .ad_imagen, .ad_hover{
     margin: 0;
@@ -164,7 +169,18 @@ html, body{
 }
 .ad_hover:hover .ad_information{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
 }
+#uploadAdd{
+    cursor: copy;
+}
+
+#uploadAdd>div{
+    transform: scale(0.6);
+}
+
 /*animacion que hace que el hover tarde en aparecer*/
 @keyframes showhover {
     from{
@@ -497,19 +513,19 @@ i.fas{
 }
 .input{
     appearance: none;
-    width: 100%;
+    width: 90%;
     border: 0;
     padding: 5px 0;
     height: 24px;
     font-size: 16px;
-    font-weight:400;
+    font-weight: 400;
     border-bottom: 2px solid #C8CCD4;
     background: none;
     border-radius: 0;
     color: #223254;
     transition: all .15s ease;
     z-index: -10;
-    margin-top: 25px;
+    margin-top: 34px;
 }
 .input:hover{
     background: rgba(163, 159, 168, 0.1);
@@ -545,22 +561,20 @@ i.fas{
 }
 /*Estilo de los botones de los formularios*/
 .button {
-    width: 210px;
-    height: 60px;
+    width: 180px;
+    height: 50px;
     background: dodgerblue;
     border-radius: 50px;
     font-size: 16px;
     color:white;
     outline: none;
-    margin-top: 10px;
+    margin-top: 25px;
+    float: right;
 }
 .button:hover{
     background-color: darkcyan;
 }
-#edit-profile .button{
-    margin-top:12px;
-    float: right;
-}
+
 
 /*Estilo de los input file de los formularios*/
 .fileInputs{
@@ -614,11 +628,19 @@ i.fas{
 /*EDITAR PERFIL*/
 
 #edit-profile .fileInputs + label {
-    float:right;
+    float: right;
     margin-top: 27px;
-    width:62%;
-    height: 44px;
+    width: 62%;
+    height: 42px;
+    font-size: 16px;
     margin-left: 11%;
+}
+.changecont label{
+    text-align: center;
+}
+
+.uploadAdLabel{
+    font-size: 16px !important;
 }
 #edit-profile img{
     min-width: 100px;
@@ -654,7 +676,7 @@ i.fas{
     left: 37.5%;
     top:6%;
     padding-top: 39px;
-    box-shadow: 0 6px 22px 0px black;
+    box-shadow: 0 6px 22px 0 black;
     animation: appear ease 6s normal;
 
 }
@@ -672,6 +694,15 @@ i.fas{
         opacity: 0;
     }
 }
+@media screen and (max-width: 1800px){
+    .ad{
+        width: 14.285%;
+    }
+    .ad_imagen, .ad_hover{
+        width: 14.285vw;
+        height: 14.285vw;
+    }
+}
 
 @media screen and (max-width: 1300px) {
     .ad{
@@ -685,8 +716,10 @@ i.fas{
         transform: scale(1.7);
         margin-right: 35px;
     }
+    .ad_information .ad_titulo{
+        font-size: 1em;
+    }
 }
-
 /* pantalla algo pequeña */
 @media screen and (max-width: 950px) {
     .ad{
@@ -699,7 +732,21 @@ i.fas{
     #header-logo{
         display: none;
     }
-}
+    .vista-anuncio-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #anuncio-container{
+        width: 100%;
+        height: calc(50vh);
+    }
+    #anuncio-details-container{
+        width: 100%;
+        overflow-y: unset;
+    }
+    .vista-anuncio-container{
+        padding-top: 0;
+    }
 
 @media screen and (max-width: 750px) {
     .ad{
@@ -748,22 +795,13 @@ i.fas{
     #tags_container {
         margin-bottom: 15px;
     }
-    .vista-anuncio-container {
-        display: flex;
-        flex-direction: column;
-    }
-    #anuncio-container{
-        width: 100%;
-    }
-    #anuncio-details-container{
-        width: 100%;
-        overflow-y: unset;
-    }
-    .vista-anuncio-container{
-        padding-top: 0;
-    }
+
     .share-button {
-             width: 150px;
+         width: 150px;
+    }
+    .ad_user_img{
+        width: 100px;
+        height: 100px;
     }
 }
 
