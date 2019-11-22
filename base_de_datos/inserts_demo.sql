@@ -96,7 +96,7 @@ VALUES ('11', 'CRISPR deliver', 'Change your DNA in seconds. Custom yourself the
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('1', 'Smart Homes are here!', 'The houses of the future are here. Be the first in your neighborhood.', 'smarthomeX.com', '../img/imagenes_usuarios/smarthome.jpg','SmarthomeX', '5');
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
-VALUES ('2', 'Make your sport team successful', 'Our management team will provide everything you need to be succesful as a brand in sports.', 'g2esports.com', '../img/imagenes_usuarios/g2.png','G2esports', '11');
+VALUES ('2', 'Make your sport team successful', 'Our management team will provide everything you need to be succesful as a brand in sports.', 'g2esports.com', '../img/imagenes_usuarios/g2.jpg','G2esports', '11');
 
 INSERT INTO ANUNCIO (persona_id, titulo, descripcion, datos_contacto, imagen, nombre_empresa, categoria_id)
 VALUES ('1', 'Software for everyone', 'Build your app from scrath with our architecture. Easy and free!', 'SoftwareX.com', '../img/imagenes_usuarios/softwarev2-min.jpg','SoftwareX', '8');
