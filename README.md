@@ -1,6 +1,9 @@
 <p align="center">
     <img src="https://raw.githubusercontent.com/fnexus/Reto2/master/index/img/logo_chiquito.png" alt="Logo empresa"/>
 </p>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/fnexus/Reto2/master/index/img/index_photo.png" alt="Logo empresa"/>
+</p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0">
