@@ -774,6 +774,7 @@ i.fas{
     }
     #anuncio-container{
         width: 100%;
+        height: calc(50vh);
     }
     #anuncio-details-container{
         width: 100%;
