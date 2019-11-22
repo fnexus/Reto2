@@ -748,5 +748,22 @@ i.fas{
     #tags_container {
         margin-bottom: 15px;
     }
+    .vista-anuncio-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #anuncio-container{
+        width: 100%;
+    }
+    #anuncio-details-container{
+        width: 100%;
+        overflow-y: unset;
+    }
+    .vista-anuncio-container{
+        padding-top: 0;
+    }
+    .share-button {
+             width: 150px;
+    }
 }
 
