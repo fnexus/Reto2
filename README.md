@@ -19,7 +19,7 @@
 ![MySQL: ](https://img.shields.io/badge/MySQL-v5.7.28-00758f)
 ![PHP: ](https://img.shields.io/badge/PHP-v7.2-8892be)
 ![JQuery: ](https://img.shields.io/badge/JQuery-v3.4.1-0769ad)
-
+</p>
 
 ## Desarrolladores y RRS
 Los desarrolladores de FNEXUS: 
