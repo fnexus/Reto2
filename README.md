@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="index/img/logo_chiquito.png" alt="Logo empresa"/>
+    <img src="https://raw.githubusercontent.com/fnexus/Reto2/master/index/img/logo_chiquito.png" alt="Logo empresa"/>
 </p>
 <h1 align="center">
   <span>FNEXUS WEBAPP</span>
@@ -12,12 +12,14 @@
   <a href="https://github.com/SAMAifyWEB/RETO1">
     <img src="https://img.shields.io/badge/Version-2.0-yellowgreen">
  </a>
- ![HTML: ](https://img.shields.io/badge/HTML-5-e34f26)
+ 
+![HTML: ](https://img.shields.io/badge/HTML-5-e34f26)
+![CSS: ](https://img.shields.io/badge/CSS-3-orange)
+![JS: ](https://img.shields.io/badge/JavaScript-Last_Version-f7df1e)
 ![MySQL: ](https://img.shields.io/badge/MySQL-v5.7.28-00758f)
 ![PHP: ](https://img.shields.io/badge/PHP-v7.2-8892be)
 ![JQuery: ](https://img.shields.io/badge/JQuery-v3.4.1-0769ad)
-![JS: ](https://img.shields.io/badge/JavaScript-Last_Version-f7df1e)
-![CSS: ](https://img.shields.io/badge/CSS-3-orange)
+
 
 ## Desarrolladores y RRS
 Los desarrolladores de FNEXUS: 
@@ -32,7 +34,7 @@ Redes sociales:
 ## Soporte
 Para cualquier incidencia relacionada con la aplicación no dude en contactar con el equipo de FNEXUS a través del correo fnexus.co@gmail.com
 
-## Contribuidores
+## Contribuidores a commits
 
 <table>
   <tr>
