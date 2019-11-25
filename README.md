@@ -46,14 +46,14 @@ IP: http://172.20.224.128/windows/index/PHP/index.php
 
 <table>
   <tr>
-    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars3.githubusercontent.com/u/23460143?    s=400&v=4" width="100px;" alt="inakicl"/><br /><sub><b>Iñaki </b></sub></a><br />
+    <td align="center"><a href="https://github.com/inakicl"><img src="https://avatars3.githubusercontent.com/u/23460143?    s=400&v=4" width="100px;" alt="inakicl"/><br /><sub><b>Iñaki </b></sub></a><br />
     </a><br /><a href="https://github.com/fnexus/Reto2/commits?author=inakicl" title="Commits">📖</a>
   👀
     </td>
-    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars3.githubusercontent.com/u/27602026?s=400&v=4" width="100px;" alt="julen-C"/><br /><sub><b>Adrian</b></sub></a><br/>
+    <td align="center"><a href="https://github.com/AdrianDanlos"><img src="https://avatars3.githubusercontent.com/u/27602026?s=400&v=4" width="100px;" alt="julen-C"/><br /><sub><b>Adrian</b></sub></a><br/>
       </a><br /><a href="https://github.com/fnexus/Reto2/commits?author=AdrianDanlos" title="Commits">📖</a>👀
     </td>
-    <td align="center"><a href="https://kentcdodds.com"><img src="https://avatars3.githubusercontent.com/u/43949194?s=400&v=4" width="100px;" alt="Julen-Ortzi"/><br /><sub><b>Julen</b></sub></a><br />
+    <td align="center"><a href="https://github.com/JulenOZegibide"><img src="https://avatars3.githubusercontent.com/u/43949194?s=400&v=4" width="100px;" alt="Julen-Ortzi"/><br /><sub><b>Julen</b></sub></a><br />
       </a><br /><a href="https://github.com/fnexus/Reto2/commits?author=JulenOZegibide" title="Commits">📖</a>   
       👀
     </td>    
