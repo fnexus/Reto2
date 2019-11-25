@@ -38,6 +38,8 @@ IP: http://172.20.224.128/windows/index/PHP/index.php
 ## Librerías utilizadas:
  - <a href="https://jquerymodal.com/">jQueryModal</a>
  - <a href="https://kenwheeler.github.io/slick/">Slick</a>
+ - <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>
+
 
 
 ## Desarrolladores y RRS
