@@ -33,7 +33,7 @@ echo '<input type="text" value="' . $idAnuncio . '" id="vista_anuncio_id_anuncio
         </div>
 
         <div id="anuncio_datos_anuncio">
-            <a id="anuncio_nombre_empresa" target='_blank' href="<?php fillAnuncio($anuncio, "datos_contacto"); ?>"><?php fillAnuncio($anuncio, "anuncio_nombre_empresa"); ?></a>
+            <a id="anuncio_nombre_empresa" target='_blank' href="http://<?php fillAnuncio($anuncio, "datos_contacto"); ?>"><?php fillAnuncio($anuncio, "anuncio_nombre_empresa"); ?></a>
             <!--<h4 id="anuncio_titulo"><?php fillAnuncio($anuncio, "anuncio_titulo"); ?></h4>-->
             <p id="anuncio_descripcion"><?php fillAnuncio($anuncio, "anuncio_descripcion"); ?></p>
             <div id="likes-container">

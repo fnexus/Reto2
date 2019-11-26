@@ -513,7 +513,7 @@ i.fas{
 }
 .input{
     appearance: none;
-    width: 90%;
+    width: 99.5%;
     border: 0;
     padding: 5px 0;
     height: 24px;
@@ -526,6 +526,9 @@ i.fas{
     transition: all .15s ease;
     z-index: -10;
     margin-top: 34px;
+}
+#loginForm .input{
+    width: 90%;
 }
 .input:hover{
     background: rgba(163, 159, 168, 0.1);
@@ -720,21 +723,40 @@ i.fas{
         font-size: 1em;
     }
 }
-
 /* pantalla algo pequeña */
 @media screen and (max-width: 950px) {
-    .ad{
+    .ad {
         width: 25%;
     }
-    .ad_imagen, .ad_hover{
+
+    .ad_imagen, .ad_hover {
         width: 25vw;
         height: 25vw;
     }
-    #header-logo{
+
+    #header-logo {
         display: none;
     }
-}
 
+    .vista-anuncio-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #anuncio-container {
+        width: 100%;
+        height: calc(50vh);
+    }
+
+    #anuncio-details-container {
+        width: 100%;
+        overflow-y: unset;
+    }
+
+    .vista-anuncio-container {
+        padding-top: 0;
+    }
+}
 @media screen and (max-width: 750px) {
     .ad{
         width: 33%;
@@ -756,53 +778,46 @@ i.fas{
 
 /* Ya esto es MOVIL */
 @media screen and (max-width: 550px) {
-    .blocker{
+    .blocker {
         padding: 0;
     }
-    .modal{
+
+    .modal {
         width: 100%;
         height: 100%;
         border-radius: 0;
         padding-top: 20%;
     }
+
     .modal a.close-modal {
-        top:0.5px;
+        top: 0.5px;
         right: 0.5px;
     }
-    .formError{
+
+    .formError {
         width: 55%;
         height: 100px;
         left: 22.5%;
         padding-top: 30px;
     }
-    #logo_container{
+
+    #logo_container {
         height: 60px !important;
         margin-left: 10px !important;
     }
+
     #tags_container {
         margin-bottom: 15px;
     }
-    .vista-anuncio-container {
-        display: flex;
-        flex-direction: column;
-    }
-    #anuncio-container{
-        width: 100%;
-        height: calc(50vh);
-    }
-    #anuncio-details-container{
-        width: 100%;
-        overflow-y: unset;
-    }
-    .vista-anuncio-container{
-        padding-top: 0;
-    }
+
     .share-button {
-         width: 150px;
+        width: 150px;
     }
-    .ad_user_img{
+
+    .ad_user_img {
         width: 100px;
         height: 100px;
     }
 }
+
 
